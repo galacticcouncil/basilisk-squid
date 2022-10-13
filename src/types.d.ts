@@ -1,3 +1,7 @@
+type Item = BatchProcessorItem<typeof processor>
+
+type Ctx = BatchContext<Store, Item>
+
 interface TransferEvent {
   id: string
   assetId: number

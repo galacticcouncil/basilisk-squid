@@ -1,3 +1,5 @@
+BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+
 process: migrate
 	@node -r dotenv/config lib/processor.js
 
@@ -24,13 +26,14 @@ codegen:
 	@npx squid-typeorm-codegen
 
 
-typegen:
-	@npx squid-substrate-typegen typegen.json
-
+typegen: 
+	@npx squid-substrate-typegen typegen-develop.json
+	@npx squid-substrate-typegen typegen-production.json
+	@npx squid-substrate-typegen typegen-rococo.json
+	@npx squid-substrate-typegen typegen-local.json
 
 up:
 	@docker-compose up -d
-
 
 down:
 	@docker-compose down
@@ -38,15 +41,19 @@ down:
 restart:
 	rm -rf db/migrations/*.js
 	rm -rf src/model/generated
-	npx squid-substrate-typegen typegen.json
+	rm -rf src/types/*
+	npx squid-typeorm-codegen
+	npx squid-substrate-typegen typegen-develop.json
+	npx squid-substrate-typegen typegen-production.json
+	npx squid-substrate-typegen typegen-rococo.json
+	-npx squid-substrate-typegen typegen-local.json
 	docker-compose down
 	sleep 1
 	docker-compose up -d
 	sleep 2
-	npx squid-typeorm-codegen
 	npm run build
 	npx squid-typeorm-migration generate || true
 	npx squid-typeorm-migration apply
-	node -r dotenv/config lib/processor.js
+	ENV=${ENV} node -r dotenv/config lib/processor.js
 
 .PHONY: build serve process migrate codegen typegen up down restart

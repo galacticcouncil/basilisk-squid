@@ -1,5 +1,5 @@
 {
-  "outDir": "src/types",
+  "outDir": "src/types/types-local",
   "specVersions": "http://localhost:8888/graphql",
   "events": true,
   "calls": true,

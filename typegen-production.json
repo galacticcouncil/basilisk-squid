@@ -1,0 +1,8 @@
+{
+  "outDir": "src/types/types-production",
+  "specVersions": "https://basilisk-firesquid.play.hydration.cloud/graphql",
+  "events": true,
+  "calls": true,
+  "storage": true,
+  "constants": true
+}

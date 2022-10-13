@@ -1,0 +1,8 @@
+{
+  "outDir": "src/types/types-rococo",
+  "specVersions": "https://basilisk-rococo-firesquid.play.hydration.cloud/graphql",
+  "events": true,
+  "calls": true,
+  "storage": true,
+  "constants": true
+}

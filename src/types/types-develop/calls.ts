@@ -1,6 +1,6 @@
 import assert from 'assert'
 import {Chain, ChainContext, CallContext, Call, Result} from './support'
-import * as v72 from './v72'
+import * as v78 from './v78'
 
 export class AssetRegistryRegisterCall {
   private readonly _chain: Chain
@@ -26,7 +26,7 @@ export class AssetRegistryRegisterCall {
    * 
    * Emits 'Registered` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('AssetRegistry.register') === '85c3f4e654b95e1a277959af5d46afbe3c65de3c598975e57ac53752a9ed3e05'
   }
 
@@ -41,8 +41,8 @@ export class AssetRegistryRegisterCall {
    * 
    * Emits 'Registered` event when successful.
    */
-  get asV72(): {name: Uint8Array, assetType: v72.AssetType, existentialDeposit: bigint} {
-    assert(this.isV72)
+  get asV78(): {name: Uint8Array, assetType: v78.AssetType, existentialDeposit: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -69,7 +69,7 @@ export class AssetRegistrySetLocationCall {
    * 
    * Emits `LocationSet` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('AssetRegistry.set_location') === 'cb64e0569ed096dd70dc89ce4c0cffe3c6213a0117589ee8a65dbbd51f57caaa'
   }
 
@@ -82,8 +82,8 @@ export class AssetRegistrySetLocationCall {
    * 
    * Emits `LocationSet` event when successful.
    */
-  get asV72(): {assetId: number, location: v72.AssetLocation} {
-    assert(this.isV72)
+  get asV78(): {assetId: number, location: v78.AssetLocation} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -110,7 +110,7 @@ export class AssetRegistrySetMetadataCall {
    * 
    * Emits `MetadataSet` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('AssetRegistry.set_metadata') === '5733a2ab6f544e91ef9651644e4a8f3fc7257fa3a961ba51dd1f0c862b7a7a0a'
   }
 
@@ -123,8 +123,8 @@ export class AssetRegistrySetMetadataCall {
    * 
    * Emits `MetadataSet` event when successful.
    */
-  get asV72(): {assetId: number, symbol: Uint8Array, decimals: number} {
-    assert(this.isV72)
+  get asV78(): {assetId: number, symbol: Uint8Array, decimals: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -149,7 +149,7 @@ export class AssetRegistryUpdateCall {
    * 
    * Emits `Updated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('AssetRegistry.update') === 'be93bc22aab747596aaafa42bfd6623605951ab0303c4ef01b675f2fa5ca9e44'
   }
 
@@ -160,8 +160,8 @@ export class AssetRegistryUpdateCall {
    * 
    * Emits `Updated` event when successful.
    */
-  get asV72(): {assetId: number, name: Uint8Array, assetType: v72.AssetType, existentialDeposit: (bigint | undefined)} {
-    assert(this.isV72)
+  get asV78(): {assetId: number, name: Uint8Array, assetType: v78.AssetType, existentialDeposit: (bigint | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -182,15 +182,15 @@ export class AuthorshipSetUnclesCall {
   /**
    * Provide a set of uncles.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Authorship.set_uncles') === 'cf2d7dac8c8babfdda54dfcca36fda32336dc937b0f1767c6b2332a9b718e0b5'
   }
 
   /**
    * Provide a set of uncles.
    */
-  get asV72(): {newUncles: v72.Header[]} {
-    assert(this.isV72)
+  get asV78(): {newUncles: v78.Header[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -216,7 +216,7 @@ export class BalancesForceTransferCall {
    *   assumed to be in the overlay.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.force_transfer') === '2fe8348cf811b833de74f02f6eeab668dbfad8a5d53274dd89837666ed3eb6fe'
   }
 
@@ -228,8 +228,8 @@ export class BalancesForceTransferCall {
    *   assumed to be in the overlay.
    * # </weight>
    */
-  get asV72(): {source: Uint8Array, dest: Uint8Array, value: bigint} {
-    assert(this.isV72)
+  get asV78(): {source: Uint8Array, dest: Uint8Array, value: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -252,7 +252,7 @@ export class BalancesForceUnreserveCall {
    * 
    * Can only be called by ROOT.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.force_unreserve') === 'e84a34a6a3d577b31f16557bd304282f4fe4cbd7115377f4687635dc48e52ba5'
   }
 
@@ -261,8 +261,8 @@ export class BalancesForceUnreserveCall {
    * 
    * Can only be called by ROOT.
    */
-  get asV72(): {who: Uint8Array, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -290,7 +290,7 @@ export class BalancesSetBalanceCall {
    * 
    * The dispatch origin for this call is `root`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.set_balance') === 'a65ed3500227691ff89565c1bf5a0244c2a05366e34d1ab50167d0c006774edc'
   }
 
@@ -304,8 +304,8 @@ export class BalancesSetBalanceCall {
    * 
    * The dispatch origin for this call is `root`.
    */
-  get asV72(): {who: Uint8Array, newFree: bigint, newReserved: bigint} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, newFree: bigint, newReserved: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -350,7 +350,7 @@ export class BalancesTransferCall {
    * - Origin account is already in memory, so no DB operations for them.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.transfer') === 'cf5bb376709277883598390b3462e93b0f3c383df391c0649728c965e8da82fd'
   }
 
@@ -381,8 +381,8 @@ export class BalancesTransferCall {
    * - Origin account is already in memory, so no DB operations for them.
    * # </weight>
    */
-  get asV72(): {dest: Uint8Array, value: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, value: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -419,7 +419,7 @@ export class BalancesTransferAllCall {
    * - O(1). Just like transfer, but reading the user's transferable balance first.
    *   #</weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.transfer_all') === '55f3f63b765a5b0a714fcbe6c824b0f6fc21773aab999a719c36e7dc7db49575'
   }
 
@@ -442,8 +442,8 @@ export class BalancesTransferAllCall {
    * - O(1). Just like transfer, but reading the user's transferable balance first.
    *   #</weight>
    */
-  get asV72(): {dest: Uint8Array, keepAlive: boolean} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, keepAlive: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -469,7 +469,7 @@ export class BalancesTransferKeepAliveCall {
    * 
    * [`transfer`]: struct.Pallet.html#method.transfer
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Balances.transfer_keep_alive') === 'cf5bb376709277883598390b3462e93b0f3c383df391c0649728c965e8da82fd'
   }
 
@@ -481,8 +481,8 @@ export class BalancesTransferKeepAliveCall {
    * 
    * [`transfer`]: struct.Pallet.html#method.transfer
    */
-  get asV72(): {dest: Uint8Array, value: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, value: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -508,7 +508,7 @@ export class CollatorSelectionLeaveIntentCall {
    * 
    * This call is not available to `Invulnerable` collators.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('CollatorSelection.leave_intent') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -520,8 +520,8 @@ export class CollatorSelectionLeaveIntentCall {
    * 
    * This call is not available to `Invulnerable` collators.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -545,7 +545,7 @@ export class CollatorSelectionRegisterAsCandidateCall {
    * 
    * This call is not available to `Invulnerable` collators.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('CollatorSelection.register_as_candidate') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -555,8 +555,8 @@ export class CollatorSelectionRegisterAsCandidateCall {
    * 
    * This call is not available to `Invulnerable` collators.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -577,15 +577,15 @@ export class CollatorSelectionSetCandidacyBondCall {
   /**
    * Set the candidacy bond amount.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('CollatorSelection.set_candidacy_bond') === 'a862ec70ffc8f3bd1c3d634825c052f8531eba68afa42769689fc18a6d718eda'
   }
 
   /**
    * Set the candidacy bond amount.
    */
-  get asV72(): {bond: bigint} {
-    assert(this.isV72)
+  get asV78(): {bond: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -608,7 +608,7 @@ export class CollatorSelectionSetDesiredCandidatesCall {
    * If lowering this number, then the number of running collators could be higher than this figure.
    * Aside from that edge case, there should be no other way to have more collators than the desired number.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('CollatorSelection.set_desired_candidates') === '405f1447d8db6ecc920213976cf7f98b6e74c5ceb4e2ecf66c742895e40e5d78'
   }
 
@@ -617,8 +617,8 @@ export class CollatorSelectionSetDesiredCandidatesCall {
    * If lowering this number, then the number of running collators could be higher than this figure.
    * Aside from that edge case, there should be no other way to have more collators than the desired number.
    */
-  get asV72(): {max: number} {
-    assert(this.isV72)
+  get asV78(): {max: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -639,15 +639,15 @@ export class CollatorSelectionSetInvulnerablesCall {
   /**
    * Set the list of invulnerable (fixed) collators.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('CollatorSelection.set_invulnerables') === '4f4db85b7e763f702804fa793ac5cba68cfd546b497830a9c3c21dced2b91524'
   }
 
   /**
    * Set the list of invulnerable (fixed) collators.
    */
-  get asV72(): {new: Uint8Array[]} {
-    assert(this.isV72)
+  get asV78(): {new: Uint8Array[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -699,7 +699,7 @@ export class CouncilCloseCall {
    * - up to 3 events
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Council.close') === '45a5978a11ceb5a8b2c51f7152abaa939cd8bd4bcdc5e1162029cedba4b598ea'
   }
 
@@ -737,8 +737,8 @@ export class CouncilCloseCall {
    * - up to 3 events
    * # </weight>
    */
-  get asV72(): {proposalHash: Uint8Array, index: number, proposalWeightBound: bigint, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, index: number, proposalWeightBound: bigint, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -772,7 +772,7 @@ export class CouncilDisapproveProposalCall {
    * * Writes: Voting, Proposals, ProposalOf
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Council.disapprove_proposal') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -792,8 +792,8 @@ export class CouncilDisapproveProposalCall {
    * * Writes: Voting, Proposals, ProposalOf
    * # </weight>
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -824,8 +824,8 @@ export class CouncilExecuteCall {
    * - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Council.execute') === '310c1ac03215f7fd10ec5b163e2dbbb5991688b419ed0a629c61537d9c417103'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Council.execute') === 'd124ab118335541e4d64d7187c5daaa069c9de1f39b3f53c5836cb901c00c46c'
   }
 
   /**
@@ -841,8 +841,8 @@ export class CouncilExecuteCall {
    * - 1 event
    * # </weight>
    */
-  get asV72(): {proposal: v72.Call, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposal: v78.Call, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -889,8 +889,8 @@ export class CouncilProposeCall {
    *   - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Council.propose') === '59090cb1d798849150ce87521c34ca896697e203de2f8e1f498d248abc78f65e'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Council.propose') === 'e8d5cbcf2c4d12383b76b2c035a628fa0f77e06a181b0bb6aa77789e3151b25a'
   }
 
   /**
@@ -922,8 +922,8 @@ export class CouncilProposeCall {
    *   - 1 event
    * # </weight>
    */
-  get asV72(): {threshold: number, proposal: v72.Call, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {threshold: number, proposal: v78.Call, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -975,7 +975,7 @@ export class CouncilSetMembersCall {
    *   - 1 storage write (codec `O(1)`) for deleting the old `prime` and setting the new one
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Council.set_members') === '71b7fcb1d8a62eff96a9ef006517578ce9189e6d931948a256a04ca75ff68d4a'
   }
 
@@ -1013,8 +1013,8 @@ export class CouncilSetMembersCall {
    *   - 1 storage write (codec `O(1)`) for deleting the old `prime` and setting the new one
    * # </weight>
    */
-  get asV72(): {newMembers: Uint8Array[], prime: (Uint8Array | undefined), oldCount: number} {
-    assert(this.isV72)
+  get asV78(): {newMembers: Uint8Array[], prime: (Uint8Array | undefined), oldCount: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1049,7 +1049,7 @@ export class CouncilVoteCall {
    * - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Council.vote') === 'f8a1069a57f7b721f47c086d08b6838ae1a0c08f58caddb82428ba5f1407540f'
   }
 
@@ -1070,8 +1070,8 @@ export class CouncilVoteCall {
    * - 1 event
    * # </weight>
    */
-  get asV72(): {proposal: Uint8Array, index: number, approve: boolean} {
-    assert(this.isV72)
+  get asV78(): {proposal: Uint8Array, index: number, approve: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1095,7 +1095,7 @@ export class CurrenciesTransferCall {
    * The dispatch origin for this call must be `Signed` by the
    * transactor.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Currencies.transfer') === 'f9417776835359c4df2af31d48b33bac20ebcc850ed3738fcbccd673124fb252'
   }
 
@@ -1105,8 +1105,8 @@ export class CurrenciesTransferCall {
    * The dispatch origin for this call must be `Signed` by the
    * transactor.
    */
-  get asV72(): {dest: Uint8Array, currencyId: number, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, currencyId: number, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1130,7 +1130,7 @@ export class CurrenciesTransferNativeCurrencyCall {
    * The dispatch origin for this call must be `Signed` by the
    * transactor.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Currencies.transfer_native_currency') === '94a3f31b6c27b88829aa15b00a4c891eb6d26aea983baf4152003a578ce990f7'
   }
 
@@ -1140,8 +1140,8 @@ export class CurrenciesTransferNativeCurrencyCall {
    * The dispatch origin for this call must be `Signed` by the
    * transactor.
    */
-  get asV72(): {dest: Uint8Array, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1164,7 +1164,7 @@ export class CurrenciesUpdateBalanceCall {
    * 
    * The dispatch origin of this call must be _Root_.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Currencies.update_balance') === '0658a1a329a71de06a309dcf439763a0012143af692c1162a6d0f9923368e33f'
   }
 
@@ -1173,8 +1173,8 @@ export class CurrenciesUpdateBalanceCall {
    * 
    * The dispatch origin of this call must be _Root_.
    */
-  get asV72(): {who: Uint8Array, currencyId: number, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, currencyId: number, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1209,7 +1209,7 @@ export class DemocracyBlacklistCall {
    * Weight: `O(p)` (though as this is an high-privilege dispatch, we assume it has a
    *   reasonable value).
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.blacklist') === '8d8922c0775adfb1df719211ab4fc6fb40b6cc8864038bcb1b544d9cf039b30a'
   }
 
@@ -1230,8 +1230,8 @@ export class DemocracyBlacklistCall {
    * Weight: `O(p)` (though as this is an high-privilege dispatch, we assume it has a
    *   reasonable value).
    */
-  get asV72(): {proposalHash: Uint8Array, maybeRefIndex: (number | undefined)} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, maybeRefIndex: (number | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1258,7 +1258,7 @@ export class DemocracyCancelProposalCall {
    * 
    * Weight: `O(p)` where `p = PublicProps::<T>::decode_len()`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.cancel_proposal') === '0e50c7564a4a7f4e6a09a0abcc8022f4445c064144d2318ed086e6080bee800d'
   }
 
@@ -1271,8 +1271,8 @@ export class DemocracyCancelProposalCall {
    * 
    * Weight: `O(p)` where `p = PublicProps::<T>::decode_len()`
    */
-  get asV72(): {propIndex: number} {
-    assert(this.isV72)
+  get asV78(): {propIndex: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1299,7 +1299,7 @@ export class DemocracyCancelQueuedCall {
    * 
    * Weight: `O(D)` where `D` is the items in the dispatch queue. Weighted as `D = 10`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.cancel_queued') === '60780274011857b5305b5413b2b4742e5d41eb58a0948049d0672e81af198cb7'
   }
 
@@ -1312,8 +1312,8 @@ export class DemocracyCancelQueuedCall {
    * 
    * Weight: `O(D)` where `D` is the items in the dispatch queue. Weighted as `D = 10`.
    */
-  get asV72(): {which: number} {
-    assert(this.isV72)
+  get asV78(): {which: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1340,7 +1340,7 @@ export class DemocracyCancelReferendumCall {
    * 
    * # Weight: `O(1)`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.cancel_referendum') === 'efe4ecff834678ca8b73ea6e2f38e514997eb402e82da2ce4cf036008844a857'
   }
 
@@ -1353,8 +1353,8 @@ export class DemocracyCancelReferendumCall {
    * 
    * # Weight: `O(1)`.
    */
-  get asV72(): {refIndex: number} {
-    assert(this.isV72)
+  get asV78(): {refIndex: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1379,7 +1379,7 @@ export class DemocracyClearPublicProposalsCall {
    * 
    * Weight: `O(1)`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.clear_public_proposals') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -1390,8 +1390,8 @@ export class DemocracyClearPublicProposalsCall {
    * 
    * Weight: `O(1)`.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1431,7 +1431,7 @@ export class DemocracyDelegateCall {
    * Weight: `O(R)` where R is the number of referendums the voter delegating to has
    *   voted on. Weight is charged as if maximum votes.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.delegate') === '719d303e364256b757876a8d1b18c8d62a96223d68ffc6f6c1bf18240e8d9793'
   }
 
@@ -1457,8 +1457,8 @@ export class DemocracyDelegateCall {
    * Weight: `O(R)` where R is the number of referendums the voter delegating to has
    *   voted on. Weight is charged as if maximum votes.
    */
-  get asV72(): {to: Uint8Array, conviction: v72.Conviction, balance: bigint} {
-    assert(this.isV72)
+  get asV78(): {to: Uint8Array, conviction: v78.Conviction, balance: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1486,7 +1486,7 @@ export class DemocracyEmergencyCancelCall {
    * 
    * Weight: `O(1)`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.emergency_cancel') === '8a84371403a09e2f8fc2aac80f5a8a53229b346c4b3859069867b8e656b13450'
   }
 
@@ -1500,8 +1500,8 @@ export class DemocracyEmergencyCancelCall {
    * 
    * Weight: `O(1)`.
    */
-  get asV72(): {refIndex: number} {
-    assert(this.isV72)
+  get asV78(): {refIndex: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1522,15 +1522,15 @@ export class DemocracyEnactProposalCall {
   /**
    * Enact a proposal from a referendum. For now we just make the weight be the maximum.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.enact_proposal') === 'de192ab0f058d1fb7eacc523bf0e05128d16509ec21bf445f0eefa47c89e60bf'
   }
 
   /**
    * Enact a proposal from a referendum. For now we just make the weight be the maximum.
    */
-  get asV72(): {proposalHash: Uint8Array, index: number} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, index: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1559,7 +1559,7 @@ export class DemocracyExternalProposeCall {
    * Weight: `O(V)` with V number of vetoers in the blacklist of proposal.
    *   Decoding vec of length V. Charged as maximum
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.external_propose') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -1574,8 +1574,8 @@ export class DemocracyExternalProposeCall {
    * Weight: `O(V)` with V number of vetoers in the blacklist of proposal.
    *   Decoding vec of length V. Charged as maximum
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1606,7 +1606,7 @@ export class DemocracyExternalProposeDefaultCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.external_propose_default') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -1623,8 +1623,8 @@ export class DemocracyExternalProposeDefaultCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1655,7 +1655,7 @@ export class DemocracyExternalProposeMajorityCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.external_propose_majority') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -1672,8 +1672,8 @@ export class DemocracyExternalProposeMajorityCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1708,7 +1708,7 @@ export class DemocracyFastTrackCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.fast_track') === '27cb200e922e485b41e3150b3d7bf5e8624346f6ff1d78601373ba3d80689c89'
   }
 
@@ -1729,8 +1729,8 @@ export class DemocracyFastTrackCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {proposalHash: Uint8Array, votingPeriod: number, delay: number} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, votingPeriod: number, delay: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1762,7 +1762,7 @@ export class DemocracyNoteImminentPreimageCall {
    * 
    * Weight: `O(E)` with E size of `encoded_proposal` (protected by a required deposit).
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.note_imminent_preimage') === 'bc60303cdd91077cf965a8aec4728ff7f49fea4055259a274e22145314e7c9eb'
   }
 
@@ -1780,8 +1780,8 @@ export class DemocracyNoteImminentPreimageCall {
    * 
    * Weight: `O(E)` with E size of `encoded_proposal` (protected by a required deposit).
    */
-  get asV72(): {encodedProposal: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {encodedProposal: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1802,15 +1802,15 @@ export class DemocracyNoteImminentPreimageOperationalCall {
   /**
    * Same as `note_imminent_preimage` but origin is `OperationalPreimageOrigin`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.note_imminent_preimage_operational') === 'bc60303cdd91077cf965a8aec4728ff7f49fea4055259a274e22145314e7c9eb'
   }
 
   /**
    * Same as `note_imminent_preimage` but origin is `OperationalPreimageOrigin`.
    */
-  get asV72(): {encodedProposal: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {encodedProposal: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1840,7 +1840,7 @@ export class DemocracyNotePreimageCall {
    * 
    * Weight: `O(E)` with E size of `encoded_proposal` (protected by a required deposit).
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.note_preimage') === 'bc60303cdd91077cf965a8aec4728ff7f49fea4055259a274e22145314e7c9eb'
   }
 
@@ -1856,8 +1856,8 @@ export class DemocracyNotePreimageCall {
    * 
    * Weight: `O(E)` with E size of `encoded_proposal` (protected by a required deposit).
    */
-  get asV72(): {encodedProposal: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {encodedProposal: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1878,15 +1878,15 @@ export class DemocracyNotePreimageOperationalCall {
   /**
    * Same as `note_preimage` but origin is `OperationalPreimageOrigin`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.note_preimage_operational') === 'bc60303cdd91077cf965a8aec4728ff7f49fea4055259a274e22145314e7c9eb'
   }
 
   /**
    * Same as `note_preimage` but origin is `OperationalPreimageOrigin`.
    */
-  get asV72(): {encodedProposal: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {encodedProposal: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1917,7 +1917,7 @@ export class DemocracyProposeCall {
    * 
    * Weight: `O(p)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.propose') === '99f964e94c86db2029fab3e54a9230e36fe7533d252b5ecbc36f16c06e11f18b'
   }
 
@@ -1934,8 +1934,8 @@ export class DemocracyProposeCall {
    * 
    * Weight: `O(p)`
    */
-  get asV72(): {proposalHash: Uint8Array, value: bigint} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, value: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -1970,7 +1970,7 @@ export class DemocracyReapPreimageCall {
    * 
    * Weight: `O(D)` where D is length of proposal.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.reap_preimage') === '23573ffc912e8a31889875352d3543e4538e2f3beb6a89ef86d10cf1cb8b7aca'
   }
 
@@ -1991,8 +1991,8 @@ export class DemocracyReapPreimageCall {
    * 
    * Weight: `O(D)` where D is length of proposal.
    */
-  get asV72(): {proposalHash: Uint8Array, proposalLenUpperBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, proposalLenUpperBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2027,7 +2027,7 @@ export class DemocracyRemoveOtherVoteCall {
    * Weight: `O(R + log R)` where R is the number of referenda that `target` has voted on.
    *   Weight is calculated for the maximum number of vote.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.remove_other_vote') === '57db819150acc73e380a9908a05d4f777cd3af825527d7ad88560426e1d0f652'
   }
 
@@ -2048,8 +2048,8 @@ export class DemocracyRemoveOtherVoteCall {
    * Weight: `O(R + log R)` where R is the number of referenda that `target` has voted on.
    *   Weight is calculated for the maximum number of vote.
    */
-  get asV72(): {target: Uint8Array, index: number} {
-    assert(this.isV72)
+  get asV78(): {target: Uint8Array, index: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2096,7 +2096,7 @@ export class DemocracyRemoveVoteCall {
    * Weight: `O(R + log R)` where R is the number of referenda that `target` has voted on.
    *   Weight is calculated for the maximum number of vote.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.remove_vote') === '25a99cc820e15400356f62165725d9d84847d859e62ca1e5fd6eb340dc5c217e'
   }
 
@@ -2129,8 +2129,8 @@ export class DemocracyRemoveVoteCall {
    * Weight: `O(R + log R)` where R is the number of referenda that `target` has voted on.
    *   Weight is calculated for the maximum number of vote.
    */
-  get asV72(): {index: number} {
-    assert(this.isV72)
+  get asV78(): {index: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2160,7 +2160,7 @@ export class DemocracySecondCall {
    * 
    * Weight: `O(S)` where S is the number of seconds a proposal already has.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.second') === 'abe1357aae784eefd21f6999076deb6cfbc92fcb9e80c21e93a944ceb739423c'
   }
 
@@ -2176,8 +2176,8 @@ export class DemocracySecondCall {
    * 
    * Weight: `O(S)` where S is the number of seconds a proposal already has.
    */
-  get asV72(): {proposal: number, secondsUpperBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposal: number, secondsUpperBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2209,7 +2209,7 @@ export class DemocracyUndelegateCall {
    * Weight: `O(R)` where R is the number of referendums the voter delegating to has
    *   voted on. Weight is charged as if maximum votes.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.undelegate') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -2227,8 +2227,8 @@ export class DemocracyUndelegateCall {
    * Weight: `O(R)` where R is the number of referendums the voter delegating to has
    *   voted on. Weight is charged as if maximum votes.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2255,7 +2255,7 @@ export class DemocracyUnlockCall {
    * 
    * Weight: `O(R)` with R number of vote of target.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.unlock') === '66d8abf7976ff596d8d614948b9d84cb24f0b898d88d24eb2cc035ae5e93c7b8'
   }
 
@@ -2268,8 +2268,8 @@ export class DemocracyUnlockCall {
    * 
    * Weight: `O(R)` with R number of vote of target.
    */
-  get asV72(): {target: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {target: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2298,7 +2298,7 @@ export class DemocracyVetoExternalCall {
    * 
    * Weight: `O(V + log(V))` where V is number of `existing vetoers`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.veto_external') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -2313,8 +2313,8 @@ export class DemocracyVetoExternalCall {
    * 
    * Weight: `O(V + log(V))` where V is number of `existing vetoers`
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2343,7 +2343,7 @@ export class DemocracyVoteCall {
    * 
    * Weight: `O(R)` where R is the number of referendums the voter has voted on.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Democracy.vote') === '3936a4cb49f77280bd94142d4ec458afcf5cb8a5e5b0d602b1b1530928021e28'
   }
 
@@ -2358,8 +2358,8 @@ export class DemocracyVoteCall {
    * 
    * Weight: `O(R)` where R is the number of referendums the voter has voted on.
    */
-  get asV72(): {refIndex: number, vote: v72.AccountVote} {
-    assert(this.isV72)
+  get asV78(): {refIndex: number, vote: v78.AccountVote} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2391,7 +2391,7 @@ export class DmpQueueServiceOverweightCall {
    * Events:
    * - `OverweightServiced`: On success.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('DmpQueue.service_overweight') === 'f6b281f58290b6af96ac2dda36163d81223f37d0a8a100877e2526969a57d772'
   }
 
@@ -2409,8 +2409,8 @@ export class DmpQueueServiceOverweightCall {
    * Events:
    * - `OverweightServiced`: On success.
    */
-  get asV72(): {index: bigint, weightLimit: bigint} {
-    assert(this.isV72)
+  get asV78(): {index: bigint, weightLimit: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2433,7 +2433,7 @@ export class DusterAddNondustableAccountCall {
    * If such account should be dusted - `AccountBlacklisted` error is returned.
    * Only root can perform this action.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Duster.add_nondustable_account') === '7fb7672b764b0a4f0c4910fddefec0709628843df7ad0073a97eede13c53ca92'
   }
 
@@ -2442,8 +2442,8 @@ export class DusterAddNondustableAccountCall {
    * If such account should be dusted - `AccountBlacklisted` error is returned.
    * Only root can perform this action.
    */
-  get asV72(): {account: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {account: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2468,7 +2468,7 @@ export class DusterDustAccountCall {
    * 
    * Caller is rewarded with chosen reward in native currency.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Duster.dust_account') === 'd3feddb5891b6dffbacca67c361c7faded12f59c061734980a1a27e78b3c54fa'
   }
 
@@ -2479,8 +2479,8 @@ export class DusterDustAccountCall {
    * 
    * Caller is rewarded with chosen reward in native currency.
    */
-  get asV72(): {account: Uint8Array, currencyId: number} {
-    assert(this.isV72)
+  get asV78(): {account: Uint8Array, currencyId: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2501,15 +2501,15 @@ export class DusterRemoveNondustableAccountCall {
   /**
    * Remove account from list of non-dustable accounts. That means account can be dusted again.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Duster.remove_nondustable_account') === '7fb7672b764b0a4f0c4910fddefec0709628843df7ad0073a97eede13c53ca92'
   }
 
   /**
    * Remove account from list of non-dustable accounts. That means account can be dusted again.
    */
-  get asV72(): {account: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {account: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2539,7 +2539,7 @@ export class ElectionsCleanDefunctVotersCall {
    * The total number of voters and those that are defunct must be provided as witness data.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.clean_defunct_voters') === '8279e35309d0c9a5d36cd12cce19e58fef95829d4096e23fe93a055a47afd8a0'
   }
 
@@ -2555,8 +2555,8 @@ export class ElectionsCleanDefunctVotersCall {
    * The total number of voters and those that are defunct must be provided as witness data.
    * # </weight>
    */
-  get asV72(): {numVoters: number, numDefunct: number} {
-    assert(this.isV72)
+  get asV78(): {numVoters: number, numDefunct: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2590,7 +2590,7 @@ export class ElectionsRemoveMemberCall {
    * will go into phragmen, we assume full block for now.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.remove_member') === 'cc43d536f862eb65fab1d583cca3ea302b95423702ae1dac84b75df432320893'
   }
 
@@ -2610,8 +2610,8 @@ export class ElectionsRemoveMemberCall {
    * will go into phragmen, we assume full block for now.
    * # </weight>
    */
-  get asV72(): {who: Uint8Array, hasReplacement: boolean} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, hasReplacement: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2636,7 +2636,7 @@ export class ElectionsRemoveVoterCall {
    * 
    * The dispatch origin of this call must be signed and be a voter.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.remove_voter') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -2647,8 +2647,8 @@ export class ElectionsRemoveVoterCall {
    * 
    * The dispatch origin of this call must be signed and be a voter.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2686,7 +2686,7 @@ export class ElectionsRenounceCandidacyCall {
    * The type of renouncing must be provided as witness data.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.renounce_candidacy') === '891a3ff219ab8817cfffbcd0ed48578a0fd96440dc2292a0cde84a40439f7fbe'
   }
 
@@ -2710,8 +2710,8 @@ export class ElectionsRenounceCandidacyCall {
    * The type of renouncing must be provided as witness data.
    * # </weight>
    */
-  get asV72(): {renouncing: v72.Renouncing} {
-    assert(this.isV72)
+  get asV78(): {renouncing: v78.Renouncing} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2746,7 +2746,7 @@ export class ElectionsSubmitCandidacyCall {
    * The number of current candidates must be provided as witness data.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.submit_candidacy') === 'f9d2bc9f755e33c27d34db4c3b063daa9e2490111d35f89ea1995d74e59b1819'
   }
 
@@ -2767,8 +2767,8 @@ export class ElectionsSubmitCandidacyCall {
    * The number of current candidates must be provided as witness data.
    * # </weight>
    */
-  get asV72(): {candidateCount: number} {
-    assert(this.isV72)
+  get asV78(): {candidateCount: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2811,7 +2811,7 @@ export class ElectionsVoteCall {
    * We assume the maximum weight among all 3 cases: vote_equal, vote_more and vote_less.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Elections.vote') === '75939c25de1c96145b5d2d4bc8627a3fc22299f0e1f1f6f0709e54e884796bda'
   }
 
@@ -2840,8 +2840,8 @@ export class ElectionsVoteCall {
    * We assume the maximum weight among all 3 cases: vote_equal, vote_more and vote_less.
    * # </weight>
    */
-  get asV72(): {votes: Uint8Array[], value: bigint} {
-    assert(this.isV72)
+  get asV78(): {votes: Uint8Array[], value: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2863,7 +2863,7 @@ export class ExchangeBuyCall {
    * Create buy intention
    * Calculate current spot price, create an intention and store in ```ExchangeAssetsIntentions```
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Exchange.buy') === '895d06cec55d2ba6786140ff36b3ffb1ce14db05a42a9706adc8db7137abc0e8'
   }
 
@@ -2871,8 +2871,8 @@ export class ExchangeBuyCall {
    * Create buy intention
    * Calculate current spot price, create an intention and store in ```ExchangeAssetsIntentions```
    */
-  get asV72(): {assetBuy: number, assetSell: number, amountBuy: bigint, maxSold: bigint, discount: boolean} {
-    assert(this.isV72)
+  get asV78(): {assetBuy: number, assetSell: number, amountBuy: bigint, maxSold: bigint, discount: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2894,7 +2894,7 @@ export class ExchangeSellCall {
    * Create sell intention
    * Calculate current spot price, create an intention and store in ```ExchangeAssetsIntentions```
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Exchange.sell') === '2081ff6ca378ad66cdf3cf7a7427c8b796d0db4bac39021743f47a062807c548'
   }
 
@@ -2902,8 +2902,8 @@ export class ExchangeSellCall {
    * Create sell intention
    * Calculate current spot price, create an intention and store in ```ExchangeAssetsIntentions```
    */
-  get asV72(): {assetSell: number, assetBuy: number, amountSell: bigint, minBought: bigint, discount: boolean} {
-    assert(this.isV72)
+  get asV78(): {assetSell: number, assetBuy: number, amountSell: bigint, minBought: bigint, discount: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2936,7 +2936,7 @@ export class IdentityAddRegistrarCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.add_registrar') === '7fb7672b764b0a4f0c4910fddefec0709628843df7ad0073a97eede13c53ca92'
   }
 
@@ -2955,8 +2955,8 @@ export class IdentityAddRegistrarCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): {account: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {account: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -2983,7 +2983,7 @@ export class IdentityAddSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.add_sub') === '3a44789cb2db1c330353e6200ca05fb21d197f103560aec42b25fed99b8ede6d'
   }
 
@@ -2996,8 +2996,8 @@ export class IdentityAddSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get asV72(): {sub: Uint8Array, data: v72.Data} {
-    assert(this.isV72)
+  get asV78(): {sub: Uint8Array, data: v78.Data} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3034,7 +3034,7 @@ export class IdentityCancelRequestCall {
    * - One event
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.cancel_request') === '89d659d6a17ba36d0dfc7c90a7f043581d7fe980043895169d7dda1416ff7e5b'
   }
 
@@ -3057,8 +3057,8 @@ export class IdentityCancelRequestCall {
    * - One event
    * # </weight>
    */
-  get asV72(): {regIndex: number} {
-    assert(this.isV72)
+  get asV78(): {regIndex: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3096,7 +3096,7 @@ export class IdentityClearIdentityCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.clear_identity') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -3120,8 +3120,8 @@ export class IdentityClearIdentityCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3160,7 +3160,7 @@ export class IdentityKillIdentityCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.kill_identity') === '66d8abf7976ff596d8d614948b9d84cb24f0b898d88d24eb2cc035ae5e93c7b8'
   }
 
@@ -3185,8 +3185,8 @@ export class IdentityKillIdentityCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): {target: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {target: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3225,7 +3225,7 @@ export class IdentityProvideJudgementCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.provide_judgement') === '791c0e6b8f05476998f8aaac88c6d48f65d1a8c2670bcbd045a3ca694c679bd7'
   }
 
@@ -3250,8 +3250,8 @@ export class IdentityProvideJudgementCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): {regIndex: number, target: Uint8Array, judgement: v72.Judgement} {
-    assert(this.isV72)
+  get asV78(): {regIndex: number, target: Uint8Array, judgement: v78.Judgement} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3281,7 +3281,7 @@ export class IdentityQuitSubCall {
    * NOTE: This should not normally be used, but is provided in the case that the non-
    * controller of an account is maliciously registered as a sub-account.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.quit_sub') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -3297,8 +3297,8 @@ export class IdentityQuitSubCall {
    * NOTE: This should not normally be used, but is provided in the case that the non-
    * controller of an account is maliciously registered as a sub-account.
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3325,7 +3325,7 @@ export class IdentityRemoveSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.remove_sub') === '38b23c3d326211a5d1355a68469ac48b2d3b137ed03e1feb95bb1da67e04c022'
   }
 
@@ -3338,8 +3338,8 @@ export class IdentityRemoveSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get asV72(): {sub: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {sub: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3363,7 +3363,7 @@ export class IdentityRenameSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.rename_sub') === '3a44789cb2db1c330353e6200ca05fb21d197f103560aec42b25fed99b8ede6d'
   }
 
@@ -3373,8 +3373,8 @@ export class IdentityRenameSubCall {
    * The dispatch origin for this call must be _Signed_ and the sender must have a registered
    * sub identity of `sub`.
    */
-  get asV72(): {sub: Uint8Array, data: v72.Data} {
-    assert(this.isV72)
+  get asV78(): {sub: Uint8Array, data: v78.Data} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3417,7 +3417,7 @@ export class IdentityRequestJudgementCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.request_judgement') === 'c6336282cbe5b8ccf3769cc13c92f532be2499335e3d52ebf566a888e92b5b7c'
   }
 
@@ -3446,8 +3446,8 @@ export class IdentityRequestJudgementCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): {regIndex: number, maxFee: bigint} {
-    assert(this.isV72)
+  get asV78(): {regIndex: number, maxFee: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3480,7 +3480,7 @@ export class IdentitySetAccountIdCall {
    * - Benchmark: 8.823 + R * 0.32 µs (min squares analysis)
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.set_account_id') === 'a333bb3ce3e314d48fcf93f14155097760db6249022181f1eb923c1343af6813'
   }
 
@@ -3499,8 +3499,8 @@ export class IdentitySetAccountIdCall {
    * - Benchmark: 8.823 + R * 0.32 µs (min squares analysis)
    * # </weight>
    */
-  get asV72(): {index: number, new: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {index: number, new: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3533,7 +3533,7 @@ export class IdentitySetFeeCall {
    * - Benchmark: 7.315 + R * 0.329 µs (min squares analysis)
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.set_fee') === '6418458414c3cef3d5c80c88232d781e76733c675303b2937b9cd30ae58d0fe4'
   }
 
@@ -3552,8 +3552,8 @@ export class IdentitySetFeeCall {
    * - Benchmark: 7.315 + R * 0.329 µs (min squares analysis)
    * # </weight>
    */
-  get asV72(): {index: number, fee: bigint} {
-    assert(this.isV72)
+  get asV78(): {index: number, fee: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3586,7 +3586,7 @@ export class IdentitySetFieldsCall {
    * - Benchmark: 7.464 + R * 0.325 µs (min squares analysis)
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.set_fields') === 'b2c8998acd304e28e4f4a78e6a07f5bf7caf587532734dbd94b85c01a31c3e13'
   }
 
@@ -3605,8 +3605,8 @@ export class IdentitySetFieldsCall {
    * - Benchmark: 7.464 + R * 0.325 µs (min squares analysis)
    * # </weight>
    */
-  get asV72(): {index: number, fields: bigint} {
-    assert(this.isV72)
+  get asV78(): {index: number, fields: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3645,7 +3645,7 @@ export class IdentitySetIdentityCall {
    * - One event.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.set_identity') === 'ab457704fd8cda5fee32e84ab7782778f4117cd54400c364cf7597eee5bc60ca'
   }
 
@@ -3670,8 +3670,8 @@ export class IdentitySetIdentityCall {
    * - One event.
    * # </weight>
    */
-  get asV72(): {info: v72.IdentityInfo} {
-    assert(this.isV72)
+  get asV78(): {info: v78.IdentityInfo} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3712,7 +3712,7 @@ export class IdentitySetSubsCall {
    *   - One storage-exists (`IdentityOf::contains_key`).
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Identity.set_subs') === 'f156a100857e71b9e1eab839801795e8569b63b49f6c30333c5bf12811cbbe73'
   }
 
@@ -3739,8 +3739,8 @@ export class IdentitySetSubsCall {
    *   - One storage-exists (`IdentityOf::contains_key`).
    * # </weight>
    */
-  get asV72(): {subs: [Uint8Array, v72.Data][]} {
-    assert(this.isV72)
+  get asV78(): {subs: [Uint8Array, v78.Data][]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3772,7 +3772,7 @@ export class LbpAddLiquidityCall {
    * 
    * Emits `LiquidityAdded` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.add_liquidity') === '3a85b1dfe318146be75bd4f0f9df60b5241f5b7f4f4806e513923814250c86af'
   }
 
@@ -3790,8 +3790,8 @@ export class LbpAddLiquidityCall {
    * 
    * Emits `LiquidityAdded` event when successful.
    */
-  get asV72(): {amountA: [number, bigint], amountB: [number, bigint]} {
-    assert(this.isV72)
+  get asV78(): {amountA: [number, bigint], amountB: [number, bigint]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3825,7 +3825,7 @@ export class LbpBuyCall {
    * 
    * Emits `BuyExecuted` when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.buy') === 'cc661073455d8d24a5203cf26d61f8f26da24dd5d3859c180e99506e90ab09c1'
   }
 
@@ -3845,8 +3845,8 @@ export class LbpBuyCall {
    * 
    * Emits `BuyExecuted` when successful.
    */
-  get asV72(): {assetOut: number, assetIn: number, amount: bigint, maxLimit: bigint} {
-    assert(this.isV72)
+  get asV78(): {assetOut: number, assetIn: number, amount: bigint, maxLimit: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3899,7 +3899,7 @@ export class LbpCreatePoolCall {
    * This increases the price of the sold asset on every trade. Make sure to only run this with
    * previously illiquid assets.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.create_pool') === 'b1e691deb07a9810610d21c1a42857d119b17906c3c8091b4bd2b429c081be13'
   }
 
@@ -3938,8 +3938,8 @@ export class LbpCreatePoolCall {
    * This increases the price of the sold asset on every trade. Make sure to only run this with
    * previously illiquid assets.
    */
-  get asV72(): {poolOwner: Uint8Array, assetA: number, assetAAmount: bigint, assetB: number, assetBAmount: bigint, initialWeight: number, finalWeight: number, weightCurve: v72.WeightCurveType, fee: [number, number], feeCollector: Uint8Array, repayTarget: bigint} {
-    assert(this.isV72)
+  get asV78(): {poolOwner: Uint8Array, assetA: number, assetAAmount: bigint, assetB: number, assetBAmount: bigint, initialWeight: number, finalWeight: number, weightCurve: v78.WeightCurveType, fee: [number, number], feeCollector: Uint8Array, repayTarget: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -3970,7 +3970,7 @@ export class LbpRemoveLiquidityCall {
    * 
    * Emits 'LiquidityRemoved' when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.remove_liquidity') === '80360f283e15fc119f8a0810b4d9675d6da65eb2354c77cc4e4cdb65236120a0'
   }
 
@@ -3987,8 +3987,8 @@ export class LbpRemoveLiquidityCall {
    * 
    * Emits 'LiquidityRemoved' when successful.
    */
-  get asV72(): {poolId: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {poolId: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4022,7 +4022,7 @@ export class LbpSellCall {
    * 
    * Emits `SellExecuted` when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.sell') === '7437ca2cbbe4a3ead498b3f7d205b81655351b35c5b894344a349a6b4feb4f3d'
   }
 
@@ -4042,8 +4042,8 @@ export class LbpSellCall {
    * 
    * Emits `SellExecuted` when successful.
    */
-  get asV72(): {assetIn: number, assetOut: number, amount: bigint, maxLimit: bigint} {
-    assert(this.isV72)
+  get asV78(): {assetIn: number, assetOut: number, amount: bigint, maxLimit: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4081,7 +4081,7 @@ export class LbpUpdatePoolDataCall {
    * 
    * Emits `PoolUpdated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LBP.update_pool_data') === 'ca9cdc9fcc82ebbf92189e215b5ef23956428e741bb72e989f7f92257d624e9b'
   }
 
@@ -4105,8 +4105,8 @@ export class LbpUpdatePoolDataCall {
    * 
    * Emits `PoolUpdated` event when successful.
    */
-  get asV72(): {poolId: Uint8Array, poolOwner: (Uint8Array | undefined), start: (number | undefined), end: (number | undefined), initialWeight: (number | undefined), finalWeight: (number | undefined), fee: ([number, number] | undefined), feeCollector: (Uint8Array | undefined), repayTarget: (bigint | undefined)} {
-    assert(this.isV72)
+  get asV78(): {poolId: Uint8Array, poolOwner: (Uint8Array | undefined), start: (number | undefined), end: (number | undefined), initialWeight: (number | undefined), finalWeight: (number | undefined), fee: ([number, number] | undefined), feeCollector: (Uint8Array | undefined), repayTarget: (bigint | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4137,7 +4137,7 @@ export class LiquidityMiningClaimRewardsCall {
    * 
    * Emits `RewardClaimed` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.claim_rewards') === '5277dbfabb0aaf11ff64e071320b401ab304d1054c363f2e24cf48c054f58a95'
   }
 
@@ -4154,8 +4154,8 @@ export class LiquidityMiningClaimRewardsCall {
    * 
    * Emits `RewardClaimed` event when successful.
    */
-  get asV72(): {depositId: bigint, yieldFarmId: number} {
-    assert(this.isV72)
+  get asV78(): {depositId: bigint, yieldFarmId: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4200,7 +4200,7 @@ export class LiquidityMiningCreateGlobalFarmCall {
    * - `price_adjustment`:
    * Emits `GlobalFarmCreated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.create_global_farm') === 'd28662e616a18fcf004ecc8f28bccba8290de8c5bd07d539acaa3948d688edee'
   }
 
@@ -4231,8 +4231,8 @@ export class LiquidityMiningCreateGlobalFarmCall {
    * - `price_adjustment`:
    * Emits `GlobalFarmCreated` event when successful.
    */
-  get asV72(): {totalRewards: bigint, plannedYieldingPeriods: number, blocksPerPeriod: number, incentivizedAsset: number, rewardCurrency: number, owner: Uint8Array, yieldPerPeriod: bigint, minDeposit: bigint, priceAdjustment: bigint} {
-    assert(this.isV72)
+  get asV78(): {totalRewards: bigint, plannedYieldingPeriods: number, blocksPerPeriod: number, incentivizedAsset: number, rewardCurrency: number, owner: Uint8Array, yieldPerPeriod: bigint, minDeposit: bigint, priceAdjustment: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4269,7 +4269,7 @@ export class LiquidityMiningCreateYieldFarmCall {
    * 
    * Emits `YieldFarmCreated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.create_yield_farm') === '3764d935600f3f7ba68069bc5934c83a17be187e2026bf9735a8c163e64c69f1'
   }
 
@@ -4292,8 +4292,8 @@ export class LiquidityMiningCreateYieldFarmCall {
    * 
    * Emits `YieldFarmCreated` event when successful.
    */
-  get asV72(): {globalFarmId: number, assetPair: v72.AssetPair, multiplier: bigint, loyaltyCurve: (v72.LoyaltyCurve | undefined)} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, assetPair: v78.AssetPair, multiplier: bigint, loyaltyCurve: (v78.LoyaltyCurve | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4327,7 +4327,7 @@ export class LiquidityMiningDepositSharesCall {
    * 
    * Emits `SharesDeposited` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.deposit_shares') === '7d300d5670217fb959619722b07af29f8b421d4a02ed1d3e374898c606b8799f'
   }
 
@@ -4347,8 +4347,8 @@ export class LiquidityMiningDepositSharesCall {
    * 
    * Emits `SharesDeposited` event when successful.
    */
-  get asV72(): {globalFarmId: number, yieldFarmId: number, assetPair: v72.AssetPair, sharesAmount: bigint} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, yieldFarmId: number, assetPair: v78.AssetPair, sharesAmount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4379,7 +4379,7 @@ export class LiquidityMiningDestroyGlobalFarmCall {
    * 
    * Emits `FarmDestroyed` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.destroy_global_farm') === '6c81d62dc35d0454853f5260a9937f1dea716b76a958a096c5baa5a1f4a88cce'
   }
 
@@ -4396,8 +4396,8 @@ export class LiquidityMiningDestroyGlobalFarmCall {
    * 
    * Emits `FarmDestroyed` event when successful.
    */
-  get asV72(): {globalFarmId: number} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4436,7 +4436,7 @@ export class LiquidityMiningDestroyYieldFarmCall {
    * 
    * Emits `YieldFarmDestroyed` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.destroy_yield_farm') === 'e1ac3cc4323322091808d1b441d6870a5bf2c20ad63e31a75bed9241fe6f4659'
   }
 
@@ -4461,8 +4461,8 @@ export class LiquidityMiningDestroyYieldFarmCall {
    * 
    * Emits `YieldFarmDestroyed` event when successful.
    */
-  get asV72(): {globalFarmId: number, yieldFarmId: number, assetPair: v72.AssetPair} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, yieldFarmId: number, assetPair: v78.AssetPair} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4495,7 +4495,7 @@ export class LiquidityMiningRedepositLpSharesCall {
    * 
    * Emits `SharesRedeposited` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.redeposit_lp_shares') === '402a48d0de31989d5a524f33bddfac171886ca9cca98d38eca16037b331a0f2d'
   }
 
@@ -4514,8 +4514,8 @@ export class LiquidityMiningRedepositLpSharesCall {
    * 
    * Emits `SharesRedeposited` event when successful.
    */
-  get asV72(): {globalFarmId: number, yieldFarmId: number, assetPair: v72.AssetPair, depositId: bigint} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, yieldFarmId: number, assetPair: v78.AssetPair, depositId: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4552,7 +4552,7 @@ export class LiquidityMiningResumeYieldFarmCall {
    * 
    * Emits `YieldFarmResumed` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.resume_yield_farm') === '7ac9b9a58a3a6934562c291fe12b7778dea22509fb10a82d6a03ac53cf2a5cb9'
   }
 
@@ -4575,8 +4575,8 @@ export class LiquidityMiningResumeYieldFarmCall {
    * 
    * Emits `YieldFarmResumed` event when successful.
    */
-  get asV72(): {globalFarmId: number, yieldFarmId: number, assetPair: v72.AssetPair, multiplier: bigint} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, yieldFarmId: number, assetPair: v78.AssetPair, multiplier: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4611,7 +4611,7 @@ export class LiquidityMiningStopYieldFarmCall {
    * 
    * Emits `YieldFarmStopped` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.stop_yield_farm') === 'f189257889d5c24a6c1cb015e6c1a368d73caea95a3d70678687ed34c05d8dca'
   }
 
@@ -4632,8 +4632,55 @@ export class LiquidityMiningStopYieldFarmCall {
    * 
    * Emits `YieldFarmStopped` event when successful.
    */
-  get asV72(): {globalFarmId: number, assetPair: v72.AssetPair} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, assetPair: v78.AssetPair} {
+    assert(this.isV78)
+    return this._chain.decodeCall(this.call)
+  }
+}
+
+export class LiquidityMiningUpdateGlobalFarmCall {
+  private readonly _chain: Chain
+  private readonly call: Call
+
+  constructor(ctx: CallContext)
+  constructor(ctx: ChainContext, call: Call)
+  constructor(ctx: CallContext, call?: Call) {
+    call = call || ctx.call
+    assert(call.name === 'LiquidityMining.update_global_farm')
+    this._chain = ctx._chain
+    this.call = call
+  }
+
+  /**
+   * Update global farm's prices adjustment.
+   * 
+   * Only farm's owner can perform this action.
+   * 
+   * Parameters:
+   * - `origin`: global farm's owner.
+   * - `global_farm_id`: id of the global farm to update
+   * - `price_adjustment`: new value for price adjustment
+   * 
+   * Emits `GlobalFarmUpdated` event when successful.
+   */
+  get isV78(): boolean {
+    return this._chain.getCallHash('LiquidityMining.update_global_farm') === '41f86d61e9c33e480d32f5cb4bcfdd5e7ee331338d1f09206635ebff0fc41928'
+  }
+
+  /**
+   * Update global farm's prices adjustment.
+   * 
+   * Only farm's owner can perform this action.
+   * 
+   * Parameters:
+   * - `origin`: global farm's owner.
+   * - `global_farm_id`: id of the global farm to update
+   * - `price_adjustment`: new value for price adjustment
+   * 
+   * Emits `GlobalFarmUpdated` event when successful.
+   */
+  get asV78(): {globalFarmId: number, priceAdjustment: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4664,7 +4711,7 @@ export class LiquidityMiningUpdateYieldFarmCall {
    * 
    * Emits `YieldFarmUpdated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.update_yield_farm') === '647b2578519d41fae3326f77de284f10b059de7f8f70008f63d9dfcb1c56e7be'
   }
 
@@ -4681,8 +4728,8 @@ export class LiquidityMiningUpdateYieldFarmCall {
    * 
    * Emits `YieldFarmUpdated` event when successful.
    */
-  get asV72(): {globalFarmId: number, assetPair: v72.AssetPair, multiplier: bigint} {
-    assert(this.isV72)
+  get asV78(): {globalFarmId: number, assetPair: v78.AssetPair, multiplier: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4726,7 +4773,7 @@ export class LiquidityMiningWithdrawSharesCall {
    * * `RewardClaimed` if claim happen
    * * `SharesWithdrawn` event when successful
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('LiquidityMining.withdraw_shares') === '2b87df4b27bd99dcc7664194bc99e1c0bd8c4c89fd0328d9a0ef8f2a07ec502e'
   }
 
@@ -4756,8 +4803,8 @@ export class LiquidityMiningWithdrawSharesCall {
    * * `RewardClaimed` if claim happen
    * * `SharesWithdrawn` event when successful
    */
-  get asV72(): {depositId: bigint, yieldFarmId: number, assetPair: v72.AssetPair} {
-    assert(this.isV72)
+  get asV78(): {depositId: bigint, yieldFarmId: number, assetPair: v78.AssetPair} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4783,7 +4830,7 @@ export class MarketplaceAcceptOfferCall {
    * - `instance_id`: The instance identifier of a class
    * - `maker`: User who made the offer
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Marketplace.accept_offer') === 'f42ae1ca0021893622fc78124f4b643d80d5e559019c4b93f53a6ee393d0f7a4'
   }
 
@@ -4795,8 +4842,8 @@ export class MarketplaceAcceptOfferCall {
    * - `instance_id`: The instance identifier of a class
    * - `maker`: User who made the offer
    */
-  get asV72(): {classId: bigint, instanceId: bigint, maker: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, maker: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4822,10 +4869,10 @@ export class MarketplaceAddRoyaltyCall {
    * - `class_id`: The class of the asset to be minted.
    * - `instance_id`: The instance value of the asset to be minted.
    * - `author`: Receiver of the royalty
-   * - `royalty`: Percentage reward from each trade for the author
+   * - `royalty`: Percentage reward from each trade for the author, represented in basis points
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Marketplace.add_royalty') === '6bac2944b8cf035005b88ae73355bbd3f533e8fb8e1732001a4d3adfcd1ca04d'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Marketplace.add_royalty') === '89b5fec8ba2f0c4b26ea104918df619b1873e46e6b3741216139c76decd671e4'
   }
 
   /**
@@ -4836,10 +4883,10 @@ export class MarketplaceAddRoyaltyCall {
    * - `class_id`: The class of the asset to be minted.
    * - `instance_id`: The instance value of the asset to be minted.
    * - `author`: Receiver of the royalty
-   * - `royalty`: Percentage reward from each trade for the author
+   * - `royalty`: Percentage reward from each trade for the author, represented in basis points
    */
-  get asV72(): {classId: bigint, instanceId: bigint, author: Uint8Array, royalty: number} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, author: Uint8Array, royalty: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4866,7 +4913,7 @@ export class MarketplaceBuyCall {
    * - `class_id`: The identifier of a non-fungible token class
    * - `instance_id`: The instance identifier of a class
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Marketplace.buy') === '18e8e90d1b8337d9cb9adb4e591fd4023ae1d770742db60369ff7818b78184cf'
   }
 
@@ -4879,8 +4926,8 @@ export class MarketplaceBuyCall {
    * - `class_id`: The identifier of a non-fungible token class
    * - `instance_id`: The instance identifier of a class
    */
-  get asV72(): {classId: bigint, instanceId: bigint} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4909,7 +4956,7 @@ export class MarketplaceMakeOfferCall {
    * - `amount`: The amount user is willing to pay
    * - `expires`: The block until the current owner can accept the offer
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Marketplace.make_offer') === 'c6a31a5d02a77fccb761614bd73dc986293656f41dfee2b2f6fb206c1bfc7b6a'
   }
 
@@ -4924,8 +4971,8 @@ export class MarketplaceMakeOfferCall {
    * - `amount`: The amount user is willing to pay
    * - `expires`: The block until the current owner can accept the offer
    */
-  get asV72(): {classId: bigint, instanceId: bigint, amount: bigint, expires: number} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, amount: bigint, expires: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4952,7 +4999,7 @@ export class MarketplaceSetPriceCall {
    * - `instance_id`: The instance identifier of a class
    * - `new_price`: price the token will be listed for
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Marketplace.set_price') === 'cbdd525fcd5a6705fafad982cf708dedcd2a35c6b0eca3a0f3c266462421d288'
   }
 
@@ -4965,8 +5012,8 @@ export class MarketplaceSetPriceCall {
    * - `instance_id`: The instance identifier of a class
    * - `new_price`: price the token will be listed for
    */
-  get asV72(): {classId: bigint, instanceId: bigint, newPrice: (bigint | undefined)} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, newPrice: (bigint | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -4994,7 +5041,7 @@ export class MarketplaceWithdrawOfferCall {
    * - `instance_id`: The instance identifier of a class
    * - `maker`: User who made the offer
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Marketplace.withdraw_offer') === 'f42ae1ca0021893622fc78124f4b643d80d5e559019c4b93f53a6ee393d0f7a4'
   }
 
@@ -5008,8 +5055,8 @@ export class MarketplaceWithdrawOfferCall {
    * - `instance_id`: The instance identifier of a class
    * - `maker`: User who made the offer
    */
-  get asV72(): {classId: bigint, instanceId: bigint, maker: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, maker: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5036,7 +5083,7 @@ export class MultiTransactionPaymentAddCurrencyCall {
    * 
    * Emits `CurrencyAdded` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('MultiTransactionPayment.add_currency') === '13125ec4790da3a904a34273acd08b2e8e32d1bf678dd213a2f092ab76db8c15'
   }
 
@@ -5049,8 +5096,8 @@ export class MultiTransactionPaymentAddCurrencyCall {
    * 
    * Emits `CurrencyAdded` event when successful.
    */
-  get asV72(): {currency: number, price: bigint} {
-    assert(this.isV72)
+  get asV78(): {currency: number, price: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5076,7 +5123,7 @@ export class MultiTransactionPaymentRemoveCurrencyCall {
    * 
    * Emits `CurrencyRemoved` when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('MultiTransactionPayment.remove_currency') === '6f30827fd1d3f25813ac86311eb2a11bef512c91dba46a2d0279d52ddf3b5cc9'
   }
 
@@ -5088,8 +5135,8 @@ export class MultiTransactionPaymentRemoveCurrencyCall {
    * 
    * Emits `CurrencyRemoved` when successful.
    */
-  get asV72(): {currency: number} {
-    assert(this.isV72)
+  get asV78(): {currency: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5119,7 +5166,7 @@ export class MultiTransactionPaymentSetCurrencyCall {
    * 
    * Emits `CurrencySet` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('MultiTransactionPayment.set_currency') === '6f30827fd1d3f25813ac86311eb2a11bef512c91dba46a2d0279d52ddf3b5cc9'
   }
 
@@ -5135,8 +5182,8 @@ export class MultiTransactionPaymentSetCurrencyCall {
    * 
    * Emits `CurrencySet` event when successful.
    */
-  get asV72(): {currency: number} {
-    assert(this.isV72)
+  get asV78(): {currency: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5191,7 +5238,7 @@ export class MultisigApproveAsMultiCall {
    *     - Write: Multisig Storage, [Caller Account]
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Multisig.approve_as_multi') === '615a5baaaa889f9e30839c70485b8c752e5eb050a85a23102b2f9f4c301be63a'
   }
 
@@ -5232,8 +5279,8 @@ export class MultisigApproveAsMultiCall {
    *     - Write: Multisig Storage, [Caller Account]
    * # </weight>
    */
-  get asV72(): {threshold: number, otherSignatories: Uint8Array[], maybeTimepoint: (v72.Timepoint | undefined), callHash: Uint8Array, maxWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {threshold: number, otherSignatories: Uint8Array[], maybeTimepoint: (v78.Timepoint | undefined), callHash: Uint8Array, maxWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5298,7 +5345,7 @@ export class MultisigAsMultiCall {
    * - Plus Call Weight
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Multisig.as_multi') === '548dea53ff79fe99438cf591950a533c93f9772d03a3995ec72a80376fcae222'
   }
 
@@ -5349,8 +5396,8 @@ export class MultisigAsMultiCall {
    * - Plus Call Weight
    * # </weight>
    */
-  get asV72(): {threshold: number, otherSignatories: Uint8Array[], maybeTimepoint: (v72.Timepoint | undefined), call: Uint8Array, storeCall: boolean, maxWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {threshold: number, otherSignatories: Uint8Array[], maybeTimepoint: (v78.Timepoint | undefined), call: Uint8Array, storeCall: boolean, maxWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5386,8 +5433,8 @@ export class MultisigAsMultiThreshold1Call {
    * - Plus Call Weight
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Multisig.as_multi_threshold_1') === 'f0087bf21f716f8206ee3d3843349d915ebe742a23f547a5da8f105418f81e46'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Multisig.as_multi_threshold_1') === 'a7d1d4579f8dd9f66225d44978f61ed3977d88d2814861dcaf981695a211032f'
   }
 
   /**
@@ -5408,8 +5455,8 @@ export class MultisigAsMultiThreshold1Call {
    * - Plus Call Weight
    * # </weight>
    */
-  get asV72(): {otherSignatories: Uint8Array[], call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {otherSignatories: Uint8Array[], call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5455,7 +5502,7 @@ export class MultisigCancelAsMultiCall {
    *     - Write: Multisig Storage, [Caller Account], Refund Account, Calls
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Multisig.cancel_as_multi') === '4ccc75a4f739c659f177e3df98fba2ea59ddade74c4ebccd51b2fc4c52e923af'
   }
 
@@ -5487,8 +5534,8 @@ export class MultisigCancelAsMultiCall {
    *     - Write: Multisig Storage, [Caller Account], Refund Account, Calls
    * # </weight>
    */
-  get asV72(): {threshold: number, otherSignatories: Uint8Array[], timepoint: v72.Timepoint, callHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {threshold: number, otherSignatories: Uint8Array[], timepoint: v78.Timepoint, callHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5513,7 +5560,7 @@ export class NftBurnCall {
    * - `class_id`: The class of the asset to be burned.
    * - `instance_id`: The instance of the asset to be burned.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('NFT.burn') === '18e8e90d1b8337d9cb9adb4e591fd4023ae1d770742db60369ff7818b78184cf'
   }
 
@@ -5524,8 +5571,8 @@ export class NftBurnCall {
    * - `class_id`: The class of the asset to be burned.
    * - `instance_id`: The instance of the asset to be burned.
    */
-  get asV72(): {classId: bigint, instanceId: bigint} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5554,7 +5601,7 @@ export class NftCreateClassCall {
    * 
    * Emits ClassCreated event
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('NFT.create_class') === 'c243cd54ec1cbe047def2b1e59c2ef8b8b49725a9f767dc66617e9f7117986f6'
   }
 
@@ -5569,8 +5616,8 @@ export class NftCreateClassCall {
    * 
    * Emits ClassCreated event
    */
-  get asV72(): {classId: bigint, classType: v72.ClassType, metadata: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, classType: v78.ClassType, metadata: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5594,7 +5641,7 @@ export class NftDestroyClassCall {
    * Parameters:
    * - `class_id`: The identifier of the asset class to be destroyed.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('NFT.destroy_class') === 'd20dd3096242c6bb790f5e276ab157448db821e6055469d40fc77a4ee3490636'
   }
 
@@ -5604,8 +5651,8 @@ export class NftDestroyClassCall {
    * Parameters:
    * - `class_id`: The identifier of the asset class to be destroyed.
    */
-  get asV72(): {classId: bigint} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5632,7 +5679,7 @@ export class NftMintCall {
    * - `instance_id`: The class of the asset to be minted.
    * - `metadata`: Arbitrary data about an instance, e.g. IPFS hash or symbol
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('NFT.mint') === '4271aba89819e4aba96d0a20447aa7305afd1fd7e1cdbf8c61518e1f55e88010'
   }
 
@@ -5645,8 +5692,8 @@ export class NftMintCall {
    * - `instance_id`: The class of the asset to be minted.
    * - `metadata`: Arbitrary data about an instance, e.g. IPFS hash or symbol
    */
-  get asV72(): {classId: bigint, instanceId: bigint, metadata: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, metadata: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5674,7 +5721,7 @@ export class NftTransferCall {
    * - `instance_id`: The instance of the asset to be transferred.
    * - `dest`: The account to receive ownership of the asset.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('NFT.transfer') === 'ca2dc40bf87a67a1e3048fac1e09089a13709a56acce8041e18810392ec34e00'
   }
 
@@ -5688,8 +5735,8 @@ export class NftTransferCall {
    * - `instance_id`: The instance of the asset to be transferred.
    * - `dest`: The account to receive ownership of the asset.
    */
-  get asV72(): {classId: bigint, instanceId: bigint, dest: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {classId: bigint, instanceId: bigint, dest: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5710,15 +5757,15 @@ export class OrmlXcmSendAsSovereignCall {
   /**
    * Send an XCM message as parachain sovereign.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('OrmlXcm.send_as_sovereign') === '3ca4beb317aeed3e0a00ae870ffd3bef841bb6f4e766db0b286c7fc5d8eef886'
   }
 
   /**
    * Send an XCM message as parachain sovereign.
    */
-  get asV72(): {dest: v72.VersionedMultiLocation, message: v72.VersionedXcm} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, message: v78.VersionedXcm} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5736,12 +5783,12 @@ export class ParachainSystemAuthorizeUpgradeCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('ParachainSystem.authorize_upgrade') === '9e5c86c297bd88fae31bc40119e44695818ddc3ab8842b90daeb12771005c70d'
   }
 
-  get asV72(): {codeHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {codeHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5759,12 +5806,12 @@ export class ParachainSystemEnactAuthorizedUpgradeCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('ParachainSystem.enact_authorized_upgrade') === '7bf3d4785d9be7a4872f39cbd3702a66e16f7ee01e4446fb4a05624dc0ec4c93'
   }
 
-  get asV72(): {code: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {code: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5793,7 +5840,7 @@ export class ParachainSystemSetValidationDataCall {
    * As a side effect, this function upgrades the current validation function
    * if the appropriate time has come.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('ParachainSystem.set_validation_data') === 'df843f97e4c625e033541d5f205c5889f3131bdb4549570310e924d96769c1cd'
   }
 
@@ -5808,8 +5855,8 @@ export class ParachainSystemSetValidationDataCall {
    * As a side effect, this function upgrades the current validation function
    * if the appropriate time has come.
    */
-  get asV72(): {data: v72.ParachainInherentData} {
-    assert(this.isV72)
+  get asV78(): {data: v78.ParachainInherentData} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5827,12 +5874,12 @@ export class ParachainSystemSudoSendUpwardMessageCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('ParachainSystem.sudo_send_upward_message') === '34457b6daded32ddc4ec3a5a21e34b9af8dcd7d190a5a7833fa8a7ed53b31206'
   }
 
-  get asV72(): {message: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {message: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5863,7 +5910,7 @@ export class PolkadotXcmExecuteCall {
    * NOTE: A successful return to this does *not* imply that the `msg` was executed successfully
    * to completion; only that *some* of it was executed.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.execute') === 'c6251691ab3319ecee95442d381c308f9ada155e423798c908cbd6b063aa26b4'
   }
 
@@ -5880,8 +5927,8 @@ export class PolkadotXcmExecuteCall {
    * NOTE: A successful return to this does *not* imply that the `msg` was executed successfully
    * to completion; only that *some* of it was executed.
    */
-  get asV72(): {message: v72.Type_283, maxWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {message: v78.Type_283, maxWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5906,7 +5953,7 @@ export class PolkadotXcmForceDefaultXcmVersionCall {
    * - `origin`: Must be Root.
    * - `maybe_xcm_version`: The default XCM encoding version, or `None` to disable.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.force_default_xcm_version') === 'd4bcd64cc4c940eafd14296ec6cbfb7d27e4ca42a4c7dab4c0b89f6c8102257e'
   }
 
@@ -5917,8 +5964,8 @@ export class PolkadotXcmForceDefaultXcmVersionCall {
    * - `origin`: Must be Root.
    * - `maybe_xcm_version`: The default XCM encoding version, or `None` to disable.
    */
-  get asV72(): {maybeXcmVersion: (number | undefined)} {
-    assert(this.isV72)
+  get asV78(): {maybeXcmVersion: (number | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5942,7 +5989,7 @@ export class PolkadotXcmForceSubscribeVersionNotifyCall {
    * - `origin`: Must be Root.
    * - `location`: The location to which we should subscribe for XCM version notifications.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.force_subscribe_version_notify') === 'f3f38b2278743e50bfd76c0f778560fb38a60c931275e9df42f2b9ce08c1d6fc'
   }
 
@@ -5952,8 +5999,8 @@ export class PolkadotXcmForceSubscribeVersionNotifyCall {
    * - `origin`: Must be Root.
    * - `location`: The location to which we should subscribe for XCM version notifications.
    */
-  get asV72(): {location: v72.VersionedMultiLocation} {
-    assert(this.isV72)
+  get asV78(): {location: v78.VersionedMultiLocation} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -5979,7 +6026,7 @@ export class PolkadotXcmForceUnsubscribeVersionNotifyCall {
    * - `location`: The location to which we are currently subscribed for XCM version
    *   notifications which we no longer desire.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.force_unsubscribe_version_notify') === 'f3f38b2278743e50bfd76c0f778560fb38a60c931275e9df42f2b9ce08c1d6fc'
   }
 
@@ -5991,8 +6038,8 @@ export class PolkadotXcmForceUnsubscribeVersionNotifyCall {
    * - `location`: The location to which we are currently subscribed for XCM version
    *   notifications which we no longer desire.
    */
-  get asV72(): {location: v72.VersionedMultiLocation} {
-    assert(this.isV72)
+  get asV78(): {location: v78.VersionedMultiLocation} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6018,7 +6065,7 @@ export class PolkadotXcmForceXcmVersionCall {
    * - `location`: The destination that is being described.
    * - `xcm_version`: The latest version of XCM that `location` supports.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.force_xcm_version') === '3bdd3ba3db54facd962462ff1c2c0ede1b428cf9119b36a4e96fa86916145f75'
   }
 
@@ -6030,8 +6077,8 @@ export class PolkadotXcmForceXcmVersionCall {
    * - `location`: The destination that is being described.
    * - `xcm_version`: The latest version of XCM that `location` supports.
    */
-  get asV72(): {location: v72.V1MultiLocation, xcmVersion: number} {
-    assert(this.isV72)
+  get asV78(): {location: v78.V1MultiLocation, xcmVersion: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6066,7 +6113,7 @@ export class PolkadotXcmLimitedReserveTransferAssetsCall {
    *   fees.
    * - `weight_limit`: The remote-side weight limit, if any, for the XCM fee purchase.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.limited_reserve_transfer_assets') === '3c203a3f95b9fe53b8c376802c4fe60fa6077815af7432dcd2a3e458169a5d2a'
   }
 
@@ -6087,8 +6134,8 @@ export class PolkadotXcmLimitedReserveTransferAssetsCall {
    *   fees.
    * - `weight_limit`: The remote-side weight limit, if any, for the XCM fee purchase.
    */
-  get asV72(): {dest: v72.VersionedMultiLocation, beneficiary: v72.VersionedMultiLocation, assets: v72.VersionedMultiAssets, feeAssetItem: number, weightLimit: v72.V2WeightLimit} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, beneficiary: v78.VersionedMultiLocation, assets: v78.VersionedMultiAssets, feeAssetItem: number, weightLimit: v78.V2WeightLimit} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6122,7 +6169,7 @@ export class PolkadotXcmLimitedTeleportAssetsCall {
    *   fees.
    * - `weight_limit`: The remote-side weight limit, if any, for the XCM fee purchase.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.limited_teleport_assets') === '3c203a3f95b9fe53b8c376802c4fe60fa6077815af7432dcd2a3e458169a5d2a'
   }
 
@@ -6142,8 +6189,8 @@ export class PolkadotXcmLimitedTeleportAssetsCall {
    *   fees.
    * - `weight_limit`: The remote-side weight limit, if any, for the XCM fee purchase.
    */
-  get asV72(): {dest: v72.VersionedMultiLocation, beneficiary: v72.VersionedMultiLocation, assets: v72.VersionedMultiAssets, feeAssetItem: number, weightLimit: v72.V2WeightLimit} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, beneficiary: v78.VersionedMultiLocation, assets: v78.VersionedMultiAssets, feeAssetItem: number, weightLimit: v78.V2WeightLimit} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6179,7 +6226,7 @@ export class PolkadotXcmReserveTransferAssetsCall {
    * - `fee_asset_item`: The index into `assets` of the item which should be used to pay
    *   fees.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.reserve_transfer_assets') === '123b8170fa49ede01f38623e457f4e4d417c90cff5b93ced45a9eb8fe8e6ca2e'
   }
 
@@ -6201,8 +6248,8 @@ export class PolkadotXcmReserveTransferAssetsCall {
    * - `fee_asset_item`: The index into `assets` of the item which should be used to pay
    *   fees.
    */
-  get asV72(): {dest: v72.VersionedMultiLocation, beneficiary: v72.VersionedMultiLocation, assets: v72.VersionedMultiAssets, feeAssetItem: number} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, beneficiary: v78.VersionedMultiLocation, assets: v78.VersionedMultiAssets, feeAssetItem: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6220,12 +6267,12 @@ export class PolkadotXcmSendCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.send') === '3ca4beb317aeed3e0a00ae870ffd3bef841bb6f4e766db0b286c7fc5d8eef886'
   }
 
-  get asV72(): {dest: v72.VersionedMultiLocation, message: v72.VersionedXcm} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, message: v78.VersionedXcm} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6260,7 +6307,7 @@ export class PolkadotXcmTeleportAssetsCall {
    * - `fee_asset_item`: The index into `assets` of the item which should be used to pay
    *   fees.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('PolkadotXcm.teleport_assets') === '123b8170fa49ede01f38623e457f4e4d417c90cff5b93ced45a9eb8fe8e6ca2e'
   }
 
@@ -6281,8 +6328,8 @@ export class PolkadotXcmTeleportAssetsCall {
    * - `fee_asset_item`: The index into `assets` of the item which should be used to pay
    *   fees.
    */
-  get asV72(): {dest: v72.VersionedMultiLocation, beneficiary: v72.VersionedMultiLocation, assets: v72.VersionedMultiAssets, feeAssetItem: number} {
-    assert(this.isV72)
+  get asV78(): {dest: v78.VersionedMultiLocation, beneficiary: v78.VersionedMultiLocation, assets: v78.VersionedMultiAssets, feeAssetItem: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6306,7 +6353,7 @@ export class PreimageNotePreimageCall {
    * If the preimage was previously requested, no fees or deposits are taken for providing
    * the preimage. Otherwise, a deposit is taken proportional to the size of the preimage.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Preimage.note_preimage') === 'fb6f9f7fd683160ab20dcde42ca8f757bc13845dc544f497e534fcf19c270a46'
   }
 
@@ -6316,8 +6363,8 @@ export class PreimageNotePreimageCall {
    * If the preimage was previously requested, no fees or deposits are taken for providing
    * the preimage. Otherwise, a deposit is taken proportional to the size of the preimage.
    */
-  get asV72(): {bytes: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {bytes: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6341,7 +6388,7 @@ export class PreimageRequestPreimageCall {
    * If the preimage requests has already been provided on-chain, we unreserve any deposit
    * a user may have paid, and take the control of the preimage out of their hands.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Preimage.request_preimage') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
@@ -6351,8 +6398,8 @@ export class PreimageRequestPreimageCall {
    * If the preimage requests has already been provided on-chain, we unreserve any deposit
    * a user may have paid, and take the control of the preimage out of their hands.
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6373,15 +6420,15 @@ export class PreimageUnnotePreimageCall {
   /**
    * Clear an unrequested preimage from the runtime storage.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Preimage.unnote_preimage') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
   /**
    * Clear an unrequested preimage from the runtime storage.
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6404,7 +6451,7 @@ export class PreimageUnrequestPreimageCall {
    * 
    * NOTE: THIS MUST NOT BE CALLED ON `hash` MORE TIMES THAN `request_preimage`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Preimage.unrequest_preimage') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
@@ -6413,8 +6460,8 @@ export class PreimageUnrequestPreimageCall {
    * 
    * NOTE: THIS MUST NOT BE CALLED ON `hash` MORE TIMES THAN `request_preimage`.
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6447,7 +6494,7 @@ export class ProxyAddProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.add_proxy') === 'f220512ffbbcb5be5eb1c0af68c73d8d167c31c1babe2b4a9a88ef48d43737b9'
   }
 
@@ -6466,8 +6513,8 @@ export class ProxyAddProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get asV72(): {delegate: Uint8Array, proxyType: v72.ProxyType, delay: number} {
-    assert(this.isV72)
+  get asV78(): {delegate: Uint8Array, proxyType: v78.ProxyType, delay: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6508,7 +6555,7 @@ export class ProxyAnnounceCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.announce') === '886fe5248256b2372151aa5c936f9027a64929a3501efe231a22f1ee868cff3e'
   }
 
@@ -6535,8 +6582,8 @@ export class ProxyAnnounceCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get asV72(): {real: Uint8Array, callHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {real: Uint8Array, callHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6579,7 +6626,7 @@ export class ProxyAnonymousCall {
    * # </weight>
    * TODO: Might be over counting 1 read
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.anonymous') === '3e0c6604f4c004ae260bd0745c7ca1242d00987ffb795a8c071b9ce59c9ab1e1'
   }
 
@@ -6608,8 +6655,8 @@ export class ProxyAnonymousCall {
    * # </weight>
    * TODO: Might be over counting 1 read
    */
-  get asV72(): {proxyType: v72.ProxyType, delay: number, index: number} {
-    assert(this.isV72)
+  get asV78(): {proxyType: v78.ProxyType, delay: number, index: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6649,7 +6696,7 @@ export class ProxyKillAnonymousCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.kill_anonymous') === 'c7f92eb439abe13fc14f2b3e24ab47ca26813a4af269143ff95cdb858e7dd9dd'
   }
 
@@ -6675,8 +6722,8 @@ export class ProxyKillAnonymousCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get asV72(): {spawner: Uint8Array, proxyType: v72.ProxyType, index: number, height: number, extIndex: number} {
-    assert(this.isV72)
+  get asV78(): {spawner: Uint8Array, proxyType: v78.ProxyType, index: number, height: number, extIndex: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6711,8 +6758,8 @@ export class ProxyProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Proxy.proxy') === '0f059df28a4b946c9b59c3ea8b9e6df416d36809971f737bcae26594b758e810'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Proxy.proxy') === 'c4ef31b9a631d88da16bf4cfeea79f17a26e8ce764743899420f4f5d6fe80b83'
   }
 
   /**
@@ -6732,8 +6779,8 @@ export class ProxyProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get asV72(): {real: Uint8Array, forceProxyType: (v72.ProxyType | undefined), call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {real: Uint8Array, forceProxyType: (v78.ProxyType | undefined), call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6770,8 +6817,8 @@ export class ProxyProxyAnnouncedCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Proxy.proxy_announced') === '356b207bb41999e9dd162e4536eccad40936db8ecacf12f60885ad83711dd2f8'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Proxy.proxy_announced') === '45f2d5f91122b92b02c4b347935db853b2ae5cf7740c31c5c34c20c000c8aefa'
   }
 
   /**
@@ -6793,8 +6840,8 @@ export class ProxyProxyAnnouncedCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get asV72(): {delegate: Uint8Array, real: Uint8Array, forceProxyType: (v72.ProxyType | undefined), call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {delegate: Uint8Array, real: Uint8Array, forceProxyType: (v78.ProxyType | undefined), call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6830,7 +6877,7 @@ export class ProxyRejectAnnouncementCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.reject_announcement') === '717e6dbb2911f49e34a3b48c48c86b40495423ab31d5b45f0062629c73057f2b'
   }
 
@@ -6852,8 +6899,8 @@ export class ProxyRejectAnnouncementCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get asV72(): {delegate: Uint8Array, callHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {delegate: Uint8Array, callHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6889,7 +6936,7 @@ export class ProxyRemoveAnnouncementCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.remove_announcement') === '886fe5248256b2372151aa5c936f9027a64929a3501efe231a22f1ee868cff3e'
   }
 
@@ -6911,8 +6958,8 @@ export class ProxyRemoveAnnouncementCall {
    * - P: the number of proxies the user has.
    * # </weight>
    */
-  get asV72(): {real: Uint8Array, callHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {real: Uint8Array, callHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6942,7 +6989,7 @@ export class ProxyRemoveProxiesCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.remove_proxies') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -6958,8 +7005,8 @@ export class ProxyRemoveProxiesCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -6990,7 +7037,7 @@ export class ProxyRemoveProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Proxy.remove_proxy') === 'f220512ffbbcb5be5eb1c0af68c73d8d167c31c1babe2b4a9a88ef48d43737b9'
   }
 
@@ -7007,8 +7054,8 @@ export class ProxyRemoveProxyCall {
    * Weight is a function of the number of proxies the user has (P).
    * # </weight>
    */
-  get asV72(): {delegate: Uint8Array, proxyType: v72.ProxyType, delay: number} {
-    assert(this.isV72)
+  get asV78(): {delegate: Uint8Array, proxyType: v78.ProxyType, delay: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7029,15 +7076,15 @@ export class SchedulerCancelCall {
   /**
    * Cancel an anonymously scheduled task.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Scheduler.cancel') === '4186e24556a58b04e04d6d697a530eedf78f255da1ba9d84df6511dd6d6465f7'
   }
 
   /**
    * Cancel an anonymously scheduled task.
    */
-  get asV72(): {when: number, index: number} {
-    assert(this.isV72)
+  get asV78(): {when: number, index: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7058,15 +7105,15 @@ export class SchedulerCancelNamedCall {
   /**
    * Cancel a named scheduled task.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Scheduler.cancel_named') === 'a0b847240e1232c10a62578340a2af6708e760669b06344b70c15e6370b514cf'
   }
 
   /**
    * Cancel a named scheduled task.
    */
-  get asV72(): {id: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {id: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7087,15 +7134,15 @@ export class SchedulerScheduleCall {
   /**
    * Anonymously schedule a task.
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Scheduler.schedule') === '02ab82f297d9a13b456f90058ab3ac1e361c2d335e646d0bcf20635a66212f55'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Scheduler.schedule') === '8cd96b9fc677f09d8930ed62424553c61f5f5ecf324872b8c213d2a1622e8b0e'
   }
 
   /**
    * Anonymously schedule a task.
    */
-  get asV72(): {when: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v72.MaybeHashed} {
-    assert(this.isV72)
+  get asV78(): {when: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v78.MaybeHashed} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7120,8 +7167,8 @@ export class SchedulerScheduleAfterCall {
    * Same as [`schedule`].
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Scheduler.schedule_after') === '68fcaf6597ae8ad309c3fe938ebf3a2f46d00911aeb8840fe8838fe626b8417a'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Scheduler.schedule_after') === '95924e5a4190747000e830f0af1e154c4be53005b685e8ab8d48a188350463b0'
   }
 
   /**
@@ -7131,8 +7178,8 @@ export class SchedulerScheduleAfterCall {
    * Same as [`schedule`].
    * # </weight>
    */
-  get asV72(): {after: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v72.MaybeHashed} {
-    assert(this.isV72)
+  get asV78(): {after: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v78.MaybeHashed} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7153,15 +7200,15 @@ export class SchedulerScheduleNamedCall {
   /**
    * Schedule a named task.
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Scheduler.schedule_named') === 'b7ef9674c71a80a65814f26aec074b74ed37edc0b9456c7165388fcbbe465639'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Scheduler.schedule_named') === '8cee809e7ad4505b5d23c7a61792b04e7b48194d5661c9c2a1b01613a751de0d'
   }
 
   /**
    * Schedule a named task.
    */
-  get asV72(): {id: Uint8Array, when: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v72.MaybeHashed} {
-    assert(this.isV72)
+  get asV78(): {id: Uint8Array, when: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v78.MaybeHashed} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7186,8 +7233,8 @@ export class SchedulerScheduleNamedAfterCall {
    * Same as [`schedule_named`](Self::schedule_named).
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Scheduler.schedule_named_after') === '6e91f54f452bc586ea894ec5b5a5c091bc0a48380d5c23ed2d3144c79493246c'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Scheduler.schedule_named_after') === 'ae2a69a89be85855bd74190c562c1e15b7f3e51b53eaa1e87be6720e5113461f'
   }
 
   /**
@@ -7197,8 +7244,8 @@ export class SchedulerScheduleNamedAfterCall {
    * Same as [`schedule_named`](Self::schedule_named).
    * # </weight>
    */
-  get asV72(): {id: Uint8Array, after: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v72.MaybeHashed} {
-    assert(this.isV72)
+  get asV78(): {id: Uint8Array, after: number, maybePeriodic: ([number, number] | undefined), priority: number, call: v78.MaybeHashed} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7234,7 +7281,7 @@ export class SessionPurgeKeysCall {
    * - DbWrites per key id: `KeyOwner`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Session.purge_keys') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
@@ -7256,8 +7303,8 @@ export class SessionPurgeKeysCall {
    * - DbWrites per key id: `KeyOwner`
    * # </weight>
    */
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7291,7 +7338,7 @@ export class SessionSetKeysCall {
    * - DbWrites per key id: `KeyOwner`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Session.set_keys') === 'c0b44bc08ddc0ad90c1bd05300acef09fd979fcb434b3b92b011e7817fd56c2f'
   }
 
@@ -7311,8 +7358,8 @@ export class SessionSetKeysCall {
    * - DbWrites per key id: `KeyOwner`
    * # </weight>
    */
-  get asV72(): {keys: v72.SessionKeys, proof: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {keys: v78.SessionKeys, proof: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7342,7 +7389,7 @@ export class SudoSetKeyCall {
    * - One DB change.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Sudo.set_key') === 'f866dcb3e8857987a2d21e57c13216c10bb21546a718b81d5e2c0989d6e95df7'
   }
 
@@ -7358,8 +7405,8 @@ export class SudoSetKeyCall {
    * - One DB change.
    * # </weight>
    */
-  get asV72(): {new: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {new: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7389,8 +7436,8 @@ export class SudoSudoCall {
    * - Weight of derivative `call` execution + 10,000.
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Sudo.sudo') === '4f6887129efcf21b431ddc8b8d33879a81a02ac9ceea11f408a0cb19961d9a15'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Sudo.sudo') === 'c3ab9648cac2ce6a883f8e022d8f23c19a4e02b80c40e0a441ef906a89e47f23'
   }
 
   /**
@@ -7405,8 +7452,8 @@ export class SudoSudoCall {
    * - Weight of derivative `call` execution + 10,000.
    * # </weight>
    */
-  get asV72(): {call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7437,8 +7484,8 @@ export class SudoSudoAsCall {
    * - Weight of derivative `call` execution + 10,000.
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Sudo.sudo_as') === 'ba3a45348121d6e5631ddd85da7288b258edf8e2466af830584b2be8ded3c691'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Sudo.sudo_as') === 'f5f12465911512e215d52df621b6f4d452b726f9860143ac6b1cc792d86f3960'
   }
 
   /**
@@ -7454,8 +7501,8 @@ export class SudoSudoAsCall {
    * - Weight of derivative `call` execution + 10,000.
    * # </weight>
    */
-  get asV72(): {who: Uint8Array, call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7485,8 +7532,8 @@ export class SudoSudoUncheckedWeightCall {
    * - The weight of this call is defined by the caller.
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Sudo.sudo_unchecked_weight') === '33944a358c879ab3e8b31a662d0025ef60079baaaaf57ce1aac55d21724fb4c3'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Sudo.sudo_unchecked_weight') === '9570fb33a7ba09adbaad9eddd011eb3bfcadf557da920e1ce105ecd34e9d91a9'
   }
 
   /**
@@ -7501,8 +7548,8 @@ export class SudoSudoUncheckedWeightCall {
    * - The weight of this call is defined by the caller.
    * # </weight>
    */
-  get asV72(): {call: v72.Call, weight: bigint} {
-    assert(this.isV72)
+  get asV78(): {call: v78.Call, weight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7523,15 +7570,15 @@ export class SystemFillBlockCall {
   /**
    * A dispatch that will fill the block weight up to the given ratio.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.fill_block') === '41c1841312db092642508be699e4a3f54d52efe2dcaa8101ca9518398fb70c49'
   }
 
   /**
    * A dispatch that will fill the block weight up to the given ratio.
    */
-  get asV72(): {ratio: number} {
-    assert(this.isV72)
+  get asV78(): {ratio: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7555,7 +7602,7 @@ export class SystemKillPrefixCall {
    * **NOTE:** We rely on the Root origin to provide us the number of subkeys under
    * the prefix we are removing to accurately calculate the weight of this function.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.kill_prefix') === 'dfbadd42bee8b18fc81cf78683511061181cffbf7a8ebfd3e5719c389b373d93'
   }
 
@@ -7565,8 +7612,8 @@ export class SystemKillPrefixCall {
    * **NOTE:** We rely on the Root origin to provide us the number of subkeys under
    * the prefix we are removing to accurately calculate the weight of this function.
    */
-  get asV72(): {prefix: Uint8Array, subkeys: number} {
-    assert(this.isV72)
+  get asV78(): {prefix: Uint8Array, subkeys: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7587,15 +7634,15 @@ export class SystemKillStorageCall {
   /**
    * Kill some items from storage.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.kill_storage') === 'eac21dc14e927c003d9c634fb019d04128f71f8529d2914b10a56b85289c2c11'
   }
 
   /**
    * Kill some items from storage.
    */
-  get asV72(): {keys: Uint8Array[]} {
-    assert(this.isV72)
+  get asV78(): {keys: Uint8Array[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7620,7 +7667,7 @@ export class SystemRemarkCall {
    * - `O(1)`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.remark') === 'f4e9b5b7572eeae92978087ece9b4f57cb5cab4f16baf5625bb9ec4a432bad63'
   }
 
@@ -7631,8 +7678,8 @@ export class SystemRemarkCall {
    * - `O(1)`
    * # </weight>
    */
-  get asV72(): {remark: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {remark: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7653,15 +7700,15 @@ export class SystemRemarkWithEventCall {
   /**
    * Make some on-chain remark and emit event.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.remark_with_event') === 'f4e9b5b7572eeae92978087ece9b4f57cb5cab4f16baf5625bb9ec4a432bad63'
   }
 
   /**
    * Make some on-chain remark and emit event.
    */
-  get asV72(): {remark: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {remark: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7693,7 +7740,7 @@ export class SystemSetCodeCall {
    * expensive. We will treat this as a full block.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.set_code') === '7bf3d4785d9be7a4872f39cbd3702a66e16f7ee01e4446fb4a05624dc0ec4c93'
   }
 
@@ -7711,8 +7758,8 @@ export class SystemSetCodeCall {
    * expensive. We will treat this as a full block.
    * # </weight>
    */
-  get asV72(): {code: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {code: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7741,7 +7788,7 @@ export class SystemSetCodeWithoutChecksCall {
    * The weight of this function is dependent on the runtime. We will treat this as a full
    * block. # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.set_code_without_checks') === '7bf3d4785d9be7a4872f39cbd3702a66e16f7ee01e4446fb4a05624dc0ec4c93'
   }
 
@@ -7756,8 +7803,8 @@ export class SystemSetCodeWithoutChecksCall {
    * The weight of this function is dependent on the runtime. We will treat this as a full
    * block. # </weight>
    */
-  get asV72(): {code: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {code: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7778,15 +7825,15 @@ export class SystemSetHeapPagesCall {
   /**
    * Set the number of pages in the WebAssembly environment's heap.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.set_heap_pages') === '130172e47c5e517627712b4d084768b98489d920284223ea8ef9c462339b5808'
   }
 
   /**
    * Set the number of pages in the WebAssembly environment's heap.
    */
-  get asV72(): {pages: bigint} {
-    assert(this.isV72)
+  get asV78(): {pages: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7807,15 +7854,15 @@ export class SystemSetStorageCall {
   /**
    * Set some items of storage.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('System.set_storage') === 'a4fb507615d69849afb1b2ee654006f9be48bb6e960a4674624d6e46e4382083'
   }
 
   /**
    * Set some items of storage.
    */
-  get asV72(): {items: [Uint8Array, Uint8Array][]} {
-    assert(this.isV72)
+  get asV78(): {items: [Uint8Array, Uint8Array][]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7867,7 +7914,7 @@ export class TechnicalCommitteeCloseCall {
    * - up to 3 events
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('TechnicalCommittee.close') === '45a5978a11ceb5a8b2c51f7152abaa939cd8bd4bcdc5e1162029cedba4b598ea'
   }
 
@@ -7905,8 +7952,8 @@ export class TechnicalCommitteeCloseCall {
    * - up to 3 events
    * # </weight>
    */
-  get asV72(): {proposalHash: Uint8Array, index: number, proposalWeightBound: bigint, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array, index: number, proposalWeightBound: bigint, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7940,7 +7987,7 @@ export class TechnicalCommitteeDisapproveProposalCall {
    * * Writes: Voting, Proposals, ProposalOf
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('TechnicalCommittee.disapprove_proposal') === 'b8668610145a6851ad2d5b7dd4bfc15e29402d9a8558401ab955896007f866a5'
   }
 
@@ -7960,8 +8007,8 @@ export class TechnicalCommitteeDisapproveProposalCall {
    * * Writes: Voting, Proposals, ProposalOf
    * # </weight>
    */
-  get asV72(): {proposalHash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {proposalHash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -7992,8 +8039,8 @@ export class TechnicalCommitteeExecuteCall {
    * - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('TechnicalCommittee.execute') === '310c1ac03215f7fd10ec5b163e2dbbb5991688b419ed0a629c61537d9c417103'
+  get isV78(): boolean {
+    return this._chain.getCallHash('TechnicalCommittee.execute') === 'd124ab118335541e4d64d7187c5daaa069c9de1f39b3f53c5836cb901c00c46c'
   }
 
   /**
@@ -8009,8 +8056,8 @@ export class TechnicalCommitteeExecuteCall {
    * - 1 event
    * # </weight>
    */
-  get asV72(): {proposal: v72.Call, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {proposal: v78.Call, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8057,8 +8104,8 @@ export class TechnicalCommitteeProposeCall {
    *   - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('TechnicalCommittee.propose') === '59090cb1d798849150ce87521c34ca896697e203de2f8e1f498d248abc78f65e'
+  get isV78(): boolean {
+    return this._chain.getCallHash('TechnicalCommittee.propose') === 'e8d5cbcf2c4d12383b76b2c035a628fa0f77e06a181b0bb6aa77789e3151b25a'
   }
 
   /**
@@ -8090,8 +8137,8 @@ export class TechnicalCommitteeProposeCall {
    *   - 1 event
    * # </weight>
    */
-  get asV72(): {threshold: number, proposal: v72.Call, lengthBound: number} {
-    assert(this.isV72)
+  get asV78(): {threshold: number, proposal: v78.Call, lengthBound: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8143,7 +8190,7 @@ export class TechnicalCommitteeSetMembersCall {
    *   - 1 storage write (codec `O(1)`) for deleting the old `prime` and setting the new one
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('TechnicalCommittee.set_members') === '71b7fcb1d8a62eff96a9ef006517578ce9189e6d931948a256a04ca75ff68d4a'
   }
 
@@ -8181,8 +8228,8 @@ export class TechnicalCommitteeSetMembersCall {
    *   - 1 storage write (codec `O(1)`) for deleting the old `prime` and setting the new one
    * # </weight>
    */
-  get asV72(): {newMembers: Uint8Array[], prime: (Uint8Array | undefined), oldCount: number} {
-    assert(this.isV72)
+  get asV78(): {newMembers: Uint8Array[], prime: (Uint8Array | undefined), oldCount: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8217,7 +8264,7 @@ export class TechnicalCommitteeVoteCall {
    * - 1 event
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('TechnicalCommittee.vote') === 'f8a1069a57f7b721f47c086d08b6838ae1a0c08f58caddb82428ba5f1407540f'
   }
 
@@ -8238,8 +8285,8 @@ export class TechnicalCommitteeVoteCall {
    * - 1 event
    * # </weight>
    */
-  get asV72(): {proposal: Uint8Array, index: number, approve: boolean} {
-    assert(this.isV72)
+  get asV78(): {proposal: Uint8Array, index: number, approve: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8275,7 +8322,7 @@ export class TimestampSetCall {
    * - 1 event handler `on_timestamp_set`. Must be `O(1)`.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Timestamp.set') === '6a8b8ba2be107f0853b674eec0026cc440b314db44d0e2c59b36e353355aed14'
   }
 
@@ -8297,8 +8344,8 @@ export class TimestampSetCall {
    * - 1 event handler `on_timestamp_set`. Must be `O(1)`.
    * # </weight>
    */
-  get asV72(): {now: bigint} {
-    assert(this.isV72)
+  get asV78(): {now: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8334,7 +8381,7 @@ export class TipsCloseTipCall {
    * - DbWrites: `Reasons`, `Tips`, `Tippers`, `tip finder`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.close_tip') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
@@ -8356,8 +8403,8 @@ export class TipsCloseTipCall {
    * - DbWrites: `Reasons`, `Tips`, `Tippers`, `tip finder`
    * # </weight>
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8396,7 +8443,7 @@ export class TipsReportAwesomeCall {
    * - DbWrites: `Reasons`, `Tips`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.report_awesome') === '5f39cdb6a1bab5505c2717a3d34b1ad66c35bb6aca421780ce60b4e9017fe886'
   }
 
@@ -8421,8 +8468,8 @@ export class TipsReportAwesomeCall {
    * - DbWrites: `Reasons`, `Tips`
    * # </weight>
    */
-  get asV72(): {reason: Uint8Array, who: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {reason: Uint8Array, who: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8461,7 +8508,7 @@ export class TipsRetractTipCall {
    * - DbWrites: `Reasons`, `Tips`, `origin account`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.retract_tip') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
@@ -8486,8 +8533,8 @@ export class TipsRetractTipCall {
    * - DbWrites: `Reasons`, `Tips`, `origin account`
    * # </weight>
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8519,7 +8566,7 @@ export class TipsSlashTipCall {
    *   The actual cost depends on the implementation of `T::Tippers`.
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.slash_tip') === '19b8576fc9fe9553b0b5ad154324ccae0d0d43fdccbdffddf2bb6066a9b37b5c'
   }
 
@@ -8537,8 +8584,8 @@ export class TipsSlashTipCall {
    *   The actual cost depends on the implementation of `T::Tippers`.
    * # </weight>
    */
-  get asV72(): {hash: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8582,7 +8629,7 @@ export class TipsTipCall {
    * - DbWrites: `Tips`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.tip') === 'f3795cdab18c292963e0e30ece37a15a2900030efc315a8e3f28ba886b2b9f58'
   }
 
@@ -8612,8 +8659,8 @@ export class TipsTipCall {
    * - DbWrites: `Tips`
    * # </weight>
    */
-  get asV72(): {hash: Uint8Array, tipValue: bigint} {
-    assert(this.isV72)
+  get asV78(): {hash: Uint8Array, tipValue: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8655,7 +8702,7 @@ export class TipsTipNewCall {
    * - DbWrites: `Reasons`, `Tips`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tips.tip_new') === '367b1dcdffb32d8c4b26e342e9b515c65f2589dec81f4a3f6f336faaa7e127ac'
   }
 
@@ -8683,8 +8730,8 @@ export class TipsTipNewCall {
    * - DbWrites: `Reasons`, `Tips`
    * # </weight>
    */
-  get asV72(): {reason: Uint8Array, who: Uint8Array, tipValue: bigint} {
-    assert(this.isV72)
+  get asV78(): {reason: Uint8Array, who: Uint8Array, tipValue: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8713,7 +8760,7 @@ export class TokensForceTransferCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tokens.force_transfer') === '03ae65ffcb050d1a5f07226901a4dd126b516b5cbb0c2ec5486bf9cc4eb92a25'
   }
 
@@ -8728,8 +8775,8 @@ export class TokensForceTransferCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get asV72(): {source: Uint8Array, dest: Uint8Array, currencyId: number, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {source: Uint8Array, dest: Uint8Array, currencyId: number, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8757,7 +8804,7 @@ export class TokensSetBalanceCall {
    * 
    * The dispatch origin for this call is `root`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tokens.set_balance') === 'bb217c2e772e23f283f74504acd25cc61bec482f7cf2843bfc8a333fcca93e41'
   }
 
@@ -8771,8 +8818,8 @@ export class TokensSetBalanceCall {
    * 
    * The dispatch origin for this call is `root`.
    */
-  get asV72(): {who: Uint8Array, currencyId: number, newFree: bigint, newReserved: bigint} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, currencyId: number, newFree: bigint, newReserved: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8805,7 +8852,7 @@ export class TokensTransferCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tokens.transfer') === 'f9417776835359c4df2af31d48b33bac20ebcc850ed3738fcbccd673124fb252'
   }
 
@@ -8824,8 +8871,8 @@ export class TokensTransferCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get asV72(): {dest: Uint8Array, currencyId: number, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, currencyId: number, amount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8864,7 +8911,7 @@ export class TokensTransferAllCall {
    *   except at least the existential deposit, which will guarantee to
    *   keep the sender account alive (true).
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tokens.transfer_all') === '0cab462a3623f31f93271da96b823635d8988375ef69ec29a253fe44165a2324'
   }
 
@@ -8889,8 +8936,8 @@ export class TokensTransferAllCall {
    *   except at least the existential deposit, which will guarantee to
    *   keep the sender account alive (true).
    */
-  get asV72(): {dest: Uint8Array, currencyId: number, keepAlive: boolean} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, currencyId: number, keepAlive: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8921,7 +8968,7 @@ export class TokensTransferKeepAliveCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Tokens.transfer_keep_alive') === 'f9417776835359c4df2af31d48b33bac20ebcc850ed3738fcbccd673124fb252'
   }
 
@@ -8938,8 +8985,54 @@ export class TokensTransferKeepAliveCall {
    * - `currency_id`: currency type.
    * - `amount`: free balance amount to tranfer.
    */
-  get asV72(): {dest: Uint8Array, currencyId: number, amount: bigint} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, currencyId: number, amount: bigint} {
+    assert(this.isV78)
+    return this._chain.decodeCall(this.call)
+  }
+}
+
+export class TransactionPausePauseTransactionCall {
+  private readonly _chain: Chain
+  private readonly call: Call
+
+  constructor(ctx: CallContext)
+  constructor(ctx: ChainContext, call: Call)
+  constructor(ctx: CallContext, call?: Call) {
+    call = call || ctx.call
+    assert(call.name === 'TransactionPause.pause_transaction')
+    this._chain = ctx._chain
+    this.call = call
+  }
+
+  get isV78(): boolean {
+    return this._chain.getCallHash('TransactionPause.pause_transaction') === '9f7ea81680daeafc9598d45a2a8cebeeecb2ddd4c023d1961eb29f8509623297'
+  }
+
+  get asV78(): {palletName: Uint8Array, functionName: Uint8Array} {
+    assert(this.isV78)
+    return this._chain.decodeCall(this.call)
+  }
+}
+
+export class TransactionPauseUnpauseTransactionCall {
+  private readonly _chain: Chain
+  private readonly call: Call
+
+  constructor(ctx: CallContext)
+  constructor(ctx: ChainContext, call: Call)
+  constructor(ctx: CallContext, call?: Call) {
+    call = call || ctx.call
+    assert(call.name === 'TransactionPause.unpause_transaction')
+    this._chain = ctx._chain
+    this.call = call
+  }
+
+  get isV78(): boolean {
+    return this._chain.getCallHash('TransactionPause.unpause_transaction') === '9f7ea81680daeafc9598d45a2a8cebeeecb2ddd4c023d1961eb29f8509623297'
+  }
+
+  get asV78(): {palletName: Uint8Array, functionName: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -8969,7 +9062,7 @@ export class TreasuryApproveProposalCall {
    * - DbWrite: `Approvals`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Treasury.approve_proposal') === 'd31c3c178e65331a6ccd6f8dca07268f945f39b38e51421afd1c9e1f5bc0f6c8'
   }
 
@@ -8985,8 +9078,8 @@ export class TreasuryApproveProposalCall {
    * - DbWrite: `Approvals`
    * # </weight>
    */
-  get asV72(): {proposalId: number} {
-    assert(this.isV72)
+  get asV78(): {proposalId: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9015,7 +9108,7 @@ export class TreasuryProposeSpendCall {
    * - DbWrites: `ProposalCount`, `Proposals`, `origin account`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Treasury.propose_spend') === '98e9af32f46010396e58ac70ce7c017f7e95d81b05c03d5e5aeb94ce27732909'
   }
 
@@ -9030,8 +9123,8 @@ export class TreasuryProposeSpendCall {
    * - DbWrites: `ProposalCount`, `Proposals`, `origin account`
    * # </weight>
    */
-  get asV72(): {value: bigint, beneficiary: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {value: bigint, beneficiary: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9060,7 +9153,7 @@ export class TreasuryRejectProposalCall {
    * - DbWrites: `Proposals`, `rejected proposer account`
    * # </weight>
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Treasury.reject_proposal') === 'd31c3c178e65331a6ccd6f8dca07268f945f39b38e51421afd1c9e1f5bc0f6c8'
   }
 
@@ -9075,8 +9168,8 @@ export class TreasuryRejectProposalCall {
    * - DbWrites: `Proposals`, `rejected proposer account`
    * # </weight>
    */
-  get asV72(): {proposalId: number} {
-    assert(this.isV72)
+  get asV78(): {proposalId: number} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9107,7 +9200,7 @@ export class UniquesApproveTransferCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.approve_transfer') === 'e2bc6a584a078f701e2a87282b57b8b974f114f1266f8bc83b275ec2e1ff9d2f'
   }
 
@@ -9124,8 +9217,8 @@ export class UniquesApproveTransferCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint, delegate: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, delegate: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9158,7 +9251,7 @@ export class UniquesBurnCall {
    * Weight: `O(1)`
    * Modes: `check_owner.is_some()`.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.burn') === '47839fc14a479775a1b4bb04fc9cab3d7a74b533a52a2d3e308e2e8f3e7843a5'
   }
 
@@ -9177,8 +9270,8 @@ export class UniquesBurnCall {
    * Weight: `O(1)`
    * Modes: `check_owner.is_some()`.
    */
-  get asV72(): {class: bigint, instance: bigint, checkOwner: (Uint8Array | undefined)} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, checkOwner: (Uint8Array | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9214,7 +9307,7 @@ export class UniquesCancelApprovalCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.cancel_approval') === 'f71ba524a3f396eb92526d22734ac9ded9ac72ffa34f2678bb59871c82e9ffee'
   }
 
@@ -9236,8 +9329,8 @@ export class UniquesCancelApprovalCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint, maybeCheckDelegate: (Uint8Array | undefined)} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, maybeCheckDelegate: (Uint8Array | undefined)} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9271,7 +9364,7 @@ export class UniquesClearAttributeCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.clear_attribute') === 'fa7fbe839ff03afee447f0395225a1b90a4a0d39db0de47a57b304e0007ae3f1'
   }
 
@@ -9291,8 +9384,8 @@ export class UniquesClearAttributeCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, maybeInstance: (bigint | undefined), key: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, maybeInstance: (bigint | undefined), key: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9324,7 +9417,7 @@ export class UniquesClearClassMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.clear_class_metadata') === 'de726c651d782a794b6320d324614e9a6d7941df63ec96acd3dcfeefc3e462fc'
   }
 
@@ -9342,8 +9435,8 @@ export class UniquesClearClassMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9376,7 +9469,7 @@ export class UniquesClearMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.clear_metadata') === 'a8eb242f40f38e99b6acb0b2a5fe4c2895f468e8d68e42a8b577d041f6327531'
   }
 
@@ -9395,8 +9488,8 @@ export class UniquesClearMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9432,7 +9525,7 @@ export class UniquesCreateCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.create') === 'cd83927cb03589388233766c2e9f8feb573752f7ceffabdcc8eadebc1a718b7e'
   }
 
@@ -9454,8 +9547,8 @@ export class UniquesCreateCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, admin: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, admin: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9490,7 +9583,7 @@ export class UniquesDestroyCall {
    * - `m = witness.instance_metadatas`
    * - `a = witness.attributes`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.destroy') === '5b3264e0470756325df85a61ed9a9041e96224d1ba29102b74991a5914a0e111'
   }
 
@@ -9511,8 +9604,8 @@ export class UniquesDestroyCall {
    * - `m = witness.instance_metadatas`
    * - `a = witness.attributes`
    */
-  get asV72(): {class: bigint, witness: v72.DestroyWitness} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, witness: v78.DestroyWitness} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9549,7 +9642,7 @@ export class UniquesForceAssetStatusCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.force_asset_status') === '9bf88a9992763cd61875a298871db3ed7d80ff8ef683db496d723ed21e7b4505'
   }
 
@@ -9572,8 +9665,8 @@ export class UniquesForceAssetStatusCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, owner: Uint8Array, issuer: Uint8Array, admin: Uint8Array, freezer: Uint8Array, freeHolding: boolean, isFrozen: boolean} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, owner: Uint8Array, issuer: Uint8Array, admin: Uint8Array, freezer: Uint8Array, freeHolding: boolean, isFrozen: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9609,7 +9702,7 @@ export class UniquesForceCreateCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.force_create') === 'b597cc61767d7abfd1b13675fb6939049fe086d2275cfda0922034e935222f41'
   }
 
@@ -9631,8 +9724,8 @@ export class UniquesForceCreateCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, owner: Uint8Array, freeHolding: boolean} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, owner: Uint8Array, freeHolding: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9662,7 +9755,7 @@ export class UniquesFreezeCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.freeze') === 'a8eb242f40f38e99b6acb0b2a5fe4c2895f468e8d68e42a8b577d041f6327531'
   }
 
@@ -9678,8 +9771,8 @@ export class UniquesFreezeCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9708,7 +9801,7 @@ export class UniquesFreezeClassCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.freeze_class') === 'de726c651d782a794b6320d324614e9a6d7941df63ec96acd3dcfeefc3e462fc'
   }
 
@@ -9723,8 +9816,8 @@ export class UniquesFreezeClassCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9755,7 +9848,7 @@ export class UniquesMintCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.mint') === '22d6c9cf90c85c2e49710966b541e67e8bd7e4caaa0ede7e5fc52cb7be88bd28'
   }
 
@@ -9772,8 +9865,8 @@ export class UniquesMintCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint, owner: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, owner: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9810,7 +9903,7 @@ export class UniquesRedepositCall {
    * 
    * Weight: `O(instances.len())`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.redeposit') === 'a898eab9074705bbdb214fa3388476a937f56681c99a6fdc6f2775e3937ef6e6'
   }
 
@@ -9833,8 +9926,8 @@ export class UniquesRedepositCall {
    * 
    * Weight: `O(instances.len())`
    */
-  get asV72(): {class: bigint, instances: bigint[]} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instances: bigint[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9871,7 +9964,7 @@ export class UniquesSetAttributeCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.set_attribute') === '266eb96b44178238a7d75de203799f5b12d3c3cbcc2a7dc64455c196304b42de'
   }
 
@@ -9894,8 +9987,8 @@ export class UniquesSetAttributeCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, maybeInstance: (bigint | undefined), key: Uint8Array, value: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, maybeInstance: (bigint | undefined), key: Uint8Array, value: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9931,7 +10024,7 @@ export class UniquesSetClassMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.set_class_metadata') === '048f5192b5a715be7a9cfa9fb62d2d4ab7c8eae90057c10636620cdb7c5ddf74'
   }
 
@@ -9953,8 +10046,8 @@ export class UniquesSetClassMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, data: Uint8Array, isFrozen: boolean} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, data: Uint8Array, isFrozen: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -9991,7 +10084,7 @@ export class UniquesSetMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.set_metadata') === 'efb23390e7df146e5fd4a351bde65cef92e370a59dc542a6af66370ef5c17df3'
   }
 
@@ -10014,8 +10107,8 @@ export class UniquesSetMetadataCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint, data: Uint8Array, isFrozen: boolean} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, data: Uint8Array, isFrozen: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10047,7 +10140,7 @@ export class UniquesSetTeamCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.set_team') === '5719ec093d2a015bb78e5d8e16720e7839064cf729207359c0e00fc016706d39'
   }
 
@@ -10065,8 +10158,8 @@ export class UniquesSetTeamCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, issuer: Uint8Array, admin: Uint8Array, freezer: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, issuer: Uint8Array, admin: Uint8Array, freezer: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10096,7 +10189,7 @@ export class UniquesThawCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.thaw') === 'a8eb242f40f38e99b6acb0b2a5fe4c2895f468e8d68e42a8b577d041f6327531'
   }
 
@@ -10112,8 +10205,8 @@ export class UniquesThawCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10142,7 +10235,7 @@ export class UniquesThawClassCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.thaw_class') === 'de726c651d782a794b6320d324614e9a6d7941df63ec96acd3dcfeefc3e462fc'
   }
 
@@ -10157,8 +10250,8 @@ export class UniquesThawClassCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint} {
-    assert(this.isV72)
+  get asV78(): {class: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10193,7 +10286,7 @@ export class UniquesTransferCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.transfer') === '60ba4aeb54be9ec50306eddb95a4167e7ddb2190fdf549860356ac4db90a8896'
   }
 
@@ -10214,8 +10307,8 @@ export class UniquesTransferCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, instance: bigint, dest: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, instance: bigint, dest: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10245,7 +10338,7 @@ export class UniquesTransferOwnershipCall {
    * 
    * Weight: `O(1)`
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Uniques.transfer_ownership') === 'c001cb6545bb30a3cfe5abd79abc4642b0d84253c7816f0a2ac1b65a7ddf3228'
   }
 
@@ -10261,8 +10354,8 @@ export class UniquesTransferOwnershipCall {
    * 
    * Weight: `O(1)`
    */
-  get asV72(): {class: bigint, owner: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {class: bigint, owner: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10295,8 +10388,8 @@ export class UtilityAsDerivativeCall {
    * 
    * The dispatch origin for this call must be _Signed_.
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Utility.as_derivative') === '70b80d604271a2897d1ef47a8f8b93fe1dfe1dcccf8e111b90b57e949b23c9de'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Utility.as_derivative') === '6782d581a79319f8dd4d354416d0907e8b5449987480231a6dc5bc9cb3519d23'
   }
 
   /**
@@ -10314,8 +10407,8 @@ export class UtilityAsDerivativeCall {
    * 
    * The dispatch origin for this call must be _Signed_.
    */
-  get asV72(): {index: number, call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {index: number, call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10354,8 +10447,8 @@ export class UtilityBatchCall {
    * and the error of the failed call. If all were successful, then the `BatchCompleted`
    * event is deposited.
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Utility.batch') === '875dbbb687f2a7834d9d90731d1a9366ea778842e8350ea1eb77d7ef5eadbb86'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Utility.batch') === 'dfd21241b84e647843245b82684359c19b2510fdde80675460ca2662b0e279a0'
   }
 
   /**
@@ -10379,8 +10472,8 @@ export class UtilityBatchCall {
    * and the error of the failed call. If all were successful, then the `BatchCompleted`
    * event is deposited.
    */
-  get asV72(): {calls: v72.Call[]} {
-    assert(this.isV72)
+  get asV78(): {calls: v78.Call[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10414,8 +10507,8 @@ export class UtilityBatchAllCall {
    * - Complexity: O(C) where C is the number of calls to be batched.
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Utility.batch_all') === '875dbbb687f2a7834d9d90731d1a9366ea778842e8350ea1eb77d7ef5eadbb86'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Utility.batch_all') === 'dfd21241b84e647843245b82684359c19b2510fdde80675460ca2662b0e279a0'
   }
 
   /**
@@ -10434,8 +10527,8 @@ export class UtilityBatchAllCall {
    * - Complexity: O(C) where C is the number of calls to be batched.
    * # </weight>
    */
-  get asV72(): {calls: v72.Call[]} {
-    assert(this.isV72)
+  get asV78(): {calls: v78.Call[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10465,8 +10558,8 @@ export class UtilityDispatchAsCall {
    * - Weight of derivative `call` execution + T::WeightInfo::dispatch_as().
    * # </weight>
    */
-  get isV72(): boolean {
-    return this._chain.getCallHash('Utility.dispatch_as') === '8596d90fb40040aebd8808e367f5a6d4ed87439eaf39c20521a80cdd16c18312'
+  get isV78(): boolean {
+    return this._chain.getCallHash('Utility.dispatch_as') === 'ddaa20f6d73113508d5d4238297b5c037a0d2d515b92cbdbb975162fb4804409'
   }
 
   /**
@@ -10481,8 +10574,8 @@ export class UtilityDispatchAsCall {
    * - Weight of derivative `call` execution + T::WeightInfo::dispatch_as().
    * # </weight>
    */
-  get asV72(): {asOrigin: v72.OriginCaller, call: v72.Call} {
-    assert(this.isV72)
+  get asV78(): {asOrigin: v78.OriginCaller, call: v78.Call} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10500,12 +10593,12 @@ export class VestingClaimCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Vesting.claim') === '01f2f9c28aa1d4d36a81ff042620b6677d25bf07c2bf4acc37b58658778a4fca'
   }
 
-  get asV72(): null {
-    assert(this.isV72)
+  get asV78(): null {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10523,12 +10616,12 @@ export class VestingClaimForCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Vesting.claim_for') === 'b460c0e5be86faa4e205be32c38d7cbf4012485c8ea8f2b0d2831cc6157b2ed8'
   }
 
-  get asV72(): {dest: Uint8Array} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10546,12 +10639,12 @@ export class VestingUpdateVestingSchedulesCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Vesting.update_vesting_schedules') === '77c565e7989e7bc919881bb1ee1a6ea3717748d0dc34dfa233007fbe6386e5d8'
   }
 
-  get asV72(): {who: Uint8Array, vestingSchedules: v72.VestingSchedule[]} {
-    assert(this.isV72)
+  get asV78(): {who: Uint8Array, vestingSchedules: v78.VestingSchedule[]} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10569,12 +10662,12 @@ export class VestingVestedTransferCall {
     this.call = call
   }
 
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('Vesting.vested_transfer') === '0a3591798ce10f78f229a34448a83d06dfe547006c9e21a950869d29b5510d14'
   }
 
-  get asV72(): {dest: Uint8Array, schedule: v72.VestingSchedule} {
-    assert(this.isV72)
+  get asV78(): {dest: Uint8Array, schedule: v78.VestingSchedule} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10606,7 +10699,7 @@ export class XTokensTransferCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer') === '779953428ade1393c57223ef31a3e0b8a8aa80c03bc446a03beff0f03c84534f'
   }
 
@@ -10624,8 +10717,8 @@ export class XTokensTransferCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {currencyId: number, amount: bigint, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {currencyId: number, amount: bigint, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10657,7 +10750,7 @@ export class XTokensTransferMultiassetCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer_multiasset') === 'f33cd4d2466c1e767a4c2d9b00f7b71b359b07f3e78d76d466e3928a3e2ed9b8'
   }
 
@@ -10675,8 +10768,8 @@ export class XTokensTransferMultiassetCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {asset: v72.VersionedMultiAsset, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {asset: v78.VersionedMultiAsset, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10717,7 +10810,7 @@ export class XTokensTransferMultiassetWithFeeCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer_multiasset_with_fee') === '72aca3119f971190d4dd5493791879ff41295c5e290079c6179cb41be01e6226'
   }
 
@@ -10744,8 +10837,8 @@ export class XTokensTransferMultiassetWithFeeCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {asset: v72.VersionedMultiAsset, fee: v72.VersionedMultiAsset, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {asset: v78.VersionedMultiAsset, fee: v78.VersionedMultiAsset, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10780,7 +10873,7 @@ export class XTokensTransferMultiassetsCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer_multiassets') === '2c9276a8e5652bef69d8e7f6f9bf7caccd48bb5ef0b25b42010d09b4b28b18c5'
   }
 
@@ -10801,8 +10894,8 @@ export class XTokensTransferMultiassetsCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {assets: v72.VersionedMultiAssets, feeItem: number, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {assets: v78.VersionedMultiAssets, feeItem: number, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10837,7 +10930,7 @@ export class XTokensTransferMulticurrenciesCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer_multicurrencies') === 'ae8e439e76fe4660ff35fbf13277a9d4bdd8c18e4ee54c9d06622dd2336bd1e2'
   }
 
@@ -10858,8 +10951,8 @@ export class XTokensTransferMulticurrenciesCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {currencies: [number, bigint][], feeItem: number, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {currencies: [number, bigint][], feeItem: number, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10900,7 +10993,7 @@ export class XTokensTransferWithFeeCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XTokens.transfer_with_fee') === '95051b752e41101340eab37ed9777dfdaab1be321d83671aa84c021755c17e48'
   }
 
@@ -10927,8 +11020,8 @@ export class XTokensTransferWithFeeCall {
    * by the network, and if the receiving chain would handle
    * messages correctly.
    */
-  get asV72(): {currencyId: number, amount: bigint, fee: bigint, dest: v72.VersionedMultiLocation, destWeight: bigint} {
-    assert(this.isV72)
+  get asV78(): {currencyId: number, amount: bigint, fee: bigint, dest: v78.VersionedMultiLocation, destWeight: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10953,7 +11046,7 @@ export class XykAddLiquidityCall {
    * 
    * Emits `LiquidityAdded` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XYK.add_liquidity') === '49b203a41a53269704b11662e91b99273e01464f22097ed3ac18f7d12e742a9d'
   }
 
@@ -10964,8 +11057,8 @@ export class XykAddLiquidityCall {
    * 
    * Emits `LiquidityAdded` event when successful.
    */
-  get asV72(): {assetA: number, assetB: number, amountA: bigint, amountBMaxLimit: bigint} {
-    assert(this.isV72)
+  get asV78(): {assetA: number, assetB: number, amountA: bigint, amountBMaxLimit: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -10992,7 +11085,7 @@ export class XykBuyCall {
    * 
    * Emits `BuyExecuted` when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XYK.buy') === 'ab3eaf0cb16e0fea7650fbfbff002ef0bfa3d8f7908b7be4036eea89529c956d'
   }
 
@@ -11005,8 +11098,8 @@ export class XykBuyCall {
    * 
    * Emits `BuyExecuted` when successful.
    */
-  get asV72(): {assetOut: number, assetIn: number, amount: bigint, maxLimit: bigint, discount: boolean} {
-    assert(this.isV72)
+  get asV78(): {assetOut: number, assetIn: number, amount: bigint, maxLimit: bigint, discount: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -11035,7 +11128,7 @@ export class XykCreatePoolCall {
    * 
    * Emits `PoolCreated` event when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XYK.create_pool') === '036b76577b25b1b68f8755f0d220a559f2683a68ad6072247e03c16346d46d7f'
   }
 
@@ -11050,8 +11143,8 @@ export class XykCreatePoolCall {
    * 
    * Emits `PoolCreated` event when successful.
    */
-  get asV72(): {assetA: number, assetB: number, amount: bigint, initialPrice: bigint} {
-    assert(this.isV72)
+  get asV78(): {assetA: number, assetB: number, amount: bigint, initialPrice: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -11077,7 +11170,7 @@ export class XykRemoveLiquidityCall {
    * Emits 'LiquidityRemoved' when successful.
    * Emits 'PoolDestroyed' when pool is destroyed.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XYK.remove_liquidity') === '381acbc6a211906fdf77548353137f1d4ffa7bc565402bd59ed9fc09b0186fee'
   }
 
@@ -11089,8 +11182,8 @@ export class XykRemoveLiquidityCall {
    * Emits 'LiquidityRemoved' when successful.
    * Emits 'PoolDestroyed' when pool is destroyed.
    */
-  get asV72(): {assetA: number, assetB: number, liquidityAmount: bigint} {
-    assert(this.isV72)
+  get asV78(): {assetA: number, assetB: number, liquidityAmount: bigint} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }
@@ -11117,7 +11210,7 @@ export class XykSellCall {
    * 
    * Emits `SellExecuted` when successful.
    */
-  get isV72(): boolean {
+  get isV78(): boolean {
     return this._chain.getCallHash('XYK.sell') === 'ed0c4336cf718cfe65339630b1b031d1eedac2f9d2a71bfefbdd5c72723c9d66'
   }
 
@@ -11130,8 +11223,8 @@ export class XykSellCall {
    * 
    * Emits `SellExecuted` when successful.
    */
-  get asV72(): {assetIn: number, assetOut: number, amount: bigint, maxLimit: bigint, discount: boolean} {
-    assert(this.isV72)
+  get asV78(): {assetIn: number, assetOut: number, amount: bigint, maxLimit: bigint, discount: boolean} {
+    assert(this.isV78)
     return this._chain.decodeCall(this.call)
   }
 }

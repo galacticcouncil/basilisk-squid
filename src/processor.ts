@@ -17,18 +17,21 @@ import {
   PoolType,
   Transfer
 } from './model'
-import { ParachainSystemSetValidationDataCall } from './types/calls'
-import {
-  BalancesTransferEvent,
-  LbpPoolCreatedEvent,
-  LbpPoolUpdatedEvent,
-  TokensTransferEvent,
-  XykPoolCreatedEvent
-} from './types/events'
-import { SystemAccountStorage, TokensAccountsStorage } from './types/storage'
 
 import { isNotNullOrUndefined } from './helpers'
 import yargs from 'yargs'
+import { parseLBPPoolUpdates } from './transforms/lbpPoolUpdate/index'
+import {
+  BalancesTransferEvent,
+  LbpPoolCreatedEvent,
+  TokensTransferEvent,
+  XykPoolCreatedEvent
+} from './types/types-production/events'
+import {
+  SystemAccountStorage,
+  TokensAccountsStorage
+} from './types/types-production/storage'
+import { parseParachainSystemValidationData } from './transforms/parachainSystemValidationData/index'
 
 export enum environment {
   local = 'local',
@@ -37,7 +40,7 @@ export enum environment {
   production = 'production'
 }
 
-export type ENV = {
+type ENV = {
   [K in environment]: {
     archive: string
     chain: string
@@ -67,25 +70,25 @@ export const env: ENV = {
     chain: 'wss://rococo-basilisk-rpc.hydration.dev/'
   },
   production: {
-    archive: '',
-    chain: ''
+    archive: 'https://basilisk-firesquid.play.hydration.cloud/graphql',
+    chain: 'wss://rpc.basilisk.cloud'
   }
 }
 
 const { branch } = getRepoInfo()
 const isCi = process.env.CI === 'true'
 
-const envChoice = (() => {
+const currentEnv = (() => {
   if (
     argv.env &&
     Object.values(environment).includes(argv.env as environment)
   ) {
     return environment[argv.env as environment]
-  } else if (
-    isCi &&
-    Object.values(environment).includes(branch as environment)
-  ) {
-    return environment[branch as environment]
+    // } else if (
+    //   isCi &&
+    //   Object.values(environment).includes(branch as environment)
+    // ) {
+    //   return environment[branch as environment]
   } else if (
     process.env.ENV &&
     Object.values(environment).includes(process.env.ENV as environment)
@@ -96,12 +99,12 @@ const envChoice = (() => {
 
 console.log('branch', branch)
 console.log('CI', isCi)
-console.log('ENV', envChoice)
+console.log('ENV', currentEnv)
 
 const processor = new SubstrateBatchProcessor()
   .setBatchSize(500)
   .setDataSource({
-    ...env[envChoice]
+    ...env[currentEnv]
   })
   .addEvent('Balances.Transfer', {
     data: {
@@ -148,9 +151,6 @@ const processor = new SubstrateBatchProcessor()
   })
   .addCall('ParachainSystem.set_validation_data', {})
 
-type Item = BatchProcessorItem<typeof processor>
-type Ctx = BatchContext<Store, Item>
-
 processor.run(new TypeormDatabase(), async (ctx) => {
   const transfersData = getTransfers(ctx)
   const poolsData = await getPools(ctx)
@@ -173,11 +173,15 @@ processor.run(new TypeormDatabase(), async (ctx) => {
     accountIds.add(lbpPoolsUpdates[p].feeCollector)
   }
 
-  let accounts = await ctx.store
-    .findBy(Account, { id: In([...accountIds]) })
-    .then((accounts) => {
-      return new Map(accounts.map((a) => [a.id, a]))
-    })
+  //console.log('WOOO', JSON.stringify(accountIds.entries()))
+
+  let accounts = accountIds
+    ? await ctx.store
+        .findBy(Account, { id: In([...accountIds]) })
+        .then((accounts) => {
+          return new Map(accounts.map((a) => [a.id, a]))
+        })
+    : new Map()
 
   let transfers: Transfer[] = []
 
@@ -279,19 +283,8 @@ async function getLBPPoolUpdates(ctx: Ctx) {
   for (let block of ctx.blocks) {
     for (let item of block.items) {
       if (item.name == 'LBP.PoolUpdated') {
-        const e = new LbpPoolUpdatedEvent(ctx, item.event).asV72
-        const data = e.data
-
-        updates[hexUtil.toHex(e.pool)] = {
-          startBlockNumber: data.start,
-          endBlockNumber: data.end,
-          repayTarget: data.repayTarget,
-          fee: data.fee,
-          initialWeight: data.initialWeight,
-          finalWeight: data.finalWeight,
-          feeCollector: hexUtil.toHex(data.feeCollector),
-          owner: hexUtil.toHex(data.owner)
-        }
+        const { poolData, poolId } = parseLBPPoolUpdates(ctx, item, currentEnv)
+        updates[hexUtil.toHex(poolId)] = poolData
       }
     }
   }
@@ -303,12 +296,14 @@ async function getPoolPriceData(
   pools: Pool[]
 ): Promise<PoolPriceData[]> {
   let poolPrices: Promise<PoolPriceData | null>[] = []
-  ctx
   for (let block of ctx.blocks) {
     for (let item of block.items) {
       if (item.name == 'ParachainSystem.set_validation_data') {
-        let c = new ParachainSystemSetValidationDataCall(ctx, item.call).asV72
-        const relayChainBlockNumber = c.data.validationData.relayParentNumber
+        const { relayChainBlockNumber } = parseParachainSystemValidationData(
+          ctx,
+          item,
+          currentEnv
+        )
         const parachainBlockNumber = block.header.height
 
         poolPrices = poolPrices.concat(
@@ -349,30 +344,47 @@ function getTransfers(ctx: Ctx): TransferEvent[] {
   for (let block of ctx.blocks) {
     for (let item of block.items) {
       if (item.name == 'Balances.Transfer') {
-        let e = new BalancesTransferEvent(ctx, item.event).asV72
+        let e = new BalancesTransferEvent(ctx, item.event)
+        // TODO: Extract production
+        const { from, to, amount } = (() => {
+          if (e.isV16) {
+            return { from: e.asV16[0], to: e.asV16[1], amount: e.asV16[2] }
+          } else return { ...e.asV38 }
+        })()
         transfers.push({
           id: item.event.id,
           assetId: 0,
           blockNumber: block.header.height,
           timestamp: new Date(block.header.timestamp),
           extrinsicHash: item.event.extrinsic?.hash,
-          from: hexUtil.toHex(e.from),
-          to: hexUtil.toHex(e.to),
-          amount: e.amount,
-          fee: item.event.extrinsic?.fee || 0n
+          from: hexUtil.toHex(from),
+          to: hexUtil.toHex(to),
+          amount: amount,
+          fee: item.event.extrinsic?.fee || 0
         })
       } else if (item.name == 'Tokens.Transfer') {
-        let e = new TokensTransferEvent(ctx, item.event).asV72
+        let e = new TokensTransferEvent(ctx, item.event)
+        //TODO: Extract production
+        const { currencyId, from, to, amount } = (() => {
+          if (e.isV16) {
+            return {
+              currencyId: e.asV16[0],
+              from: e.asV16[1],
+              to: e.asV16[2],
+              amount: e.asV16[3]
+            }
+          } else return { ...e.asV38 }
+        })()
         transfers.push({
           id: item.event.id,
-          assetId: e.currencyId,
+          assetId: currencyId,
           blockNumber: block.header.height,
           timestamp: new Date(block.header.timestamp),
           extrinsicHash: item.event.extrinsic?.hash,
-          from: hexUtil.toHex(e.from),
-          to: hexUtil.toHex(e.to),
-          amount: e.amount,
-          fee: item.event.extrinsic?.fee || 0n
+          from: hexUtil.toHex(from),
+          to: hexUtil.toHex(to),
+          amount: amount,
+          fee: item.event.extrinsic?.fee || 0
         })
       }
     }
@@ -386,26 +398,39 @@ async function getPools(ctx: Ctx): Promise<PoolCreatedEvent[]> {
     //if (block.header.height < 127000) continue // TODO TESTNET DEBUG -> REMOVE ME
     for (let item of block.items) {
       if (item.name == 'XYK.PoolCreated') {
-        const e = new XykPoolCreatedEvent(ctx, item.event).asV72
+        const e = new XykPoolCreatedEvent(ctx, item.event)
+
+        // TODO: Extract production
+        const { assetA, assetB, pool } = (() => {
+          if (e.isV16) {
+            throw new Error('V16 pool not supported')
+          } else if (e.isV19) {
+            return {
+              pool: e.asV19[5],
+              assetA: e.asV19[1],
+              assetB: e.asV19[2]
+            }
+          } else return { ...e.asV55 }
+        })()
 
         const assetABalance = await getAssetBalance(
           ctx,
           block,
-          e.assetA,
-          hexUtil.toHex(e.pool)
+          assetA,
+          hexUtil.toHex(pool)
         )
 
         const assetBBalance = await getAssetBalance(
           ctx,
           block,
-          e.assetB,
-          hexUtil.toHex(e.pool)
+          assetB,
+          hexUtil.toHex(pool)
         )
 
         pools.push({
-          id: hexUtil.toHex(e.pool),
-          assetAId: e.assetA,
-          assetBId: e.assetB,
+          id: hexUtil.toHex(pool),
+          assetAId: assetA,
+          assetBId: assetB,
           assetABalance,
           assetBBalance,
           createdAt: new Date(block.header.timestamp),
@@ -413,37 +438,44 @@ async function getPools(ctx: Ctx): Promise<PoolCreatedEvent[]> {
           poolType: PoolType.XYK
         })
       } else if (item.name == 'LBP.PoolCreated') {
-        const e = new LbpPoolCreatedEvent(ctx, item.event).asV72
+        const e = new LbpPoolCreatedEvent(ctx, item.event)
+
+        // TODO: Extract production
+        const { pool, data } = (() => {
+          if (e.isV16 || e.isV25 || e.isV38) {
+            throw new Error('Version < V55 LBP pool not supported')
+          } else return { ...e.asV55 }
+        })()
 
         const assetABalance = await getAssetBalance(
           ctx,
           block,
-          e.data.assets[0],
-          hexUtil.toHex(e.pool)
+          data.assets[0],
+          hexUtil.toHex(pool)
         )
 
         const assetBBalance = await getAssetBalance(
           ctx,
           block,
-          e.data.assets[1],
-          hexUtil.toHex(e.pool)
+          data.assets[1],
+          hexUtil.toHex(pool)
         )
 
         pools.push({
-          id: hexUtil.toHex(e.pool),
-          assetAId: e.data.assets[0],
-          assetBId: e.data.assets[1],
+          id: hexUtil.toHex(pool),
+          assetAId: data.assets[0],
+          assetBId: data.assets[1],
           assetABalance,
           assetBBalance,
           createdAt: new Date(block.header.timestamp),
           createdAtParaBlock: block.header.height,
           poolType: PoolType.LBP,
           lbpPoolData: {
-            owner: hexUtil.toHex(e.data.owner),
-            feeCollector: hexUtil.toHex(e.data.feeCollector),
-            fee: e.data.fee,
-            initialWeight: e.data.initialWeight,
-            finalWeight: e.data.finalWeight
+            owner: hexUtil.toHex(data.owner),
+            feeCollector: hexUtil.toHex(data.feeCollector),
+            fee: data.fee,
+            initialWeight: data.initialWeight,
+            finalWeight: data.finalWeight
           }
         })
       }
@@ -468,15 +500,16 @@ async function getAssetBalance(
   assetId: number,
   account: string
 ) {
+  const acc = hexUtil.decodeHex(account)
   if (assetId === 0) {
     const storage = new SystemAccountStorage(ctx, block.header)
-    return storage
-      .getAsV72(hexUtil.decodeHex(account))
-      .then((data) => data.data.free)
+    // TODO: Extract production
+    return storage.getAsV16(acc).then((data) => data.data.free)
   } else {
     const storage = new TokensAccountsStorage(ctx, block.header)
-    return storage
-      .getAsV72(hexUtil.decodeHex(account), assetId)
-      .then((data) => data.free)
+    // TODO: Extract production
+    if (storage.isV16) {
+      return storage.getAsV16(acc, assetId).then((data) => data.free)
+    } else return storage.getAsV25(acc, assetId).then((data) => data.free)
   }
 }

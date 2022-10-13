@@ -1,6 +1,6 @@
 import assert from 'assert'
 import {Block, Chain, ChainContext, BlockContext, Result} from './support'
-import * as v72 from './v72'
+import * as v78 from './v78'
 
 export class AssetRegistryAssetIdsStorage {
   private readonly _chain: Chain
@@ -17,25 +17,25 @@ export class AssetRegistryAssetIdsStorage {
   /**
    *  Mapping between asset name and asset id.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'AssetIds') === 'b2f6c9709a4d2ff893536be0ecdbcad0fa597aba78428cfcdfc6fef5a1c5414f'
   }
 
   /**
    *  Mapping between asset name and asset id.
    */
-  async getAsV72(key: Uint8Array): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'AssetIds', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(number | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(number | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetIds', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetIds')
   }
 
@@ -62,25 +62,25 @@ export class AssetRegistryAssetLocationsStorage {
   /**
    *  Native location of an asset.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'AssetLocations') === '58dfe00b72f07bf6cab7f6a9e09ab29eb1bddff4ba0c36924d0917313958bca6'
   }
 
   /**
    *  Native location of an asset.
    */
-  async getAsV72(key: number): Promise<v72.AssetLocation | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.AssetLocation | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'AssetLocations', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.AssetLocation | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.AssetLocation | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetLocations', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.AssetLocation)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.AssetLocation)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetLocations')
   }
 
@@ -107,25 +107,25 @@ export class AssetRegistryAssetMetadataMapStorage {
   /**
    *  Metadata of an asset.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'AssetMetadataMap') === 'baeb301fe81822ac12911469e04bf8d093313d49518fd2908c00cbdeff57ab9f'
   }
 
   /**
    *  Metadata of an asset.
    */
-  async getAsV72(key: number): Promise<v72.AssetMetadata | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.AssetMetadata | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'AssetMetadataMap', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.AssetMetadata | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.AssetMetadata | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetMetadataMap', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.AssetMetadata)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.AssetMetadata)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'AssetMetadataMap')
   }
 
@@ -152,25 +152,25 @@ export class AssetRegistryAssetsStorage {
   /**
    *  Details of an asset.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'Assets') === 'b41077b00f9666bee941bfa5072e6470d7c3f76cc70583e553991180b004e89a'
   }
 
   /**
    *  Details of an asset.
    */
-  async getAsV72(key: number): Promise<v72.AssetDetails | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.AssetDetails | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'Assets', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.AssetDetails | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.AssetDetails | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'Assets', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.AssetDetails)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.AssetDetails)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'Assets')
   }
 
@@ -197,25 +197,25 @@ export class AssetRegistryLocationAssetsStorage {
   /**
    *  Local asset for native location.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'LocationAssets') === '3c043d5ada7fce2b8b426c49f9b15d1308835a7483919400e4c42d24e95b4193'
   }
 
   /**
    *  Local asset for native location.
    */
-  async getAsV72(key: v72.AssetLocation): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: v78.AssetLocation): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'LocationAssets', key)
   }
 
-  async getManyAsV72(keys: v72.AssetLocation[]): Promise<(number | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: v78.AssetLocation[]): Promise<(number | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'LocationAssets', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'AssetRegistry', 'LocationAssets')
   }
 
@@ -242,15 +242,15 @@ export class AssetRegistryNextAssetIdStorage {
   /**
    *  Next available asset id. This is sequential id assigned for each new registered asset.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('AssetRegistry', 'NextAssetId') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Next available asset id. This is sequential id assigned for each new registered asset.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'AssetRegistry', 'NextAssetId')
   }
 
@@ -277,15 +277,15 @@ export class AuthorshipAuthorStorage {
   /**
    *  Author of current block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Authorship', 'Author') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  Author of current block.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Authorship', 'Author')
   }
 
@@ -312,15 +312,15 @@ export class AuthorshipDidSetUnclesStorage {
   /**
    *  Whether uncles were already set in this block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Authorship', 'DidSetUncles') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
   /**
    *  Whether uncles were already set in this block.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Authorship', 'DidSetUncles')
   }
 
@@ -347,15 +347,15 @@ export class AuthorshipUnclesStorage {
   /**
    *  Uncles
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Authorship', 'Uncles') === '320be201dc467df78c8912d3a5ad0cb57cd9b25ab8bff2e738597ffc0a83b551'
   }
 
   /**
    *  Uncles
    */
-  async getAsV72(): Promise<v72.UncleEntryItem[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.UncleEntryItem[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Authorship', 'Uncles')
   }
 
@@ -405,7 +405,7 @@ export class BalancesAccountStorage {
    *  `Balances` pallet, which uses a `StorageMap` to store balances data only.
    *  NOTE: This is only used in the case that this pallet is used to store balances.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Balances', 'Account') === '0b3b4bf0dd7388459eba461bc7c3226bf58608c941710a714e02f33ec0f91e78'
   }
 
@@ -435,18 +435,18 @@ export class BalancesAccountStorage {
    *  `Balances` pallet, which uses a `StorageMap` to store balances data only.
    *  NOTE: This is only used in the case that this pallet is used to store balances.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.AccountData> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.AccountData> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Balances', 'Account', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.AccountData)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.AccountData)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Account', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.AccountData)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.AccountData)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Account')
   }
 
@@ -474,7 +474,7 @@ export class BalancesLocksStorage {
    *  Any liquidity locks on some account balances.
    *  NOTE: Should only be accessed when setting, changing and freeing a lock.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Balances', 'Locks') === 'e393b3a20a6d47aee703c898fda1db02fffe128e4692a5861f416ecc67b13a86'
   }
 
@@ -482,18 +482,18 @@ export class BalancesLocksStorage {
    *  Any liquidity locks on some account balances.
    *  NOTE: Should only be accessed when setting, changing and freeing a lock.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.BalanceLock[]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.BalanceLock[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Balances', 'Locks', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.BalanceLock[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.BalanceLock[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Locks', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.BalanceLock[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.BalanceLock[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Locks')
   }
 
@@ -520,25 +520,25 @@ export class BalancesReservesStorage {
   /**
    *  Named reserves on some account balances.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Balances', 'Reserves') === '687d129c824d7b23d1f21a471b19c3fed952e35b64e5de19f549851d1c3f7f91'
   }
 
   /**
    *  Named reserves on some account balances.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.ReserveData[]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.ReserveData[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Balances', 'Reserves', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.ReserveData[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.ReserveData[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Reserves', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ReserveData[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ReserveData[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Balances', 'Reserves')
   }
 
@@ -567,7 +567,7 @@ export class BalancesStorageVersionStorage {
    * 
    *  This is set to v2.0.0 for new networks.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Balances', 'StorageVersion') === '1431e80ffaa4d10a7fe714faa381ada05c3baae7e12aa80f24f8728a41ba57c4'
   }
 
@@ -576,8 +576,8 @@ export class BalancesStorageVersionStorage {
    * 
    *  This is set to v2.0.0 for new networks.
    */
-  async getAsV72(): Promise<v72.Releases> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.Releases> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Balances', 'StorageVersion')
   }
 
@@ -604,15 +604,15 @@ export class BalancesTotalIssuanceStorage {
   /**
    *  The total units issued in the system.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Balances', 'TotalIssuance') === 'f8ebe28eb30158172c0ccf672f7747c46a244f892d08ef2ebcbaadde34a26bc0'
   }
 
   /**
    *  The total units issued in the system.
    */
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Balances', 'TotalIssuance')
   }
 
@@ -641,7 +641,7 @@ export class CollatorSelectionCandidacyBondStorage {
    * 
    *  When a collator calls `leave_intent` they immediately receive the deposit back.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('CollatorSelection', 'CandidacyBond') === 'f8ebe28eb30158172c0ccf672f7747c46a244f892d08ef2ebcbaadde34a26bc0'
   }
 
@@ -650,8 +650,8 @@ export class CollatorSelectionCandidacyBondStorage {
    * 
    *  When a collator calls `leave_intent` they immediately receive the deposit back.
    */
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'CollatorSelection', 'CandidacyBond')
   }
 
@@ -678,15 +678,15 @@ export class CollatorSelectionCandidatesStorage {
   /**
    *  The (community, limited) collation candidates.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('CollatorSelection', 'Candidates') === '239ae5a83674078569642b29549b6d89d616b5748799fde8f01f3356f32141fd'
   }
 
   /**
    *  The (community, limited) collation candidates.
    */
-  async getAsV72(): Promise<v72.CandidateInfo[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.CandidateInfo[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'CollatorSelection', 'Candidates')
   }
 
@@ -715,7 +715,7 @@ export class CollatorSelectionDesiredCandidatesStorage {
    * 
    *  This should ideally always be less than [`Config::MaxCandidates`] for weights to be correct.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('CollatorSelection', 'DesiredCandidates') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
@@ -724,8 +724,8 @@ export class CollatorSelectionDesiredCandidatesStorage {
    * 
    *  This should ideally always be less than [`Config::MaxCandidates`] for weights to be correct.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'CollatorSelection', 'DesiredCandidates')
   }
 
@@ -752,15 +752,15 @@ export class CollatorSelectionInvulnerablesStorage {
   /**
    *  The invulnerable, fixed collators.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('CollatorSelection', 'Invulnerables') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The invulnerable, fixed collators.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'CollatorSelection', 'Invulnerables')
   }
 
@@ -787,25 +787,25 @@ export class CollatorSelectionLastAuthoredBlockStorage {
   /**
    *  Last block authored by collator.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('CollatorSelection', 'LastAuthoredBlock') === '25f0d63900988134e6767c7fe398885c0448fd3bd7a0d8ff90cf6b33a482cebd'
   }
 
   /**
    *  Last block authored by collator.
    */
-  async getAsV72(key: Uint8Array): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'CollatorSelection', 'LastAuthoredBlock', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(number)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'CollatorSelection', 'LastAuthoredBlock', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'CollatorSelection', 'LastAuthoredBlock')
   }
 
@@ -832,15 +832,15 @@ export class CouncilMembersStorage {
   /**
    *  The current members of the collective. This is stored sorted (just by value).
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Council', 'Members') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The current members of the collective. This is stored sorted (just by value).
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'Members')
   }
 
@@ -867,15 +867,15 @@ export class CouncilPrimeStorage {
   /**
    *  The prime member that helps determine the default vote behavior in case of absentations.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Council', 'Prime') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  The prime member that helps determine the default vote behavior in case of absentations.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'Prime')
   }
 
@@ -902,15 +902,15 @@ export class CouncilProposalCountStorage {
   /**
    *  Proposals so far.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Council', 'ProposalCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Proposals so far.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'ProposalCount')
   }
 
@@ -937,25 +937,25 @@ export class CouncilProposalOfStorage {
   /**
    *  Actual proposal for a given hash, if it's current.
    */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('Council', 'ProposalOf') === '6467d63e946dface3722e21e689256443ef1f5f90d86f0528d986fa2554193e7'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('Council', 'ProposalOf') === '903b8a779d9c06ee10ee923cda677d0736114abb93b2b73a97ea7c7cbce3f0bf'
   }
 
   /**
    *  Actual proposal for a given hash, if it's current.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Call | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Call | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'ProposalOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Call | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Call | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Council', 'ProposalOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Call)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Call)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Council', 'ProposalOf')
   }
 
@@ -982,15 +982,15 @@ export class CouncilProposalsStorage {
   /**
    *  The hashes of the active proposals.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Council', 'Proposals') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The hashes of the active proposals.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'Proposals')
   }
 
@@ -1017,25 +1017,25 @@ export class CouncilVotingStorage {
   /**
    *  Votes on a given proposal, if it is ongoing.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Council', 'Voting') === '8674aeb71b725705ae08d0cc723a5b29396e1f9ed56e4adcf4602c361e693cd7'
   }
 
   /**
    *  Votes on a given proposal, if it is ongoing.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Votes | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Votes | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Council', 'Voting', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Votes | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Votes | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Council', 'Voting', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Votes)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Votes)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Council', 'Voting')
   }
 
@@ -1063,7 +1063,7 @@ export class DemocracyBlacklistStorage {
    *  A record of who vetoed what. Maps proposal hash to a possible existent block number
    *  (until when it may not be resubmitted) and who vetoed it.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'Blacklist') === '4662be06b687a34e496fd51dc08b342dcaf96f230c937bc993b5e44373a90d1c'
   }
 
@@ -1071,18 +1071,18 @@ export class DemocracyBlacklistStorage {
    *  A record of who vetoed what. Maps proposal hash to a possible existent block number
    *  (until when it may not be resubmitted) and who vetoed it.
    */
-  async getAsV72(key: Uint8Array): Promise<[number, Uint8Array[]] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[number, Uint8Array[]] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'Blacklist', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([number, Uint8Array[]] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([number, Uint8Array[]] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Blacklist', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, Uint8Array[]])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, Uint8Array[]])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Blacklist')
   }
 
@@ -1109,25 +1109,25 @@ export class DemocracyCancellationsStorage {
   /**
    *  Record of all proposals that have been subject to emergency cancellation.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'Cancellations') === 'ab0be9e2464670e9cf9991160d40979b3c2b03b59072e7d5023129d90356f1f4'
   }
 
   /**
    *  Record of all proposals that have been subject to emergency cancellation.
    */
-  async getAsV72(key: Uint8Array): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'Cancellations', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(boolean)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(boolean)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Cancellations', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(boolean)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(boolean)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Cancellations')
   }
 
@@ -1156,7 +1156,7 @@ export class DemocracyDepositOfStorage {
    * 
    *  TWOX-NOTE: Safe, as increasing integer keys are safe.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'DepositOf') === '103e29949f153721c94022e4909ca1a4e147451b6be4f1cf605cbc601e16f4fb'
   }
 
@@ -1165,18 +1165,18 @@ export class DemocracyDepositOfStorage {
    * 
    *  TWOX-NOTE: Safe, as increasing integer keys are safe.
    */
-  async getAsV72(key: number): Promise<[Uint8Array[], bigint] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<[Uint8Array[], bigint] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'DepositOf', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<([Uint8Array[], bigint] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<([Uint8Array[], bigint] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'DepositOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([Uint8Array[], bigint])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([Uint8Array[], bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'DepositOf')
   }
 
@@ -1204,7 +1204,7 @@ export class DemocracyLastTabledWasExternalStorage {
    *  True if the last referendum tabled was submitted externally. False if it was a public
    *  proposal.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'LastTabledWasExternal') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
@@ -1212,8 +1212,8 @@ export class DemocracyLastTabledWasExternalStorage {
    *  True if the last referendum tabled was submitted externally. False if it was a public
    *  proposal.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'LastTabledWasExternal')
   }
 
@@ -1241,7 +1241,7 @@ export class DemocracyLowestUnbakedStorage {
    *  The lowest referendum index representing an unbaked referendum. Equal to
    *  `ReferendumCount` if there isn't a unbaked referendum.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'LowestUnbaked') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
@@ -1249,8 +1249,8 @@ export class DemocracyLowestUnbakedStorage {
    *  The lowest referendum index representing an unbaked referendum. Equal to
    *  `ReferendumCount` if there isn't a unbaked referendum.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'LowestUnbaked')
   }
 
@@ -1280,7 +1280,7 @@ export class DemocracyNextExternalStorage {
    *  - `LastTabledWasExternal` is `false`; or
    *  - `PublicProps` is empty.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'NextExternal') === 'a0dc59850ecbf888b39265215bce88e2141aafdd4f4300c99be6819a82e4ef15'
   }
 
@@ -1290,8 +1290,8 @@ export class DemocracyNextExternalStorage {
    *  - `LastTabledWasExternal` is `false`; or
    *  - `PublicProps` is empty.
    */
-  async getAsV72(): Promise<[Uint8Array, v72.VoteThreshold] | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[Uint8Array, v78.VoteThreshold] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'NextExternal')
   }
 
@@ -1319,7 +1319,7 @@ export class DemocracyPreimagesStorage {
    *  Map of hashes to the proposal preimage, along with who registered it and their deposit.
    *  The block number is the block at which it was deposited.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'Preimages') === '2762abd948712e87f9324ca0c5ad1523f92ac946c587c97414ce71252440341f'
   }
 
@@ -1327,18 +1327,18 @@ export class DemocracyPreimagesStorage {
    *  Map of hashes to the proposal preimage, along with who registered it and their deposit.
    *  The block number is the block at which it was deposited.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.PreimageStatus | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.PreimageStatus | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'Preimages', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.PreimageStatus | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.PreimageStatus | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Preimages', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.PreimageStatus)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.PreimageStatus)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'Preimages')
   }
 
@@ -1365,15 +1365,15 @@ export class DemocracyPublicPropCountStorage {
   /**
    *  The number of (public) proposals that have been made so far.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'PublicPropCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  The number of (public) proposals that have been made so far.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'PublicPropCount')
   }
 
@@ -1400,15 +1400,15 @@ export class DemocracyPublicPropsStorage {
   /**
    *  The public proposals. Unsorted. The second item is the proposal's hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'PublicProps') === '54835df1906ed20adb15939607ddf49a9a1447f02d476ca5b7b39c1f35e1a40f'
   }
 
   /**
    *  The public proposals. Unsorted. The second item is the proposal's hash.
    */
-  async getAsV72(): Promise<[number, Uint8Array, Uint8Array][]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[number, Uint8Array, Uint8Array][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'PublicProps')
   }
 
@@ -1435,15 +1435,15 @@ export class DemocracyReferendumCountStorage {
   /**
    *  The next free referendum index, aka the number of referenda started so far.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'ReferendumCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  The next free referendum index, aka the number of referenda started so far.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'ReferendumCount')
   }
 
@@ -1472,7 +1472,7 @@ export class DemocracyReferendumInfoOfStorage {
    * 
    *  TWOX-NOTE: SAFE as indexes are not under an attacker’s control.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'ReferendumInfoOf') === '2e86290b25fe028668a12b0e97306da926c3578533bd5de6396ccfc917cb15e5'
   }
 
@@ -1481,18 +1481,18 @@ export class DemocracyReferendumInfoOfStorage {
    * 
    *  TWOX-NOTE: SAFE as indexes are not under an attacker’s control.
    */
-  async getAsV72(key: number): Promise<v72.ReferendumInfo | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.ReferendumInfo | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'ReferendumInfoOf', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.ReferendumInfo | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.ReferendumInfo | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'ReferendumInfoOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ReferendumInfo)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ReferendumInfo)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'ReferendumInfoOf')
   }
 
@@ -1521,7 +1521,7 @@ export class DemocracyStorageVersionStorage {
    * 
    *  New networks start with last version.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'StorageVersion') === '6db8ed5d5df9fd63b90aeccdc02dcd10fe08fc684dc39aff8104b09be9ab54e9'
   }
 
@@ -1530,8 +1530,8 @@ export class DemocracyStorageVersionStorage {
    * 
    *  New networks start with last version.
    */
-  async getAsV72(): Promise<v72.Type_342 | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.Type_342 | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'StorageVersion')
   }
 
@@ -1561,7 +1561,7 @@ export class DemocracyVotingOfStorage {
    * 
    *  TWOX-NOTE: SAFE as `AccountId`s are crypto hashes anyway.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Democracy', 'VotingOf') === '95f82dfc66c624a327b91f77d863a0608d8641c62fc61b1c0067319d4045fc77'
   }
 
@@ -1571,18 +1571,18 @@ export class DemocracyVotingOfStorage {
    * 
    *  TWOX-NOTE: SAFE as `AccountId`s are crypto hashes anyway.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Voting> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Voting> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Democracy', 'VotingOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Voting)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Voting)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'VotingOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Voting)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Voting)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Democracy', 'VotingOf')
   }
 
@@ -1609,15 +1609,15 @@ export class DmpQueueConfigurationStorage {
   /**
    *  The configuration.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('DmpQueue', 'Configuration') === 'de2fc633d896ffed21e1f630f0a1bfe710ecfa69921c58a4a758e7fd49d0b5a4'
   }
 
   /**
    *  The configuration.
    */
-  async getAsV72(): Promise<v72.ConfigData> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.ConfigData> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'DmpQueue', 'Configuration')
   }
 
@@ -1644,25 +1644,25 @@ export class DmpQueueOverweightStorage {
   /**
    *  The overweight messages.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('DmpQueue', 'Overweight') === '02b70c9350fc19f8edcf45c5eb6332933141453267579d97f6eece480cbaa4d4'
   }
 
   /**
    *  The overweight messages.
    */
-  async getAsV72(key: bigint): Promise<[number, Uint8Array] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<[number, Uint8Array] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'DmpQueue', 'Overweight', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<([number, Uint8Array] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<([number, Uint8Array] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'DmpQueue', 'Overweight', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, Uint8Array])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, Uint8Array])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'DmpQueue', 'Overweight')
   }
 
@@ -1689,15 +1689,15 @@ export class DmpQueuePageIndexStorage {
   /**
    *  The page index.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('DmpQueue', 'PageIndex') === 'cad43146ccd742f66da886b2f77b13d96d2c4de637fbb965a7493a2f16c99189'
   }
 
   /**
    *  The page index.
    */
-  async getAsV72(): Promise<v72.PageIndexData> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.PageIndexData> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'DmpQueue', 'PageIndex')
   }
 
@@ -1724,25 +1724,25 @@ export class DmpQueuePagesStorage {
   /**
    *  The queue pages.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('DmpQueue', 'Pages') === '0b9460c8234ca1e6341c95066d20ac8d7e79e3a9b2def20c9450f88ef0ab1b1d'
   }
 
   /**
    *  The queue pages.
    */
-  async getAsV72(key: number): Promise<[number, Uint8Array][]> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<[number, Uint8Array][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'DmpQueue', 'Pages', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<([number, Uint8Array][])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<([number, Uint8Array][])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'DmpQueue', 'Pages', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, Uint8Array][])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, Uint8Array][])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'DmpQueue', 'Pages')
   }
 
@@ -1769,25 +1769,25 @@ export class DusterAccountBlacklistStorage {
   /**
    *  Accounts excluded from dusting.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Duster', 'AccountBlacklist') === '29735300dba5135be0e1e53d771089aba86ed92479018d68d31c9d66cb9816e3'
   }
 
   /**
    *  Accounts excluded from dusting.
    */
-  async getAsV72(key: Uint8Array): Promise<null | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<null | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Duster', 'AccountBlacklist', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(null | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(null | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Duster', 'AccountBlacklist', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(null)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(null)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Duster', 'AccountBlacklist')
   }
 
@@ -1814,15 +1814,15 @@ export class DusterDustAccountStorage {
   /**
    *  Account to send dust to.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Duster', 'DustAccount') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  Account to send dust to.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Duster', 'DustAccount')
   }
 
@@ -1849,15 +1849,15 @@ export class DusterRewardAccountStorage {
   /**
    *  Account to take reward from.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Duster', 'RewardAccount') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  Account to take reward from.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Duster', 'RewardAccount')
   }
 
@@ -1889,7 +1889,7 @@ export class ElectionsCandidatesStorage {
    * 
    *  Invariant: Always sorted based on account id.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Elections', 'Candidates') === 'adcae43ed1e902c328abdddddb49e0dff8ba91c01e22ef88c186fdf0463008bd'
   }
 
@@ -1901,8 +1901,8 @@ export class ElectionsCandidatesStorage {
    * 
    *  Invariant: Always sorted based on account id.
    */
-  async getAsV72(): Promise<[Uint8Array, bigint][]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[Uint8Array, bigint][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Elections', 'Candidates')
   }
 
@@ -1929,15 +1929,15 @@ export class ElectionsElectionRoundsStorage {
   /**
    *  The total number of vote rounds that have happened, excluding the upcoming one.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Elections', 'ElectionRounds') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  The total number of vote rounds that have happened, excluding the upcoming one.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Elections', 'ElectionRounds')
   }
 
@@ -1966,7 +1966,7 @@ export class ElectionsMembersStorage {
    * 
    *  Invariant: Always sorted based on account id.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Elections', 'Members') === '96573f8db54011fa114a08a47adbe9aee03d3835efd86f475863db52e5359231'
   }
 
@@ -1975,8 +1975,8 @@ export class ElectionsMembersStorage {
    * 
    *  Invariant: Always sorted based on account id.
    */
-  async getAsV72(): Promise<v72.SeatHolder[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.SeatHolder[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Elections', 'Members')
   }
 
@@ -2006,7 +2006,7 @@ export class ElectionsRunnersUpStorage {
    *  Invariant: Always sorted based on rank (worse to best). Upon removal of a member, the
    *  last (i.e. _best_) runner-up will be replaced.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Elections', 'RunnersUp') === '96573f8db54011fa114a08a47adbe9aee03d3835efd86f475863db52e5359231'
   }
 
@@ -2016,8 +2016,8 @@ export class ElectionsRunnersUpStorage {
    *  Invariant: Always sorted based on rank (worse to best). Upon removal of a member, the
    *  last (i.e. _best_) runner-up will be replaced.
    */
-  async getAsV72(): Promise<v72.SeatHolder[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.SeatHolder[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Elections', 'RunnersUp')
   }
 
@@ -2046,7 +2046,7 @@ export class ElectionsVotingStorage {
    * 
    *  TWOX-NOTE: SAFE as `AccountId` is a crypto hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Elections', 'Voting') === '402dfebd0f940ad46e7a8f40f06109618105f99668e323b7a2f66bb12e66e352'
   }
 
@@ -2055,18 +2055,18 @@ export class ElectionsVotingStorage {
    * 
    *  TWOX-NOTE: SAFE as `AccountId` is a crypto hash.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Voter> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Voter> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Elections', 'Voting', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Voter)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Voter)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Elections', 'Voting', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Voter)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Voter)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Elections', 'Voting')
   }
 
@@ -2093,25 +2093,25 @@ export class ExchangeExchangeAssetsIntentionCountStorage {
   /**
    *  Intention count for current block
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Exchange', 'ExchangeAssetsIntentionCount') === '41d107d8804760c60452c36f4677b29c987678b8fec179ecaec1902539deb294'
   }
 
   /**
    *  Intention count for current block
    */
-  async getAsV72(key: [number, number]): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(key: [number, number]): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentionCount', key)
   }
 
-  async getManyAsV72(keys: [number, number][]): Promise<(number)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, number][]): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentionCount', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentionCount')
   }
 
@@ -2139,7 +2139,7 @@ export class ExchangeExchangeAssetsIntentionsStorage {
    *  Registered intentions for current block
    *  Stored as ( asset_a, asset_b ) combination where asset_a is meant to be exchanged for asset_b ( asset_a < asset_b)
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Exchange', 'ExchangeAssetsIntentions') === '98fb8bb6c24167c2ed5183d81bf3806a67b356a9eb4cdb6da1d7f9c83be96858'
   }
 
@@ -2147,18 +2147,18 @@ export class ExchangeExchangeAssetsIntentionsStorage {
    *  Registered intentions for current block
    *  Stored as ( asset_a, asset_b ) combination where asset_a is meant to be exchanged for asset_b ( asset_a < asset_b)
    */
-  async getAsV72(key: [number, number]): Promise<v72.ExchangeIntention[]> {
-    assert(this.isV72)
+  async getAsV78(key: [number, number]): Promise<v78.ExchangeIntention[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentions', key)
   }
 
-  async getManyAsV72(keys: [number, number][]): Promise<(v72.ExchangeIntention[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, number][]): Promise<(v78.ExchangeIntention[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentions', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ExchangeIntention[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ExchangeIntention[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Exchange', 'ExchangeAssetsIntentions')
   }
 
@@ -2187,7 +2187,7 @@ export class IdentityIdentityOfStorage {
    * 
    *  TWOX-NOTE: OK ― `AccountId` is a secure hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Identity', 'IdentityOf') === 'eee9529c5197f7a5f8200e155d78bab0a612de49bd6c8941e539265edf54c3aa'
   }
 
@@ -2196,18 +2196,18 @@ export class IdentityIdentityOfStorage {
    * 
    *  TWOX-NOTE: OK ― `AccountId` is a secure hash.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Registration | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Registration | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Identity', 'IdentityOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Registration | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Registration | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'IdentityOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Registration)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Registration)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'IdentityOf')
   }
 
@@ -2237,7 +2237,7 @@ export class IdentityRegistrarsStorage {
    * 
    *  The index into this can be cast to `RegistrarIndex` to get a valid value.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Identity', 'Registrars') === 'd53feea500c88336983c65706eeb51794b1fc991a17d6d33663d49aeb47b12b6'
   }
 
@@ -2247,8 +2247,8 @@ export class IdentityRegistrarsStorage {
    * 
    *  The index into this can be cast to `RegistrarIndex` to get a valid value.
    */
-  async getAsV72(): Promise<(v72.RegistrarInfo | undefined)[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<(v78.RegistrarInfo | undefined)[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Identity', 'Registrars')
   }
 
@@ -2279,7 +2279,7 @@ export class IdentitySubsOfStorage {
    * 
    *  TWOX-NOTE: OK ― `AccountId` is a secure hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Identity', 'SubsOf') === '925d8593182dee4b16701bef694e42944c6fa6f1d20d0a7b05fb8ed6b451f6b7'
   }
 
@@ -2290,18 +2290,18 @@ export class IdentitySubsOfStorage {
    * 
    *  TWOX-NOTE: OK ― `AccountId` is a secure hash.
    */
-  async getAsV72(key: Uint8Array): Promise<[bigint, Uint8Array[]]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[bigint, Uint8Array[]]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Identity', 'SubsOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([bigint, Uint8Array[]])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([bigint, Uint8Array[]])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'SubsOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([bigint, Uint8Array[]])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([bigint, Uint8Array[]])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'SubsOf')
   }
 
@@ -2329,7 +2329,7 @@ export class IdentitySuperOfStorage {
    *  The super-identity of an alternative "sub" identity together with its name, within that
    *  context. If the account is not some other account's sub-identity, then just `None`.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Identity', 'SuperOf') === '3e2404306f316847b5946856f8222df193ecb9ace5e509cd9f8808145fd9b792'
   }
 
@@ -2337,18 +2337,18 @@ export class IdentitySuperOfStorage {
    *  The super-identity of an alternative "sub" identity together with its name, within that
    *  context. If the account is not some other account's sub-identity, then just `None`.
    */
-  async getAsV72(key: Uint8Array): Promise<[Uint8Array, v72.Data] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[Uint8Array, v78.Data] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Identity', 'SuperOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([Uint8Array, v72.Data] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([Uint8Array, v78.Data] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'SuperOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([Uint8Array, v72.Data])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([Uint8Array, v78.Data])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Identity', 'SuperOf')
   }
 
@@ -2376,7 +2376,7 @@ export class LBPFeeCollectorWithAssetStorage {
    *  Storage used for tracking existing fee collectors
    *  Not more than one fee collector per asset possible
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('LBP', 'FeeCollectorWithAsset') === 'ebdf043edab397a5ed3d655551fad928a7307d1bde214adf993157ad9d1521e0'
   }
 
@@ -2384,18 +2384,18 @@ export class LBPFeeCollectorWithAssetStorage {
    *  Storage used for tracking existing fee collectors
    *  Not more than one fee collector per asset possible
    */
-  async getAsV72(key1: Uint8Array, key2: number): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: number): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'LBP', 'FeeCollectorWithAsset', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, number][]): Promise<(boolean)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, number][]): Promise<(boolean)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'LBP', 'FeeCollectorWithAsset', keys)
   }
 
-  async getAllAsV72(): Promise<(boolean)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(boolean)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'LBP', 'FeeCollectorWithAsset')
   }
 
@@ -2422,25 +2422,25 @@ export class LBPPoolDataStorage {
   /**
    *  Details of a pool.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('LBP', 'PoolData') === '122378a7b6f80edd2b209a84c4ae915782df86cf92d66d0932085716a7dbccf9'
   }
 
   /**
    *  Details of a pool.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Pool | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Pool | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'LBP', 'PoolData', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Pool | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Pool | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'LBP', 'PoolData', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Pool)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Pool)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'LBP', 'PoolData')
   }
 
@@ -2467,25 +2467,25 @@ export class MarketplaceMarketplaceInstancesStorage {
   /**
    *  Stores Marketplace info
    */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('Marketplace', 'MarketplaceInstances') === 'ec3139d8177301e4bbb71dba0f7f87a90af07d567a590d5351248daa469359c5'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('Marketplace', 'MarketplaceInstances') === '0b32a4fd1061c4591a526e2f7beddcab1e709b87ccc64182c0c1d19fdf718abd'
   }
 
   /**
    *  Stores Marketplace info
    */
-  async getAsV72(key1: bigint, key2: bigint): Promise<v72.Royalty | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: bigint): Promise<v78.Royalty | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Marketplace', 'MarketplaceInstances', key1, key2)
   }
 
-  async getManyAsV72(keys: [bigint, bigint][]): Promise<(v72.Royalty | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, bigint][]): Promise<(v78.Royalty | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'MarketplaceInstances', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.Royalty)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Royalty)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'MarketplaceInstances')
   }
 
@@ -2512,25 +2512,25 @@ export class MarketplaceOffersStorage {
   /**
    *  Stores offer info
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Marketplace', 'Offers') === '3f58318baf55451d4557850a495785a0bf8f8be774aada4e44650361d075dc91'
   }
 
   /**
    *  Stores offer info
    */
-  async getAsV72(key1: [bigint, bigint], key2: Uint8Array): Promise<v72.Offer | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: [bigint, bigint], key2: Uint8Array): Promise<v78.Offer | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Marketplace', 'Offers', key1, key2)
   }
 
-  async getManyAsV72(keys: [[bigint, bigint], Uint8Array][]): Promise<(v72.Offer | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [[bigint, bigint], Uint8Array][]): Promise<(v78.Offer | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'Offers', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.Offer)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Offer)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'Offers')
   }
 
@@ -2557,25 +2557,25 @@ export class MarketplacePricesStorage {
   /**
    *  Stores token info
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Marketplace', 'Prices') === '6171308606be5e36859904603d84665b2843b644cf5292eff2e75efc57206ab0'
   }
 
   /**
    *  Stores token info
    */
-  async getAsV72(key1: bigint, key2: bigint): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: bigint): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Marketplace', 'Prices', key1, key2)
   }
 
-  async getManyAsV72(keys: [bigint, bigint][]): Promise<(bigint | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, bigint][]): Promise<(bigint | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'Prices', keys)
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Marketplace', 'Prices')
   }
 
@@ -2602,25 +2602,25 @@ export class MultiTransactionPaymentAcceptedCurrenciesStorage {
   /**
    *  Curated list of currencies which fees can be paid mapped to corresponding fallback price
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('MultiTransactionPayment', 'AcceptedCurrencies') === '3780d76d37a3d09046e926a777def6003178c440a915a931a34a74b88a4094a5'
   }
 
   /**
    *  Curated list of currencies which fees can be paid mapped to corresponding fallback price
    */
-  async getAsV72(key: number): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencies', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(bigint | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(bigint | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencies', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencies')
   }
 
@@ -2647,25 +2647,25 @@ export class MultiTransactionPaymentAcceptedCurrencyPriceStorage {
   /**
    *  Asset prices from the spot price provider or the fallback price if the price is not available. Updated at the beginning of every block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('MultiTransactionPayment', 'AcceptedCurrencyPrice') === '3780d76d37a3d09046e926a777def6003178c440a915a931a34a74b88a4094a5'
   }
 
   /**
    *  Asset prices from the spot price provider or the fallback price if the price is not available. Updated at the beginning of every block.
    */
-  async getAsV72(key: number): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencyPrice', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(bigint | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(bigint | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencyPrice', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AcceptedCurrencyPrice')
   }
 
@@ -2692,25 +2692,25 @@ export class MultiTransactionPaymentAccountCurrencyMapStorage {
   /**
    *  Account currency map
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('MultiTransactionPayment', 'AccountCurrencyMap') === 'dc1fabbf37ff4a03bb9bd2d05fd2211c29428d60c37ffa71e74ce64db501eb06'
   }
 
   /**
    *  Account currency map
    */
-  async getAsV72(key: Uint8Array): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'MultiTransactionPayment', 'AccountCurrencyMap', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(number | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(number | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AccountCurrencyMap', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'MultiTransactionPayment', 'AccountCurrencyMap')
   }
 
@@ -2734,22 +2734,22 @@ export class MultisigCallsStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Multisig', 'Calls') === 'f2c625a45f7e4212d08a35de621ee69426ec65ab8200e29512887abb064620ab'
   }
 
-  async getAsV72(key: Uint8Array): Promise<[Uint8Array, Uint8Array, bigint] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[Uint8Array, Uint8Array, bigint] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Multisig', 'Calls', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([Uint8Array, Uint8Array, bigint] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([Uint8Array, Uint8Array, bigint] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Multisig', 'Calls', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([Uint8Array, Uint8Array, bigint])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([Uint8Array, Uint8Array, bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Multisig', 'Calls')
   }
 
@@ -2776,25 +2776,25 @@ export class MultisigMultisigsStorage {
   /**
    *  The set of open multisig operations.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Multisig', 'Multisigs') === 'b65d340f044c1216d5b13f831064204fe7a82b1bb66e6bf6cc01b1b5a3f1606a'
   }
 
   /**
    *  The set of open multisig operations.
    */
-  async getAsV72(key1: Uint8Array, key2: Uint8Array): Promise<v72.Multisig | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: Uint8Array): Promise<v78.Multisig | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Multisig', 'Multisigs', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, Uint8Array][]): Promise<(v72.Multisig | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, Uint8Array][]): Promise<(v78.Multisig | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Multisig', 'Multisigs', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.Multisig)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Multisig)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Multisig', 'Multisigs')
   }
 
@@ -2821,25 +2821,25 @@ export class NFTClassesStorage {
   /**
    *  Stores class info
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('NFT', 'Classes') === 'b54bfb9304ad7cfffb67fe42834b827a2e7375c8ac371ff001f284424c0aa6d2'
   }
 
   /**
    *  Stores class info
    */
-  async getAsV72(key: bigint): Promise<v72.ClassInfo | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<v78.ClassInfo | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'NFT', 'Classes', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<(v72.ClassInfo | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<(v78.ClassInfo | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'NFT', 'Classes', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ClassInfo)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ClassInfo)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'NFT', 'Classes')
   }
 
@@ -2866,25 +2866,25 @@ export class NFTInstancesStorage {
   /**
    *  Stores instance info
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('NFT', 'Instances') === '873e9356d599039c4394718673bd5ff92fb310e018cc20443389ba4e4241e7c9'
   }
 
   /**
    *  Stores instance info
    */
-  async getAsV72(key1: bigint, key2: bigint): Promise<v72.InstanceInfo | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: bigint): Promise<v78.InstanceInfo | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'NFT', 'Instances', key1, key2)
   }
 
-  async getManyAsV72(keys: [bigint, bigint][]): Promise<(v72.InstanceInfo | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, bigint][]): Promise<(v78.InstanceInfo | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'NFT', 'Instances', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.InstanceInfo)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.InstanceInfo)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'NFT', 'Instances')
   }
 
@@ -2908,12 +2908,12 @@ export class ParachainInfoParachainIdStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainInfo', 'ParachainId') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainInfo', 'ParachainId')
   }
 
@@ -2941,7 +2941,7 @@ export class ParachainSystemAnnouncedHrmpMessagesPerCandidateStorage {
    *  The number of HRMP messages we observed in `on_initialize` and thus used that number for
    *  announcing the weight of `on_initialize` and `on_finalize`.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'AnnouncedHrmpMessagesPerCandidate') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
@@ -2949,8 +2949,8 @@ export class ParachainSystemAnnouncedHrmpMessagesPerCandidateStorage {
    *  The number of HRMP messages we observed in `on_initialize` and thus used that number for
    *  announcing the weight of `on_initialize` and `on_finalize`.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'AnnouncedHrmpMessagesPerCandidate')
   }
 
@@ -2977,15 +2977,15 @@ export class ParachainSystemAuthorizedUpgradeStorage {
   /**
    *  The next authorized upgrade, if there is one.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'AuthorizedUpgrade') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  The next authorized upgrade, if there is one.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'AuthorizedUpgrade')
   }
 
@@ -3014,7 +3014,7 @@ export class ParachainSystemCustomValidationHeadDataStorage {
    * 
    *  See [`Pallet::set_custom_validation_head_data`] for more information.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'CustomValidationHeadData') === '9d37db61fb40fc6c377391f52a7b349395407634d45b47a8943ab5ccf47e31e4'
   }
 
@@ -3023,8 +3023,8 @@ export class ParachainSystemCustomValidationHeadDataStorage {
    * 
    *  See [`Pallet::set_custom_validation_head_data`] for more information.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'CustomValidationHeadData')
   }
 
@@ -3051,15 +3051,15 @@ export class ParachainSystemDidSetValidationCodeStorage {
   /**
    *  Were the validation data set to notify the relay chain?
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'DidSetValidationCode') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
   /**
    *  Were the validation data set to notify the relay chain?
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'DidSetValidationCode')
   }
 
@@ -3091,7 +3091,7 @@ export class ParachainSystemHostConfigurationStorage {
    * 
    *  This data is also absent from the genesis.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'HostConfiguration') === '76792d33ff147d490bc5f8e4454e476c4ef71aae7021fd1a44f96974f263af9b'
   }
 
@@ -3103,8 +3103,8 @@ export class ParachainSystemHostConfigurationStorage {
    * 
    *  This data is also absent from the genesis.
    */
-  async getAsV72(): Promise<v72.V1AbridgedHostConfiguration | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.V1AbridgedHostConfiguration | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'HostConfiguration')
   }
 
@@ -3133,7 +3133,7 @@ export class ParachainSystemHrmpOutboundMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'HrmpOutboundMessages') === '0330a7423804895204dc06607d196d45bbec59edfd3f4f38c868daa9e880928c'
   }
 
@@ -3142,8 +3142,8 @@ export class ParachainSystemHrmpOutboundMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  async getAsV72(): Promise<v72.OutboundHrmpMessage[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.OutboundHrmpMessage[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'HrmpOutboundMessages')
   }
 
@@ -3172,7 +3172,7 @@ export class ParachainSystemHrmpWatermarkStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'HrmpWatermark') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
@@ -3181,8 +3181,8 @@ export class ParachainSystemHrmpWatermarkStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'HrmpWatermark')
   }
 
@@ -3212,7 +3212,7 @@ export class ParachainSystemLastDmqMqcHeadStorage {
    *  This value is loaded before and saved after processing inbound downward messages carried
    *  by the system inherent.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'LastDmqMqcHead') === '146c0d1dce070e2a43f497c479248a882f4ed48937203ea336e85dcf2fa0ec6c'
   }
 
@@ -3222,8 +3222,8 @@ export class ParachainSystemLastDmqMqcHeadStorage {
    *  This value is loaded before and saved after processing inbound downward messages carried
    *  by the system inherent.
    */
-  async getAsV72(): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'LastDmqMqcHead')
   }
 
@@ -3253,7 +3253,7 @@ export class ParachainSystemLastHrmpMqcHeadsStorage {
    *  This value is loaded before and saved after processing inbound downward messages carried
    *  by the system inherent.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'LastHrmpMqcHeads') === '26057692e067e44d8eec686a8711f8b87a11679701c3afa133f7b9da8f327999'
   }
 
@@ -3263,8 +3263,8 @@ export class ParachainSystemLastHrmpMqcHeadsStorage {
    *  This value is loaded before and saved after processing inbound downward messages carried
    *  by the system inherent.
    */
-  async getAsV72(): Promise<[number, Uint8Array][]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[number, Uint8Array][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'LastHrmpMqcHeads')
   }
 
@@ -3295,7 +3295,7 @@ export class ParachainSystemNewValidationCodeStorage {
    *  This will be cleared in `on_initialize` of each new block if no other pallet already set
    *  the value.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'NewValidationCode') === '9d37db61fb40fc6c377391f52a7b349395407634d45b47a8943ab5ccf47e31e4'
   }
 
@@ -3306,8 +3306,8 @@ export class ParachainSystemNewValidationCodeStorage {
    *  This will be cleared in `on_initialize` of each new block if no other pallet already set
    *  the value.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'NewValidationCode')
   }
 
@@ -3334,15 +3334,15 @@ export class ParachainSystemPendingUpwardMessagesStorage {
   /**
    *  Upward messages that are still pending and not yet send to the relay chain.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'PendingUpwardMessages') === '69b64a98b95b35e85f746389396240a8c70e1dca686229dc8d8a0812c030037a'
   }
 
   /**
    *  Upward messages that are still pending and not yet send to the relay chain.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'PendingUpwardMessages')
   }
 
@@ -3374,7 +3374,7 @@ export class ParachainSystemPendingValidationCodeStorage {
    * 
    *  [well_known_keys::CODE]: sp_core::storage::well_known_keys::CODE
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'PendingValidationCode') === '8199405308c9981e32f632f64a8758ba69af0e625da26ff6d6670b81cc1f1647'
   }
 
@@ -3386,8 +3386,8 @@ export class ParachainSystemPendingValidationCodeStorage {
    * 
    *  [well_known_keys::CODE]: sp_core::storage::well_known_keys::CODE
    */
-  async getAsV72(): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'PendingValidationCode')
   }
 
@@ -3416,7 +3416,7 @@ export class ParachainSystemProcessedDownwardMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'ProcessedDownwardMessages') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
@@ -3425,8 +3425,8 @@ export class ParachainSystemProcessedDownwardMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'ProcessedDownwardMessages')
   }
 
@@ -3459,7 +3459,7 @@ export class ParachainSystemRelevantMessagingStateStorage {
    * 
    *  This data is also absent from the genesis.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'RelevantMessagingState') === '24e0311e0ec9634d6acff6e06aa83b4bd4c57957b8f7525bf0dd22f0a73d7b09'
   }
 
@@ -3472,8 +3472,8 @@ export class ParachainSystemRelevantMessagingStateStorage {
    * 
    *  This data is also absent from the genesis.
    */
-  async getAsV72(): Promise<v72.MessagingStateSnapshot | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.MessagingStateSnapshot | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'RelevantMessagingState')
   }
 
@@ -3501,7 +3501,7 @@ export class ParachainSystemReservedDmpWeightOverrideStorage {
    *  The weight we reserve at the beginning of the block for processing DMP messages. This
    *  overrides the amount set in the Config trait.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'ReservedDmpWeightOverride') === 'd3f0e4c96dad8d73df3c44f02993a46a9ed2eed15208047c7d80882af09d67cc'
   }
 
@@ -3509,8 +3509,8 @@ export class ParachainSystemReservedDmpWeightOverrideStorage {
    *  The weight we reserve at the beginning of the block for processing DMP messages. This
    *  overrides the amount set in the Config trait.
    */
-  async getAsV72(): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'ReservedDmpWeightOverride')
   }
 
@@ -3538,7 +3538,7 @@ export class ParachainSystemReservedXcmpWeightOverrideStorage {
    *  The weight we reserve at the beginning of the block for processing XCMP messages. This
    *  overrides the amount set in the Config trait.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'ReservedXcmpWeightOverride') === 'd3f0e4c96dad8d73df3c44f02993a46a9ed2eed15208047c7d80882af09d67cc'
   }
 
@@ -3546,8 +3546,8 @@ export class ParachainSystemReservedXcmpWeightOverrideStorage {
    *  The weight we reserve at the beginning of the block for processing XCMP messages. This
    *  overrides the amount set in the Config trait.
    */
-  async getAsV72(): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'ReservedXcmpWeightOverride')
   }
 
@@ -3580,7 +3580,7 @@ export class ParachainSystemUpgradeRestrictionSignalStorage {
    *  relay-chain. This value is ephemeral which means it doesn't hit the storage. This value is
    *  set after the inherent.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'UpgradeRestrictionSignal') === '2236db14165f1386be95c2e72a22524bdd6b93f6d64e4b0b39d54e03f1f1bee2'
   }
 
@@ -3593,8 +3593,8 @@ export class ParachainSystemUpgradeRestrictionSignalStorage {
    *  relay-chain. This value is ephemeral which means it doesn't hit the storage. This value is
    *  set after the inherent.
    */
-  async getAsV72(): Promise<(v72.V1UpgradeRestriction | undefined)> {
-    assert(this.isV72)
+  async getAsV78(): Promise<(v78.V1UpgradeRestriction | undefined)> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'UpgradeRestrictionSignal')
   }
 
@@ -3623,7 +3623,7 @@ export class ParachainSystemUpwardMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'UpwardMessages') === '69b64a98b95b35e85f746389396240a8c70e1dca686229dc8d8a0812c030037a'
   }
 
@@ -3632,8 +3632,8 @@ export class ParachainSystemUpwardMessagesStorage {
    * 
    *  This will be cleared in `on_initialize` of each new block.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'UpwardMessages')
   }
 
@@ -3662,7 +3662,7 @@ export class ParachainSystemValidationDataStorage {
    *  This value is expected to be set only once per block and it's never stored
    *  in the trie.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('ParachainSystem', 'ValidationData') === 'fb37759067a991bce599d3fbe39ee38b99d63716a96357c3a39bf04c66e2579d'
   }
 
@@ -3671,8 +3671,8 @@ export class ParachainSystemValidationDataStorage {
    *  This value is expected to be set only once per block and it's never stored
    *  in the trie.
    */
-  async getAsV72(): Promise<v72.V1PersistedValidationData | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.V1PersistedValidationData | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'ParachainSystem', 'ValidationData')
   }
 
@@ -3702,7 +3702,7 @@ export class PolkadotXcmAssetTrapsStorage {
    *  Key is the blake2 256 hash of (origin, versioned `MultiAssets`) pair. Value is the number of
    *  times this pair has been trapped (usually just 1 if it exists at all).
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'AssetTraps') === '25f0d63900988134e6767c7fe398885c0448fd3bd7a0d8ff90cf6b33a482cebd'
   }
 
@@ -3712,18 +3712,18 @@ export class PolkadotXcmAssetTrapsStorage {
    *  Key is the blake2 256 hash of (origin, versioned `MultiAssets`) pair. Value is the number of
    *  times this pair has been trapped (usually just 1 if it exists at all).
    */
-  async getAsV72(key: Uint8Array): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'AssetTraps', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(number)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'AssetTraps', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'AssetTraps')
   }
 
@@ -3750,15 +3750,15 @@ export class PolkadotXcmCurrentMigrationStorage {
   /**
    *  The current migration's stage, if any.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'CurrentMigration') === '59e487b7d451459fc1f76b51279b7db0b09ff9d3906a0cafa428954a73be0c50'
   }
 
   /**
    *  The current migration's stage, if any.
    */
-  async getAsV72(): Promise<v72.VersionMigrationStage | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.VersionMigrationStage | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'CurrentMigration')
   }
 
@@ -3785,25 +3785,25 @@ export class PolkadotXcmQueriesStorage {
   /**
    *  The ongoing queries.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'Queries') === '8497eae9bd9ecc14a9d7da5daf99074e5fb888ce8b1254175ebacb93a450f902'
   }
 
   /**
    *  The ongoing queries.
    */
-  async getAsV72(key: bigint): Promise<v72.QueryStatus | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<v78.QueryStatus | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'Queries', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<(v72.QueryStatus | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<(v78.QueryStatus | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'Queries', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.QueryStatus)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.QueryStatus)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'Queries')
   }
 
@@ -3830,15 +3830,15 @@ export class PolkadotXcmQueryCounterStorage {
   /**
    *  The latest available query index.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'QueryCounter') === '95ff4f914f08e149ddbe1ae2dcb1743bbf9aaae69d04c486e1a398cacfcca06a'
   }
 
   /**
    *  The latest available query index.
    */
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'QueryCounter')
   }
 
@@ -3866,7 +3866,7 @@ export class PolkadotXcmSafeXcmVersionStorage {
    *  Default version to encode XCM when latest version of destination is unknown. If `None`,
    *  then the destinations whose XCM version is unknown are considered unreachable.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'SafeXcmVersion') === 'a926ad48d1a07d1162c5fdb99f3f6cef39c7c5a115a92ff9ccf0357bae4bf2ed'
   }
 
@@ -3874,8 +3874,8 @@ export class PolkadotXcmSafeXcmVersionStorage {
    *  Default version to encode XCM when latest version of destination is unknown. If `None`,
    *  then the destinations whose XCM version is unknown are considered unreachable.
    */
-  async getAsV72(): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'SafeXcmVersion')
   }
 
@@ -3902,25 +3902,25 @@ export class PolkadotXcmSupportedVersionStorage {
   /**
    *  The Latest versions that we know various locations support.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'SupportedVersion') === 'bf203870a932f637011bee3e0dae76dc35a120f80e5ac7fb32e2dbede4fd5795'
   }
 
   /**
    *  The Latest versions that we know various locations support.
    */
-  async getAsV72(key1: number, key2: v72.VersionedMultiLocation): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: number, key2: v78.VersionedMultiLocation): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'SupportedVersion', key1, key2)
   }
 
-  async getManyAsV72(keys: [number, v72.VersionedMultiLocation][]): Promise<(number | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, v78.VersionedMultiLocation][]): Promise<(number | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'SupportedVersion', keys)
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'SupportedVersion')
   }
 
@@ -3949,7 +3949,7 @@ export class PolkadotXcmVersionDiscoveryQueueStorage {
    *  the `u32` counter is the number of times that a send to the destination has been attempted,
    *  which is used as a prioritization.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'VersionDiscoveryQueue') === '16a258fa3891b3d97c16b446ca40a6dbafd16eb5bc2936a51286241b38207f42'
   }
 
@@ -3958,8 +3958,8 @@ export class PolkadotXcmVersionDiscoveryQueueStorage {
    *  the `u32` counter is the number of times that a send to the destination has been attempted,
    *  which is used as a prioritization.
    */
-  async getAsV72(): Promise<[v72.VersionedMultiLocation, number][]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[v78.VersionedMultiLocation, number][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'VersionDiscoveryQueue')
   }
 
@@ -3986,25 +3986,25 @@ export class PolkadotXcmVersionNotifiersStorage {
   /**
    *  All locations that we have requested version notifications from.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'VersionNotifiers') === 'c04d92c1d09bb51782b185c1fa4f78678bd7c63c2388986e2fe34f2f1e02cf9a'
   }
 
   /**
    *  All locations that we have requested version notifications from.
    */
-  async getAsV72(key1: number, key2: v72.VersionedMultiLocation): Promise<bigint | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: number, key2: v78.VersionedMultiLocation): Promise<bigint | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifiers', key1, key2)
   }
 
-  async getManyAsV72(keys: [number, v72.VersionedMultiLocation][]): Promise<(bigint | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, v78.VersionedMultiLocation][]): Promise<(bigint | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifiers', keys)
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifiers')
   }
 
@@ -4032,7 +4032,7 @@ export class PolkadotXcmVersionNotifyTargetsStorage {
    *  The target locations that are subscribed to our version changes, as well as the most recent
    *  of our versions we informed them of.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('PolkadotXcm', 'VersionNotifyTargets') === 'be7b24532d6af66a6c35ced8427c3201e32a7ab9e2a0c901f57c6d5a416ddc46'
   }
 
@@ -4040,18 +4040,18 @@ export class PolkadotXcmVersionNotifyTargetsStorage {
    *  The target locations that are subscribed to our version changes, as well as the most recent
    *  of our versions we informed them of.
    */
-  async getAsV72(key1: number, key2: v72.VersionedMultiLocation): Promise<[bigint, bigint, number] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: number, key2: v78.VersionedMultiLocation): Promise<[bigint, bigint, number] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifyTargets', key1, key2)
   }
 
-  async getManyAsV72(keys: [number, v72.VersionedMultiLocation][]): Promise<([bigint, bigint, number] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, v78.VersionedMultiLocation][]): Promise<([bigint, bigint, number] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifyTargets', keys)
   }
 
-  async getAllAsV72(): Promise<([bigint, bigint, number])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([bigint, bigint, number])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'PolkadotXcm', 'VersionNotifyTargets')
   }
 
@@ -4078,25 +4078,25 @@ export class PreimagePreimageForStorage {
   /**
    *  The preimages stored by this pallet.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Preimage', 'PreimageFor') === '2c57d2b4da44b4d6783b1eb7d03f42f23490455080a2c71c813169067dfe1a54'
   }
 
   /**
    *  The preimages stored by this pallet.
    */
-  async getAsV72(key: Uint8Array): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Preimage', 'PreimageFor', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(Uint8Array | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(Uint8Array | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Preimage', 'PreimageFor', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Preimage', 'PreimageFor')
   }
 
@@ -4123,25 +4123,25 @@ export class PreimageStatusForStorage {
   /**
    *  The request status of a given hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Preimage', 'StatusFor') === 'df89c798bcb34b24310c6affc3156d4e8562cfc149636b7239c64508bca6c7ba'
   }
 
   /**
    *  The request status of a given hash.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.RequestStatus | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.RequestStatus | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Preimage', 'StatusFor', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.RequestStatus | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.RequestStatus | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Preimage', 'StatusFor', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.RequestStatus)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.RequestStatus)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Preimage', 'StatusFor')
   }
 
@@ -4150,262 +4150,6 @@ export class PreimageStatusForStorage {
    */
   get isExists(): boolean {
     return this._chain.getStorageItemTypeHash('Preimage', 'StatusFor') != null
-  }
-}
-
-export class PriceOracleNewAssetsStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  Sorted array of newly registered assets.
-   *  All assets are processed and removed from the storage at the end of a block.
-   *  Trades start to be processed from the next block.
-   *  All trades in the same block as the asset registration are ignored.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'NewAssets') === '69b64a98b95b35e85f746389396240a8c70e1dca686229dc8d8a0812c030037a'
-  }
-
-  /**
-   *  Sorted array of newly registered assets.
-   *  All assets are processed and removed from the storage at the end of a block.
-   *  Trades start to be processed from the next block.
-   *  All trades in the same block as the asset registration are ignored.
-   */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'NewAssets')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'NewAssets') != null
-  }
-}
-
-export class PriceOraclePriceDataAccumulatorStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  Processed or partially processed data generated by trades.
-   *  Data generated by trades are processed sequentially.
-   *  Each new entry is combined with the previous value to produce new intermediate value.
-   *  The last entry creates the resulting average price and volume.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataAccumulator') === 'b29533540b398ce961c1073ab479afb7d33db21007ff97da187ed257230960d5'
-  }
-
-  /**
-   *  Processed or partially processed data generated by trades.
-   *  Data generated by trades are processed sequentially.
-   *  Each new entry is combined with the previous value to produce new intermediate value.
-   *  The last entry creates the resulting average price and volume.
-   */
-  async getAsV72(key: Uint8Array): Promise<v72.PriceEntry> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'PriceDataAccumulator', key)
-  }
-
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.PriceEntry)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataAccumulator', keys.map(k => [k]))
-  }
-
-  async getAllAsV72(): Promise<(v72.PriceEntry)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataAccumulator')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataAccumulator') != null
-  }
-}
-
-export class PriceOraclePriceDataHundredStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  The last ten average values corresponding to the last hundred blocks.
-   *  Each average value corresponds to an interval of length ten blocks.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataHundred') === '9ee4d8e5181251ecc66d25cf48d1a00ad0c91f0f3dad29971ca870736b77ebc3'
-  }
-
-  /**
-   *  The last ten average values corresponding to the last hundred blocks.
-   *  Each average value corresponds to an interval of length ten blocks.
-   */
-  async getAsV72(key: Uint8Array): Promise<v72.BucketQueue> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'PriceDataHundred', key)
-  }
-
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.BucketQueue)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataHundred', keys.map(k => [k]))
-  }
-
-  async getAllAsV72(): Promise<(v72.BucketQueue)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataHundred')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataHundred') != null
-  }
-}
-
-export class PriceOraclePriceDataTenStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  The last ten average values corresponding to the last ten blocks.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataTen') === 'f333f16a6fb50f0f665203b91c0984f1750fef3f3f01e1ff0316809e84680f94'
-  }
-
-  /**
-   *  The last ten average values corresponding to the last ten blocks.
-   */
-  async getAsV72(): Promise<[Uint8Array, v72.BucketQueue][]> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'PriceDataTen')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataTen') != null
-  }
-}
-
-export class PriceOraclePriceDataThousandStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  The last ten average values corresponding to the last thousand blocks.
-   *  Each average value corresponds to an interval of length hundred blocks.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataThousand') === '9ee4d8e5181251ecc66d25cf48d1a00ad0c91f0f3dad29971ca870736b77ebc3'
-  }
-
-  /**
-   *  The last ten average values corresponding to the last thousand blocks.
-   *  Each average value corresponds to an interval of length hundred blocks.
-   */
-  async getAsV72(key: Uint8Array): Promise<v72.BucketQueue> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'PriceDataThousand', key)
-  }
-
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.BucketQueue)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataThousand', keys.map(k => [k]))
-  }
-
-  async getAllAsV72(): Promise<(v72.BucketQueue)[]> {
-    assert(this.isV72)
-    return this._chain.queryStorage(this.blockHash, 'PriceOracle', 'PriceDataThousand')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'PriceDataThousand') != null
-  }
-}
-
-export class PriceOracleTrackedAssetsCountStorage {
-  private readonly _chain: Chain
-  private readonly blockHash: string
-
-  constructor(ctx: BlockContext)
-  constructor(ctx: ChainContext, block: Block)
-  constructor(ctx: BlockContext, block?: Block) {
-    block = block || ctx.block
-    this.blockHash = block.hash
-    this._chain = ctx._chain
-  }
-
-  /**
-   *  The number of assets registered and handled by this pallet.
-   */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'TrackedAssetsCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
-  }
-
-  /**
-   *  The number of assets registered and handled by this pallet.
-   */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
-    return this._chain.getStorage(this.blockHash, 'PriceOracle', 'TrackedAssetsCount')
-  }
-
-  /**
-   * Checks whether the storage item is defined for the current chain version.
-   */
-  get isExists(): boolean {
-    return this._chain.getStorageItemTypeHash('PriceOracle', 'TrackedAssetsCount') != null
   }
 }
 
@@ -4424,25 +4168,25 @@ export class ProxyAnnouncementsStorage {
   /**
    *  The announcements made by the proxy (key).
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Proxy', 'Announcements') === 'b93d53c53a308d910b0304bf5593bd71084bcf177629ea67da68b9026f4b417c'
   }
 
   /**
    *  The announcements made by the proxy (key).
    */
-  async getAsV72(key: Uint8Array): Promise<[v72.Announcement[], bigint]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[v78.Announcement[], bigint]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Proxy', 'Announcements', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([v72.Announcement[], bigint])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([v78.Announcement[], bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Proxy', 'Announcements', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([v72.Announcement[], bigint])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([v78.Announcement[], bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Proxy', 'Announcements')
   }
 
@@ -4470,7 +4214,7 @@ export class ProxyProxiesStorage {
    *  The set of account proxies. Maps the account which has delegated to the accounts
    *  which are being delegated to, together with the amount held on deposit.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Proxy', 'Proxies') === '4bb33eca13f5c1bd4dd925e1a077ee920e0ddc91f94bd24d512083c3a518d98d'
   }
 
@@ -4478,18 +4222,18 @@ export class ProxyProxiesStorage {
    *  The set of account proxies. Maps the account which has delegated to the accounts
    *  which are being delegated to, together with the amount held on deposit.
    */
-  async getAsV72(key: Uint8Array): Promise<[v72.ProxyDefinition[], bigint]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[v78.ProxyDefinition[], bigint]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Proxy', 'Proxies', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([v72.ProxyDefinition[], bigint])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([v78.ProxyDefinition[], bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Proxy', 'Proxies', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([v72.ProxyDefinition[], bigint])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([v78.ProxyDefinition[], bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Proxy', 'Proxies')
   }
 
@@ -4516,25 +4260,25 @@ export class SchedulerAgendaStorage {
   /**
    *  Items to be executed, indexed by the block number that they should be executed on.
    */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('Scheduler', 'Agenda') === '7ba6871bbd9639abc52457183093943ee3933dcde6ff1eea54a09619d7eef501'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('Scheduler', 'Agenda') === '75fc10fd8c168251332a44a9f37efde0fda81480b176856d55940ff4708c4293'
   }
 
   /**
    *  Items to be executed, indexed by the block number that they should be executed on.
    */
-  async getAsV72(key: number): Promise<(v72.ScheduledV3 | undefined)[]> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<(v78.ScheduledV3 | undefined)[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Scheduler', 'Agenda', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<((v72.ScheduledV3 | undefined)[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<((v78.ScheduledV3 | undefined)[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Scheduler', 'Agenda', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<((v72.ScheduledV3 | undefined)[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<((v78.ScheduledV3 | undefined)[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Scheduler', 'Agenda')
   }
 
@@ -4561,25 +4305,25 @@ export class SchedulerLookupStorage {
   /**
    *  Lookup from identity to the block number and index of the task.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Scheduler', 'Lookup') === 'd134b5bb4dad116817692e25dce47c836fbbb31d353d5749d4fc370b62e7286b'
   }
 
   /**
    *  Lookup from identity to the block number and index of the task.
    */
-  async getAsV72(key: Uint8Array): Promise<[number, number] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[number, number] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Scheduler', 'Lookup', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([number, number] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([number, number] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Scheduler', 'Lookup', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, number])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, number])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Scheduler', 'Lookup')
   }
 
@@ -4606,15 +4350,15 @@ export class SessionCurrentIndexStorage {
   /**
    *  Current index of the session.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'CurrentIndex') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Current index of the session.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'CurrentIndex')
   }
 
@@ -4645,7 +4389,7 @@ export class SessionDisabledValidatorsStorage {
    *  disabled using binary search. It gets cleared when `on_session_ending` returns
    *  a new set of identities.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'DisabledValidators') === 'a9f6979e68cec9d5834e7d077129aa05e8b477f326cb009049d2178afbea14f0'
   }
 
@@ -4656,8 +4400,8 @@ export class SessionDisabledValidatorsStorage {
    *  disabled using binary search. It gets cleared when `on_session_ending` returns
    *  a new set of identities.
    */
-  async getAsV72(): Promise<number[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'DisabledValidators')
   }
 
@@ -4684,25 +4428,25 @@ export class SessionKeyOwnerStorage {
   /**
    *  The owner of a key. The key is the `KeyTypeId` + the encoded key.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'KeyOwner') === '20cf09ea865a34d19d79cca4e3df7a5a719547bdf984f5ab8eb811d55da822e5'
   }
 
   /**
    *  The owner of a key. The key is the `KeyTypeId` + the encoded key.
    */
-  async getAsV72(key: [Uint8Array, Uint8Array]): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: [Uint8Array, Uint8Array]): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'KeyOwner', key)
   }
 
-  async getManyAsV72(keys: [Uint8Array, Uint8Array][]): Promise<(Uint8Array | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, Uint8Array][]): Promise<(Uint8Array | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Session', 'KeyOwner', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Session', 'KeyOwner')
   }
 
@@ -4729,25 +4473,25 @@ export class SessionNextKeysStorage {
   /**
    *  The next session keys for a validator.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'NextKeys') === '631bdf50943dc1aa6eef0e538bc5f8db41fca7120b2bae11b9c7ad84ada29964'
   }
 
   /**
    *  The next session keys for a validator.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.SessionKeys | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.SessionKeys | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'NextKeys', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.SessionKeys | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.SessionKeys | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Session', 'NextKeys', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.SessionKeys)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.SessionKeys)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Session', 'NextKeys')
   }
 
@@ -4775,7 +4519,7 @@ export class SessionQueuedChangedStorage {
    *  True if the underlying economic identities or weighting behind the validators
    *  has changed in the queued validator set.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'QueuedChanged') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
@@ -4783,8 +4527,8 @@ export class SessionQueuedChangedStorage {
    *  True if the underlying economic identities or weighting behind the validators
    *  has changed in the queued validator set.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'QueuedChanged')
   }
 
@@ -4812,7 +4556,7 @@ export class SessionQueuedKeysStorage {
    *  The queued keys for the next session. When the next session begins, these keys
    *  will be used to determine the validator's session keys.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'QueuedKeys') === '88cd205a98ff7b5562f0d030266b07e3566fdf283e05e6bd4c2405710a6a3b90'
   }
 
@@ -4820,8 +4564,8 @@ export class SessionQueuedKeysStorage {
    *  The queued keys for the next session. When the next session begins, these keys
    *  will be used to determine the validator's session keys.
    */
-  async getAsV72(): Promise<[Uint8Array, v72.SessionKeys][]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<[Uint8Array, v78.SessionKeys][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'QueuedKeys')
   }
 
@@ -4848,15 +4592,15 @@ export class SessionValidatorsStorage {
   /**
    *  The current set of validators.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Session', 'Validators') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The current set of validators.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Session', 'Validators')
   }
 
@@ -4883,15 +4627,15 @@ export class SudoKeyStorage {
   /**
    *  The `AccountId` of the sudo key.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Sudo', 'Key') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  The `AccountId` of the sudo key.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Sudo', 'Key')
   }
 
@@ -4918,25 +4662,25 @@ export class SystemAccountStorage {
   /**
    *  The full account information for a particular account ID.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'Account') === '1ddc7ade926221442c388ee4405a71c9428e548fab037445aaf4b3a78f4735c1'
   }
 
   /**
    *  The full account information for a particular account ID.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.AccountInfo> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.AccountInfo> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'Account', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.AccountInfo)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.AccountInfo)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'Account', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.AccountInfo)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.AccountInfo)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'Account')
   }
 
@@ -4963,15 +4707,15 @@ export class SystemAllExtrinsicsLenStorage {
   /**
    *  Total length (in bytes) for all extrinsics put together, for the current block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'AllExtrinsicsLen') === 'a926ad48d1a07d1162c5fdb99f3f6cef39c7c5a115a92ff9ccf0357bae4bf2ed'
   }
 
   /**
    *  Total length (in bytes) for all extrinsics put together, for the current block.
    */
-  async getAsV72(): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'AllExtrinsicsLen')
   }
 
@@ -4998,25 +4742,25 @@ export class SystemBlockHashStorage {
   /**
    *  Map of block numbers to block hashes.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'BlockHash') === '06f5703796027f4b198d4ffd50b721273430d8ff663660646793873168f9df17'
   }
 
   /**
    *  Map of block numbers to block hashes.
    */
-  async getAsV72(key: number): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'BlockHash', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'BlockHash', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'BlockHash')
   }
 
@@ -5043,15 +4787,15 @@ export class SystemBlockWeightStorage {
   /**
    *  The current weight for the block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'BlockWeight') === '3117e920c869758010946f61bdfb045561b02a263bdc3bcff42e4ce915e4e5d4'
   }
 
   /**
    *  The current weight for the block.
    */
-  async getAsV72(): Promise<v72.PerDispatchClass> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.PerDispatchClass> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'BlockWeight')
   }
 
@@ -5078,15 +4822,15 @@ export class SystemDigestStorage {
   /**
    *  Digest of the current block, also part of the block header.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'Digest') === '6edb48fd53810bda6cc1015d69e4aacd63966970836398edb4a47cec0bf3fa85'
   }
 
   /**
    *  Digest of the current block, also part of the block header.
    */
-  async getAsV72(): Promise<v72.Digest> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.Digest> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'Digest')
   }
 
@@ -5113,15 +4857,15 @@ export class SystemEventCountStorage {
   /**
    *  The number of events in the `Events<T>` list.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'EventCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  The number of events in the `Events<T>` list.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'EventCount')
   }
 
@@ -5157,7 +4901,7 @@ export class SystemEventTopicsStorage {
    *  the `EventIndex` then in case if the topic has the same contents on the next block
    *  no notification will be triggered thus the event might be lost.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'EventTopics') === 'd5ef37ba3daec264a9dcba5a29bf5b2ff23eb80b912936f924f44a8db557c58d'
   }
 
@@ -5173,18 +4917,18 @@ export class SystemEventTopicsStorage {
    *  the `EventIndex` then in case if the topic has the same contents on the next block
    *  no notification will be triggered thus the event might be lost.
    */
-  async getAsV72(key: Uint8Array): Promise<[number, number][]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[number, number][]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'EventTopics', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([number, number][])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([number, number][])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'EventTopics', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, number][])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, number][])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'EventTopics')
   }
 
@@ -5214,8 +4958,8 @@ export class SystemEventsStorage {
    *  NOTE: This storage item is explicitly unbounded since it is never intended to be read
    *  from within the runtime.
    */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('System', 'Events') === '135513df65f6e0dbf3a02f074c69296c688ca61c702837d8b77b174733ede5e8'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('System', 'Events') === 'f4d024b425aeaa0ae6aa92d520fcea1e214d6d208cadd5c141f8ae6c55452783'
   }
 
   /**
@@ -5224,8 +4968,8 @@ export class SystemEventsStorage {
    *  NOTE: This storage item is explicitly unbounded since it is never intended to be read
    *  from within the runtime.
    */
-  async getAsV72(): Promise<v72.EventRecord[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.EventRecord[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'Events')
   }
 
@@ -5252,15 +4996,15 @@ export class SystemExecutionPhaseStorage {
   /**
    *  The execution phase of the block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'ExecutionPhase') === '0ad1e323fa21971add5b3b0cc709a6e02dc7c64db7d344c1a67ec0227969ae75'
   }
 
   /**
    *  The execution phase of the block.
    */
-  async getAsV72(): Promise<v72.Phase | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.Phase | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'ExecutionPhase')
   }
 
@@ -5287,15 +5031,15 @@ export class SystemExtrinsicCountStorage {
   /**
    *  Total extrinsics count for the current block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'ExtrinsicCount') === 'a926ad48d1a07d1162c5fdb99f3f6cef39c7c5a115a92ff9ccf0357bae4bf2ed'
   }
 
   /**
    *  Total extrinsics count for the current block.
    */
-  async getAsV72(): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'ExtrinsicCount')
   }
 
@@ -5322,25 +5066,25 @@ export class SystemExtrinsicDataStorage {
   /**
    *  Extrinsics data for the current block (maps an extrinsic's index to its data).
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'ExtrinsicData') === 'f278d7d239e9ac4cbb0509cc885124fd45c3f5b75452aba0391701e1a886debb'
   }
 
   /**
    *  Extrinsics data for the current block (maps an extrinsic's index to its data).
    */
-  async getAsV72(key: number): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'ExtrinsicData', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'ExtrinsicData', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'System', 'ExtrinsicData')
   }
 
@@ -5367,15 +5111,15 @@ export class SystemLastRuntimeUpgradeStorage {
   /**
    *  Stores the `spec_version` and `spec_name` of when the last runtime upgrade happened.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'LastRuntimeUpgrade') === 'e03e445e7a7694163bede3a772a8a347abf7a3a00424fbafec75f819d6173a17'
   }
 
   /**
    *  Stores the `spec_version` and `spec_name` of when the last runtime upgrade happened.
    */
-  async getAsV72(): Promise<v72.LastRuntimeUpgradeInfo | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.LastRuntimeUpgradeInfo | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'LastRuntimeUpgrade')
   }
 
@@ -5402,15 +5146,15 @@ export class SystemNumberStorage {
   /**
    *  The current block number being processed. Set by `execute_block`.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'Number') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  The current block number being processed. Set by `execute_block`.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'Number')
   }
 
@@ -5437,15 +5181,15 @@ export class SystemParentHashStorage {
   /**
    *  Hash of the previous block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'ParentHash') === '146c0d1dce070e2a43f497c479248a882f4ed48937203ea336e85dcf2fa0ec6c'
   }
 
   /**
    *  Hash of the previous block.
    */
-  async getAsV72(): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'ParentHash')
   }
 
@@ -5473,7 +5217,7 @@ export class SystemUpgradedToTripleRefCountStorage {
    *  True if we have upgraded so that AccountInfo contains three types of `RefCount`. False
    *  (default) if not.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'UpgradedToTripleRefCount') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
@@ -5481,8 +5225,8 @@ export class SystemUpgradedToTripleRefCountStorage {
    *  True if we have upgraded so that AccountInfo contains three types of `RefCount`. False
    *  (default) if not.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'UpgradedToTripleRefCount')
   }
 
@@ -5509,15 +5253,15 @@ export class SystemUpgradedToU32RefCountStorage {
   /**
    *  True if we have upgraded so that `type RefCount` is `u32`. False (default) if not.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('System', 'UpgradedToU32RefCount') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
   /**
    *  True if we have upgraded so that `type RefCount` is `u32`. False (default) if not.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'System', 'UpgradedToU32RefCount')
   }
 
@@ -5544,15 +5288,15 @@ export class TechnicalCommitteeMembersStorage {
   /**
    *  The current members of the collective. This is stored sorted (just by value).
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'Members') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The current members of the collective. This is stored sorted (just by value).
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'Members')
   }
 
@@ -5579,15 +5323,15 @@ export class TechnicalCommitteePrimeStorage {
   /**
    *  The prime member that helps determine the default vote behavior in case of absentations.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'Prime') === '8620bdc4f360add1f8e58e488bdba4fa9b6dab86ecdd1c942b8d9de43ede38e5'
   }
 
   /**
    *  The prime member that helps determine the default vote behavior in case of absentations.
    */
-  async getAsV72(): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'Prime')
   }
 
@@ -5614,15 +5358,15 @@ export class TechnicalCommitteeProposalCountStorage {
   /**
    *  Proposals so far.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'ProposalCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Proposals so far.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'ProposalCount')
   }
 
@@ -5649,25 +5393,25 @@ export class TechnicalCommitteeProposalOfStorage {
   /**
    *  Actual proposal for a given hash, if it's current.
    */
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'ProposalOf') === '6467d63e946dface3722e21e689256443ef1f5f90d86f0528d986fa2554193e7'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'ProposalOf') === '903b8a779d9c06ee10ee923cda677d0736114abb93b2b73a97ea7c7cbce3f0bf'
   }
 
   /**
    *  Actual proposal for a given hash, if it's current.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Call | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Call | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'ProposalOf', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Call | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Call | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'TechnicalCommittee', 'ProposalOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Call)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Call)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'TechnicalCommittee', 'ProposalOf')
   }
 
@@ -5694,15 +5438,15 @@ export class TechnicalCommitteeProposalsStorage {
   /**
    *  The hashes of the active proposals.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'Proposals') === 'f5df25eadcdffaa0d2a68b199d671d3921ca36a7b70d22d57506dca52b4b5895'
   }
 
   /**
    *  The hashes of the active proposals.
    */
-  async getAsV72(): Promise<Uint8Array[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<Uint8Array[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'Proposals')
   }
 
@@ -5729,25 +5473,25 @@ export class TechnicalCommitteeVotingStorage {
   /**
    *  Votes on a given proposal, if it is ongoing.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TechnicalCommittee', 'Voting') === '8674aeb71b725705ae08d0cc723a5b29396e1f9ed56e4adcf4602c361e693cd7'
   }
 
   /**
    *  Votes on a given proposal, if it is ongoing.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.Votes | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.Votes | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TechnicalCommittee', 'Voting', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.Votes | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.Votes | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'TechnicalCommittee', 'Voting', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Votes)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Votes)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'TechnicalCommittee', 'Voting')
   }
 
@@ -5774,15 +5518,15 @@ export class TimestampDidUpdateStorage {
   /**
    *  Did the timestamp get updated in this block?
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Timestamp', 'DidUpdate') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
   /**
    *  Did the timestamp get updated in this block?
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Timestamp', 'DidUpdate')
   }
 
@@ -5809,15 +5553,15 @@ export class TimestampNowStorage {
   /**
    *  Current time for the current block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Timestamp', 'Now') === '95ff4f914f08e149ddbe1ae2dcb1743bbf9aaae69d04c486e1a398cacfcca06a'
   }
 
   /**
    *  Current time for the current block.
    */
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Timestamp', 'Now')
   }
 
@@ -5845,7 +5589,7 @@ export class TipsReasonsStorage {
    *  Simple preimage lookup from the reason's hash to the original data. Again, has an
    *  insecure enumerable hash since the key is guaranteed to be the result of a secure hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Tips', 'Reasons') === '2c57d2b4da44b4d6783b1eb7d03f42f23490455080a2c71c813169067dfe1a54'
   }
 
@@ -5853,18 +5597,18 @@ export class TipsReasonsStorage {
    *  Simple preimage lookup from the reason's hash to the original data. Again, has an
    *  insecure enumerable hash since the key is guaranteed to be the result of a secure hash.
    */
-  async getAsV72(key: Uint8Array): Promise<Uint8Array | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<Uint8Array | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Tips', 'Reasons', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(Uint8Array | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(Uint8Array | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tips', 'Reasons', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tips', 'Reasons')
   }
 
@@ -5893,7 +5637,7 @@ export class TipsTipsStorage {
    *  This has the insecure enumerable hash function since the key itself is already
    *  guaranteed to be a secure hash.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Tips', 'Tips') === '6b0e5b7ebc2d65a21d475feb112bade61e60fb8067df1e5e3e0b3430945fbb72'
   }
 
@@ -5902,18 +5646,18 @@ export class TipsTipsStorage {
    *  This has the insecure enumerable hash function since the key itself is already
    *  guaranteed to be a secure hash.
    */
-  async getAsV72(key: Uint8Array): Promise<v72.OpenTip | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.OpenTip | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Tips', 'Tips', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.OpenTip | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.OpenTip | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tips', 'Tips', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.OpenTip)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.OpenTip)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tips', 'Tips')
   }
 
@@ -5945,7 +5689,7 @@ export class TokensAccountsStorage {
    *  NOTE: This is only used in the case that this module is used to store
    *  balances.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Tokens', 'Accounts') === 'f23ccc2edbd0e524d74d373fab61041d022935fc96a13cb996c4083b37cae759'
   }
 
@@ -5957,18 +5701,18 @@ export class TokensAccountsStorage {
    *  NOTE: This is only used in the case that this module is used to store
    *  balances.
    */
-  async getAsV72(key1: Uint8Array, key2: number): Promise<v72.Type_492> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: number): Promise<v78.Type_485> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Tokens', 'Accounts', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, number][]): Promise<(v72.Type_492)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, number][]): Promise<(v78.Type_485)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'Accounts', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.Type_492)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Type_485)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'Accounts')
   }
 
@@ -5996,7 +5740,7 @@ export class TokensLocksStorage {
    *  Any liquidity locks of a token type under an account.
    *  NOTE: Should only be accessed when setting, changing and freeing a lock.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Tokens', 'Locks') === '94d13c37bf173a8e289a7abf6d778dc28e075e16963c06c041136f789ac66572'
   }
 
@@ -6004,18 +5748,18 @@ export class TokensLocksStorage {
    *  Any liquidity locks of a token type under an account.
    *  NOTE: Should only be accessed when setting, changing and freeing a lock.
    */
-  async getAsV72(key1: Uint8Array, key2: number): Promise<v72.Type_490[]> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: number): Promise<v78.Type_483[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Tokens', 'Locks', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, number][]): Promise<(v72.Type_490[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, number][]): Promise<(v78.Type_483[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'Locks', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.Type_490[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Type_483[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'Locks')
   }
 
@@ -6042,25 +5786,25 @@ export class TokensTotalIssuanceStorage {
   /**
    *  The total issuance of a token type.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Tokens', 'TotalIssuance') === 'd4b0e776f9f1d19233fe32cd062ab41a912af3d15ceb9d02d9ebc8fbe7b1cda4'
   }
 
   /**
    *  The total issuance of a token type.
    */
-  async getAsV72(key: number): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Tokens', 'TotalIssuance', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'TotalIssuance', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Tokens', 'TotalIssuance')
   }
 
@@ -6069,6 +5813,55 @@ export class TokensTotalIssuanceStorage {
    */
   get isExists(): boolean {
     return this._chain.getStorageItemTypeHash('Tokens', 'TotalIssuance') != null
+  }
+}
+
+export class TransactionPausePausedTransactionsStorage {
+  private readonly _chain: Chain
+  private readonly blockHash: string
+
+  constructor(ctx: BlockContext)
+  constructor(ctx: ChainContext, block: Block)
+  constructor(ctx: BlockContext, block?: Block) {
+    block = block || ctx.block
+    this.blockHash = block.hash
+    this._chain = ctx._chain
+  }
+
+  /**
+   *  The paused transaction map
+   * 
+   *  map (PalletNameBytes, FunctionNameBytes) => Option<()>
+   */
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('TransactionPause', 'PausedTransactions') === 'b84898f3d187596a7b6e3678769d37269c8b37c42ad19309d36b974ad9f3d352'
+  }
+
+  /**
+   *  The paused transaction map
+   * 
+   *  map (PalletNameBytes, FunctionNameBytes) => Option<()>
+   */
+  async getAsV78(key: [Uint8Array, Uint8Array]): Promise<null | undefined> {
+    assert(this.isV78)
+    return this._chain.getStorage(this.blockHash, 'TransactionPause', 'PausedTransactions', key)
+  }
+
+  async getManyAsV78(keys: [Uint8Array, Uint8Array][]): Promise<(null | undefined)[]> {
+    assert(this.isV78)
+    return this._chain.queryStorage(this.blockHash, 'TransactionPause', 'PausedTransactions', keys.map(k => [k]))
+  }
+
+  async getAllAsV78(): Promise<(null)[]> {
+    assert(this.isV78)
+    return this._chain.queryStorage(this.blockHash, 'TransactionPause', 'PausedTransactions')
+  }
+
+  /**
+   * Checks whether the storage item is defined for the current chain version.
+   */
+  get isExists(): boolean {
+    return this._chain.getStorageItemTypeHash('TransactionPause', 'PausedTransactions') != null
   }
 }
 
@@ -6084,12 +5877,12 @@ export class TransactionPaymentNextFeeMultiplierStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TransactionPayment', 'NextFeeMultiplier') === 'f8ebe28eb30158172c0ccf672f7747c46a244f892d08ef2ebcbaadde34a26bc0'
   }
 
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TransactionPayment', 'NextFeeMultiplier')
   }
 
@@ -6113,12 +5906,12 @@ export class TransactionPaymentStorageVersionStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('TransactionPayment', 'StorageVersion') === '7a0b9b43fb3e876cfa92bb4b00e569ef9a82972b0600c8a8570e064c7e3890fd'
   }
 
-  async getAsV72(): Promise<v72.Type_177> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.Type_177> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'TransactionPayment', 'StorageVersion')
   }
 
@@ -6145,15 +5938,15 @@ export class TreasuryApprovalsStorage {
   /**
    *  Proposal indices that have been approved but not yet awarded.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Treasury', 'Approvals') === 'a9f6979e68cec9d5834e7d077129aa05e8b477f326cb009049d2178afbea14f0'
   }
 
   /**
    *  Proposal indices that have been approved but not yet awarded.
    */
-  async getAsV72(): Promise<number[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Treasury', 'Approvals')
   }
 
@@ -6180,15 +5973,15 @@ export class TreasuryProposalCountStorage {
   /**
    *  Number of proposals that have been made.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Treasury', 'ProposalCount') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Number of proposals that have been made.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Treasury', 'ProposalCount')
   }
 
@@ -6215,25 +6008,25 @@ export class TreasuryProposalsStorage {
   /**
    *  Proposals that have been made.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Treasury', 'Proposals') === '7641e66c93ee52b69acfed5b20da999d04ba6a21fac610732405be939e87d4b7'
   }
 
   /**
    *  Proposals that have been made.
    */
-  async getAsV72(key: number): Promise<v72.Proposal | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.Proposal | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Treasury', 'Proposals', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.Proposal | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.Proposal | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Treasury', 'Proposals', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.Proposal)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.Proposal)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Treasury', 'Proposals')
   }
 
@@ -6261,7 +6054,7 @@ export class UniquesAccountStorage {
    *  The assets held by any given account; set out this way so that assets owned by a single
    *  account can be enumerated.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'Account') === 'dd717df0f824c1616e58c0f411648150ead9ba80eb70d3fa1d3ce17cf15cdb99'
   }
 
@@ -6269,18 +6062,18 @@ export class UniquesAccountStorage {
    *  The assets held by any given account; set out this way so that assets owned by a single
    *  account can be enumerated.
    */
-  async getAsV72(key1: Uint8Array, key2: bigint, key3: bigint): Promise<null | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: bigint, key3: bigint): Promise<null | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'Account', key1, key2, key3)
   }
 
-  async getManyAsV72(keys: [Uint8Array, bigint, bigint][]): Promise<(null | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, bigint, bigint][]): Promise<(null | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Account', keys)
   }
 
-  async getAllAsV72(): Promise<(null)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(null)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Account')
   }
 
@@ -6307,25 +6100,25 @@ export class UniquesAssetStorage {
   /**
    *  The assets in existence and their ownership details.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'Asset') === '473a8db9ad3cadcd73a4d1d940a1b477f877f8a199d89bcf4b57a170d7e2e7fb'
   }
 
   /**
    *  The assets in existence and their ownership details.
    */
-  async getAsV72(key1: bigint, key2: bigint): Promise<v72.InstanceDetails | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: bigint): Promise<v78.InstanceDetails | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'Asset', key1, key2)
   }
 
-  async getManyAsV72(keys: [bigint, bigint][]): Promise<(v72.InstanceDetails | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, bigint][]): Promise<(v78.InstanceDetails | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Asset', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.InstanceDetails)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.InstanceDetails)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Asset')
   }
 
@@ -6352,25 +6145,25 @@ export class UniquesAttributeStorage {
   /**
    *  Metadata of an asset class.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'Attribute') === 'a3a0ccec7ada073a05ca828d16c2decda5dc3aaf3545c5c22f508123c0751a45'
   }
 
   /**
    *  Metadata of an asset class.
    */
-  async getAsV72(key1: bigint, key2: (bigint | undefined), key3: Uint8Array): Promise<[Uint8Array, bigint] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: (bigint | undefined), key3: Uint8Array): Promise<[Uint8Array, bigint] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'Attribute', key1, key2, key3)
   }
 
-  async getManyAsV72(keys: [bigint, (bigint | undefined), Uint8Array][]): Promise<([Uint8Array, bigint] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, (bigint | undefined), Uint8Array][]): Promise<([Uint8Array, bigint] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Attribute', keys)
   }
 
-  async getAllAsV72(): Promise<([Uint8Array, bigint])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([Uint8Array, bigint])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Attribute')
   }
 
@@ -6397,25 +6190,25 @@ export class UniquesClassStorage {
   /**
    *  Details of an asset class.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'Class') === '64b5101df343156a22be92d239c86e3010267e182a902a0c77b89a0150e1eb2a'
   }
 
   /**
    *  Details of an asset class.
    */
-  async getAsV72(key: bigint): Promise<v72.ClassDetails | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<v78.ClassDetails | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'Class', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<(v72.ClassDetails | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<(v78.ClassDetails | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Class', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ClassDetails)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ClassDetails)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'Class')
   }
 
@@ -6443,7 +6236,7 @@ export class UniquesClassAccountStorage {
    *  The classes owned by any given account; set out this way so that classes owned by a single
    *  account can be enumerated.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'ClassAccount') === 'aa05d715557dda88cd21e53b8460b3ef83dc91868ade890f7afcc69de18cb707'
   }
 
@@ -6451,18 +6244,18 @@ export class UniquesClassAccountStorage {
    *  The classes owned by any given account; set out this way so that classes owned by a single
    *  account can be enumerated.
    */
-  async getAsV72(key1: Uint8Array, key2: bigint): Promise<null | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: bigint): Promise<null | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'ClassAccount', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, bigint][]): Promise<(null | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, bigint][]): Promise<(null | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'ClassAccount', keys)
   }
 
-  async getAllAsV72(): Promise<(null)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(null)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'ClassAccount')
   }
 
@@ -6489,25 +6282,25 @@ export class UniquesClassMetadataOfStorage {
   /**
    *  Metadata of an asset class.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'ClassMetadataOf') === '4ca83ab7415e7250d6c720a9930f95ae0d08c121898b5e01b38abf9add691411'
   }
 
   /**
    *  Metadata of an asset class.
    */
-  async getAsV72(key: bigint): Promise<v72.ClassMetadata | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<v78.ClassMetadata | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'ClassMetadataOf', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<(v72.ClassMetadata | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<(v78.ClassMetadata | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'ClassMetadataOf', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.ClassMetadata)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.ClassMetadata)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'ClassMetadataOf')
   }
 
@@ -6534,25 +6327,25 @@ export class UniquesInstanceMetadataOfStorage {
   /**
    *  Metadata of an asset instance.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Uniques', 'InstanceMetadataOf') === 'b930ce9a1c8bff9d1191f22c2274c59d0c049903864e92d1c09b9b65303145cd'
   }
 
   /**
    *  Metadata of an asset instance.
    */
-  async getAsV72(key1: bigint, key2: bigint): Promise<v72.InstanceMetadata | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: bigint, key2: bigint): Promise<v78.InstanceMetadata | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Uniques', 'InstanceMetadataOf', key1, key2)
   }
 
-  async getManyAsV72(keys: [bigint, bigint][]): Promise<(v72.InstanceMetadata | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [bigint, bigint][]): Promise<(v78.InstanceMetadata | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'InstanceMetadataOf', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.InstanceMetadata)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.InstanceMetadata)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Uniques', 'InstanceMetadataOf')
   }
 
@@ -6582,7 +6375,7 @@ export class UnknownTokensAbstractFungibleBalancesStorage {
    * 
    *  double_map: who, asset_id => u128
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('UnknownTokens', 'AbstractFungibleBalances') === 'f6cf7e5c9878cef27f99d1df60d9721e0034a66cd864d15d65a9196bb951c149'
   }
 
@@ -6592,18 +6385,18 @@ export class UnknownTokensAbstractFungibleBalancesStorage {
    * 
    *  double_map: who, asset_id => u128
    */
-  async getAsV72(key1: v72.V1MultiLocation, key2: Uint8Array): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(key1: v78.V1MultiLocation, key2: Uint8Array): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'UnknownTokens', 'AbstractFungibleBalances', key1, key2)
   }
 
-  async getManyAsV72(keys: [v72.V1MultiLocation, Uint8Array][]): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [v78.V1MultiLocation, Uint8Array][]): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'UnknownTokens', 'AbstractFungibleBalances', keys)
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'UnknownTokens', 'AbstractFungibleBalances')
   }
 
@@ -6633,7 +6426,7 @@ export class UnknownTokensConcreteFungibleBalancesStorage {
    * 
    *  double_map: who, asset_id => u128
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('UnknownTokens', 'ConcreteFungibleBalances') === 'a1d05d2a23ba410062fdbbbbea5e8c90763e56102572e63e7d9a78dff938ef51'
   }
 
@@ -6643,18 +6436,18 @@ export class UnknownTokensConcreteFungibleBalancesStorage {
    * 
    *  double_map: who, asset_id => u128
    */
-  async getAsV72(key1: v72.V1MultiLocation, key2: v72.V1MultiLocation): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(key1: v78.V1MultiLocation, key2: v78.V1MultiLocation): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'UnknownTokens', 'ConcreteFungibleBalances', key1, key2)
   }
 
-  async getManyAsV72(keys: [v72.V1MultiLocation, v72.V1MultiLocation][]): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [v78.V1MultiLocation, v78.V1MultiLocation][]): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'UnknownTokens', 'ConcreteFungibleBalances', keys)
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'UnknownTokens', 'ConcreteFungibleBalances')
   }
 
@@ -6683,7 +6476,7 @@ export class VestingVestingSchedulesStorage {
    * 
    *  VestingSchedules: map AccountId => Vec<VestingSchedule>
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('Vesting', 'VestingSchedules') === 'd1025301ffa60f04c50bb1007ecb356d52103dd9c366150de1ba80c6e043ac2f'
   }
 
@@ -6692,18 +6485,18 @@ export class VestingVestingSchedulesStorage {
    * 
    *  VestingSchedules: map AccountId => Vec<VestingSchedule>
    */
-  async getAsV72(key: Uint8Array): Promise<v72.VestingSchedule[]> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<v78.VestingSchedule[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'Vesting', 'VestingSchedules', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(v72.VestingSchedule[])[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(v78.VestingSchedule[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Vesting', 'VestingSchedules', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.VestingSchedule[])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.VestingSchedule[])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'Vesting', 'VestingSchedules')
   }
 
@@ -6730,25 +6523,25 @@ export class WarehouseLMActiveYieldFarmStorage {
   /**
    *  Active(farms able to receive LP shares deposits) yield farms.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('WarehouseLM', 'ActiveYieldFarm') === '7cc5b6d5407dcbcf81c931c295c6fc4aa9cb2afb69a27d4e06a0e638f0ff4679'
   }
 
   /**
    *  Active(farms able to receive LP shares deposits) yield farms.
    */
-  async getAsV72(key1: Uint8Array, key2: number): Promise<number | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: number): Promise<number | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'ActiveYieldFarm', key1, key2)
   }
 
-  async getManyAsV72(keys: [Uint8Array, number][]): Promise<(number | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, number][]): Promise<(number | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'ActiveYieldFarm', keys)
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'ActiveYieldFarm')
   }
 
@@ -6775,25 +6568,25 @@ export class WarehouseLMDepositStorage {
   /**
    *  Deposit details.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('WarehouseLM', 'Deposit') === 'b656d2ad6464af6d413312931745db11953a0cd8b71bac716613a18fbfffa34a'
   }
 
   /**
    *  Deposit details.
    */
-  async getAsV72(key: bigint): Promise<v72.DepositData | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<v78.DepositData | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'Deposit', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<(v72.DepositData | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<(v78.DepositData | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'Deposit', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.DepositData)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.DepositData)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'Deposit')
   }
 
@@ -6817,12 +6610,12 @@ export class WarehouseLMDepositSequencerStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('WarehouseLM', 'DepositSequencer') === 'f8ebe28eb30158172c0ccf672f7747c46a244f892d08ef2ebcbaadde34a26bc0'
   }
 
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'DepositSequencer')
   }
 
@@ -6849,15 +6642,15 @@ export class WarehouseLMFarmSequencerStorage {
   /**
    *  Id sequencer for `GlobalFarm` and `YieldFarm`.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('WarehouseLM', 'FarmSequencer') === '81bbbe8e62451cbcc227306706c919527aa2538970bd6d67a9969dd52c257d02'
   }
 
   /**
    *  Id sequencer for `GlobalFarm` and `YieldFarm`.
    */
-  async getAsV72(): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'FarmSequencer')
   }
 
@@ -6881,22 +6674,22 @@ export class WarehouseLMGlobalFarmStorage {
     this._chain = ctx._chain
   }
 
-  get isV72() {
-    return this._chain.getStorageItemTypeHash('WarehouseLM', 'GlobalFarm') === '78d612c4f4d6563b7b0b203bb7dcd70d65015629dbbd98e0ce663e6255dc55e8'
+  get isV78() {
+    return this._chain.getStorageItemTypeHash('WarehouseLM', 'GlobalFarm') === 'b7d29a459a44dac4bb28c709423d749854231c2aaf1e6dd74ce959ca5f349a96'
   }
 
-  async getAsV72(key: number): Promise<v72.GlobalFarmData | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<v78.GlobalFarmData | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'GlobalFarm', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(v72.GlobalFarmData | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(v78.GlobalFarmData | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'GlobalFarm', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(v72.GlobalFarmData)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.GlobalFarmData)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'GlobalFarm')
   }
 
@@ -6923,25 +6716,25 @@ export class WarehouseLMYieldFarmStorage {
   /**
    *  Yield farm details.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('WarehouseLM', 'YieldFarm') === '0f0204c0d0641c4546bec12693ec48997b8fc8c730fff7076909be4edaff8f4d'
   }
 
   /**
    *  Yield farm details.
    */
-  async getAsV72(key1: Uint8Array, key2: number, key3: number): Promise<v72.YieldFarmData | undefined> {
-    assert(this.isV72)
+  async getAsV78(key1: Uint8Array, key2: number, key3: number): Promise<v78.YieldFarmData | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'WarehouseLM', 'YieldFarm', key1, key2, key3)
   }
 
-  async getManyAsV72(keys: [Uint8Array, number, number][]): Promise<(v72.YieldFarmData | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [Uint8Array, number, number][]): Promise<(v78.YieldFarmData | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'YieldFarm', keys)
   }
 
-  async getAllAsV72(): Promise<(v72.YieldFarmData)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(v78.YieldFarmData)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'WarehouseLM', 'YieldFarm')
   }
 
@@ -6968,25 +6761,25 @@ export class XYKPoolAssetsStorage {
   /**
    *  Asset pair in a pool.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XYK', 'PoolAssets') === '2072b6dc95511eafaaa8d3c8e8abab0becedb083c12e24f0be979006686149cd'
   }
 
   /**
    *  Asset pair in a pool.
    */
-  async getAsV72(key: Uint8Array): Promise<[number, number] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<[number, number] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XYK', 'PoolAssets', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<([number, number] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<([number, number] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'PoolAssets', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, number])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, number])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'PoolAssets')
   }
 
@@ -7013,25 +6806,25 @@ export class XYKShareTokenStorage {
   /**
    *  Asset id storage for shared pool tokens
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XYK', 'ShareToken') === '25f0d63900988134e6767c7fe398885c0448fd3bd7a0d8ff90cf6b33a482cebd'
   }
 
   /**
    *  Asset id storage for shared pool tokens
    */
-  async getAsV72(key: Uint8Array): Promise<number> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<number> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XYK', 'ShareToken', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(number)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'ShareToken', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(number)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(number)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'ShareToken')
   }
 
@@ -7058,25 +6851,25 @@ export class XYKTotalLiquidityStorage {
   /**
    *  Total liquidity in a pool.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XYK', 'TotalLiquidity') === '0bac40afaf72ceea5a87ae2baaa5fe7f69915323f3293bdd970e7790a9d968c0'
   }
 
   /**
    *  Total liquidity in a pool.
    */
-  async getAsV72(key: Uint8Array): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(key: Uint8Array): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XYK', 'TotalLiquidity', key)
   }
 
-  async getManyAsV72(keys: Uint8Array[]): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: Uint8Array[]): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'TotalLiquidity', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(bigint)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(bigint)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XYK', 'TotalLiquidity')
   }
 
@@ -7103,25 +6896,25 @@ export class XcmpQueueInboundXcmpMessagesStorage {
   /**
    *  Inbound aggregate XCMP messages. It can only be one per ParaId/block.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'InboundXcmpMessages') === '7bf0d83d361216e18f7bca971cbf4fbd433158d3be6ac33fe278fb6d9bfb0469'
   }
 
   /**
    *  Inbound aggregate XCMP messages. It can only be one per ParaId/block.
    */
-  async getAsV72(key1: number, key2: number): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(key1: number, key2: number): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'InboundXcmpMessages', key1, key2)
   }
 
-  async getManyAsV72(keys: [number, number][]): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, number][]): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'InboundXcmpMessages', keys)
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'InboundXcmpMessages')
   }
 
@@ -7148,15 +6941,15 @@ export class XcmpQueueInboundXcmpStatusStorage {
   /**
    *  Status of the inbound XCMP channels.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'InboundXcmpStatus') === '9463adeec55c62de9270b726721d07d1258e861fc23bcadc753e06286f1e9d94'
   }
 
   /**
    *  Status of the inbound XCMP channels.
    */
-  async getAsV72(): Promise<v72.InboundChannelDetails[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.InboundChannelDetails[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'InboundXcmpStatus')
   }
 
@@ -7183,25 +6976,25 @@ export class XcmpQueueOutboundXcmpMessagesStorage {
   /**
    *  The messages outbound in a given XCMP channel.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'OutboundXcmpMessages') === 'f8f791196403322746e9b911cdffc1dfb7880ff624b4765b5515d8264f7df7b2'
   }
 
   /**
    *  The messages outbound in a given XCMP channel.
    */
-  async getAsV72(key1: number, key2: number): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(key1: number, key2: number): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'OutboundXcmpMessages', key1, key2)
   }
 
-  async getManyAsV72(keys: [number, number][]): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: [number, number][]): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'OutboundXcmpMessages', keys)
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'OutboundXcmpMessages')
   }
 
@@ -7233,7 +7026,7 @@ export class XcmpQueueOutboundXcmpStatusStorage {
    *  case of the need to send a high-priority signal message this block.
    *  The bool is true if there is a signal message waiting to be sent.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'OutboundXcmpStatus') === '0803a0634571a8cfdaa8b16757a06e235664ceb84c144cf0d5953fd2dd0f7f3a'
   }
 
@@ -7245,8 +7038,8 @@ export class XcmpQueueOutboundXcmpStatusStorage {
    *  case of the need to send a high-priority signal message this block.
    *  The bool is true if there is a signal message waiting to be sent.
    */
-  async getAsV72(): Promise<v72.OutboundChannelDetails[]> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.OutboundChannelDetails[]> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'OutboundXcmpStatus')
   }
 
@@ -7276,7 +7069,7 @@ export class XcmpQueueOverweightStorage {
    *  These message stay in this storage map until they are manually dispatched via
    *  `service_overweight`.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'Overweight') === '2eb096a3f66cc2d3a7f63f9f097c63bad7d960c4949a759a34865c7919f65122'
   }
 
@@ -7286,18 +7079,18 @@ export class XcmpQueueOverweightStorage {
    *  These message stay in this storage map until they are manually dispatched via
    *  `service_overweight`.
    */
-  async getAsV72(key: bigint): Promise<[number, number, Uint8Array] | undefined> {
-    assert(this.isV72)
+  async getAsV78(key: bigint): Promise<[number, number, Uint8Array] | undefined> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'Overweight', key)
   }
 
-  async getManyAsV72(keys: bigint[]): Promise<([number, number, Uint8Array] | undefined)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: bigint[]): Promise<([number, number, Uint8Array] | undefined)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'Overweight', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<([number, number, Uint8Array])[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<([number, number, Uint8Array])[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'Overweight')
   }
 
@@ -7325,7 +7118,7 @@ export class XcmpQueueOverweightCountStorage {
    *  The number of overweight messages ever recorded in `Overweight`. Also doubles as the next
    *  available free overweight index.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'OverweightCount') === '95ff4f914f08e149ddbe1ae2dcb1743bbf9aaae69d04c486e1a398cacfcca06a'
   }
 
@@ -7333,8 +7126,8 @@ export class XcmpQueueOverweightCountStorage {
    *  The number of overweight messages ever recorded in `Overweight`. Also doubles as the next
    *  available free overweight index.
    */
-  async getAsV72(): Promise<bigint> {
-    assert(this.isV72)
+  async getAsV78(): Promise<bigint> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'OverweightCount')
   }
 
@@ -7361,15 +7154,15 @@ export class XcmpQueueQueueConfigStorage {
   /**
    *  The configuration which controls the dynamics of the outbound queue.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'QueueConfig') === 'bc17b84c06c7e0df3f2684c76020e6d76ff231be948076edbe6751b00937b0b1'
   }
 
   /**
    *  The configuration which controls the dynamics of the outbound queue.
    */
-  async getAsV72(): Promise<v72.QueueConfigData> {
-    assert(this.isV72)
+  async getAsV78(): Promise<v78.QueueConfigData> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'QueueConfig')
   }
 
@@ -7396,15 +7189,15 @@ export class XcmpQueueQueueSuspendedStorage {
   /**
    *  Whether or not the XCMP queue is suspended from executing incoming XCMs or not.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'QueueSuspended') === '1b6fbf1674d189f761a7ac63093bf5c755bf073dd9d9f0dbe657289f92575db5'
   }
 
   /**
    *  Whether or not the XCMP queue is suspended from executing incoming XCMs or not.
    */
-  async getAsV72(): Promise<boolean> {
-    assert(this.isV72)
+  async getAsV78(): Promise<boolean> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'QueueSuspended')
   }
 
@@ -7431,25 +7224,25 @@ export class XcmpQueueSignalMessagesStorage {
   /**
    *  Any signal messages waiting to be sent.
    */
-  get isV72() {
+  get isV78() {
     return this._chain.getStorageItemTypeHash('XcmpQueue', 'SignalMessages') === 'f278d7d239e9ac4cbb0509cc885124fd45c3f5b75452aba0391701e1a886debb'
   }
 
   /**
    *  Any signal messages waiting to be sent.
    */
-  async getAsV72(key: number): Promise<Uint8Array> {
-    assert(this.isV72)
+  async getAsV78(key: number): Promise<Uint8Array> {
+    assert(this.isV78)
     return this._chain.getStorage(this.blockHash, 'XcmpQueue', 'SignalMessages', key)
   }
 
-  async getManyAsV72(keys: number[]): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getManyAsV78(keys: number[]): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'SignalMessages', keys.map(k => [k]))
   }
 
-  async getAllAsV72(): Promise<(Uint8Array)[]> {
-    assert(this.isV72)
+  async getAllAsV78(): Promise<(Uint8Array)[]> {
+    assert(this.isV78)
     return this._chain.queryStorage(this.blockHash, 'XcmpQueue', 'SignalMessages')
   }
 
